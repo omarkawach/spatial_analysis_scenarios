@@ -31,6 +31,8 @@ Result: Neighbourhoods with the closest hospital
 ![result_two](scenario_images/scenario_two.png)
 NOTE: The large blue region is Ottawa's greenbelt. It's center is far from Queensway. 
 
+![table](scenario_images/scenario_two_list.png)
+
 Legend:
 
 
