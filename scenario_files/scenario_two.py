@@ -66,4 +66,7 @@ for ch in closest_hospitals:
     nx = neighbourhoods[neighbourhoods.Name == ch[0]]
     nx.plot(ax=ax, facecolor=h[ch[1]])
 plt.tight_layout();
+
+# Save to shp
+# some_file.to_file("/Users/omarkawach/Documents/QGIS/Experimental/Ottawa/ONS/new_ons.shp")
     

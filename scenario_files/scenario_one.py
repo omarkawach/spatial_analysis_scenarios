@@ -20,3 +20,6 @@ for h in hospitals.geometry:
         if(nx.geometry.intersects(h).any() == True):
             nx.plot(ax=ax, facecolor='red')
 plt.tight_layout();
+
+# Save to shp
+# neighbourhoods_and_hospitals.to_file("/Users/omarkawach/Documents/QGIS/Experimental/Ottawa/ONS/new_ons.shp")
