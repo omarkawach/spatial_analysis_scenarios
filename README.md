@@ -57,7 +57,7 @@ Joseph will dispatch an ambulance from the nearest hospital.
 **Legend**
 
 <img src="scenario_images/scenario_two_legend.png" alt="legend_two"
-	title="A cute kitten" width="300" height="220" />
+	title="A cute kitten" width="350" height="250" />
 
 ![result_two](scenario_images/scenario_two.png)
 
@@ -76,7 +76,8 @@ For some recent we're in the center of Ottawa and want to find the shortest path
 Perhaps for some weird QA purpose we wanted to check if all the neighbourhoods are connected. 
 We could depict a spatial weight network (planar) to confirm things are in order. 
 
-![result_four](scenario_images/scenario_four.png)
+<img src="scenario_images/scenario_four.png" alt="result_four"
+	title="A cute kitten" width="300" height="220" />
 
 **Figure 4**. Spatial Weight Network Ottawa
 
