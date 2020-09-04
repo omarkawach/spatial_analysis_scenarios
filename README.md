@@ -1,7 +1,19 @@
 # Spatial Analysis Scenarios
 
-## Purpose:
 Experimenting with GIS libraries and QGIS
+
+## Installation
+
+1. [Download Anaconda and then launch Spyder](https://www.anaconda.com/products/individual)
+   
+
+2. In a console, install all necessary python packages in one go
+   * ` pip install --use-feature=2020-resolver -r requirements.txt `
+
+
+## Tutorial
+
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/omarkawach/spatial_analysis_scenarios.git/master)
 
 ## Scenarios
 
@@ -17,8 +29,7 @@ Mary would like her apartment to be located in a neighbourhood with a hospital i
 911 Operator Joseph needs to know which hospitals are closest to a caller's neighbourhood. 
 Joseph will dispatch an ambulance from the nearest hospital.
 
-**<u>Legend</u>**
-
+**Legend**
 ![legend_two](scenario_images/scenario_two_legend.png)
 
 ![result_two](scenario_images/scenario_two.png)
@@ -53,21 +64,18 @@ He loads his shapefile and can now sort it to only hold geometry and population 
 What John does with the data afterwards is up to him. 
 For example, he could define new neighbourhoods based on certain classification algorithms.
 
-**<u>Legend</u>**
-
+**Legend**
 ![legend_five](scenario_images/scenario_five_leg.png)
 
 ![result_five_pop](scenario_images/scenario_five_pop_est.png)
 
 **Figure 5**. Ottawa Neighbourhoods Quartile Classification
 
-## Resources and Credits:
+## Resources
 
 #### Python Packages
 
 [Matplotlib: Visualization with Python](https://matplotlib.org/)
-
-
 
 [GeoPandas](https://geopandas.org/) 
 
@@ -83,6 +91,14 @@ For example, he could define new neighbourhoods based on certain classification 
 
 [NumPy](https://numpy.org/)
 
-#### QGIS
+#### Geospatial Analysis Program(s)
+
+[QGIS](https://www.qgis.org/en/site/)
+
+[QGIS Tutorials](https://www.qgistutorials.com/en/)
+
+#### IDE
+
+[Spyder: Scientific Python Development Environment](https://www.spyder-ide.org/)
 
 
