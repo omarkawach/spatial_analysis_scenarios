@@ -1,8 +1,2 @@
-matplotlib
-geopandas
-Shapely
-networkx
-osmnx
-pyproj
-pysal
-numpy
+matplotlib==3.3.1
+geopandas==0.8.1
