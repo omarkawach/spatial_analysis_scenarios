@@ -8,12 +8,15 @@ Experimenting with GIS libraries and QGIS
    
 
 2. In a console, install all necessary python packages in one go
-   * ` pip install --use-feature=2020-resolver -r requirements.txt `
+   * ` pip install --use-feature=2020-resolver -r packages.txt `
 
 
 ## Tutorial
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/omarkawach/spatial_analysis_scenarios.git/master)
+
+Steps:
+- St
 
 ## Scenarios
 
