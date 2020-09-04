@@ -1,17 +1,8 @@
 # Spatial Analysis Scenarios
 
-Experimenting with GIS libraries and QGIS
+This repository explores various open sources tools one could use for performing geospatial analysis. There are interactive **Jupyter Notebooks** available for demo purposes via Binder. Developers can also install Python packages themselves and run the code on their own in Spyder. 
 
-## Installation
-
-1. [Download Anaconda and then launch Spyder](https://www.anaconda.com/products/individual)
-   
-
-2. In a console, install all necessary python packages in one go
-   * ` pip install --use-feature=2020-resolver -r packages.txt `
-
-
-## Tutorial
+## Users
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/omarkawach/spatial_analysis_scenarios.git/master)
 
@@ -23,6 +14,21 @@ Steps:
 - Click `Run` to move down one cell
   - Keep clicking `Run` to move down another cell
 
+**Note:** Some cells may need more than a few seconds or minutes to run. 
+
+## Developers
+1. In a console, cd into your desired directory and run the following:
+   
+   `git clone https://github.com/omarkawach/spatial_analysis_scenarios.git`
+   
+2. [Download Anaconda and then launch Spyder](https://www.anaconda.com/products/individual)
+   
+
+3. Open a console where you cloned the repo, install all necessary python packages in one go using ` pip install --use-feature=2020-resolver -r packages.txt `
+
+4. You may now run/manipulate code
+
+
 ## Scenarios
 
 #### First Scenario
@@ -33,12 +39,24 @@ Mary would like her apartment to be located in a neighbourhood with a hospital i
 
 **Figure 1**. 10 Neighbourhoods with Hospitals in them
 
+```
+Where Mary can look for a new apartment:
+- Civic Hospital-Central Park
+- Billings Bridge - Alta Vista
+- Riverview
+- Wateridge Village
+- Qualicum - Redwood Park
+- West Centretown
+- Byward Market
+```
+
 #### Second Scenario
 911 Operator Joseph needs to know which hospitals are closest to a caller's neighbourhood. 
 Joseph will dispatch an ambulance from the nearest hospital.
 
 **Legend**
-![legend_two](scenario_images/scenario_two_legend.png)
+<img src="scenario_images/scenario_two_legend.png" alt="legend_two"
+	title="A cute kitten" width="300" height="220" />
 
 ![result_two](scenario_images/scenario_two.png)
 
@@ -73,7 +91,8 @@ What John does with the data afterwards is up to him.
 For example, he could define new neighbourhoods based on certain classification algorithms.
 
 **Legend**
-![legend_five](scenario_images/scenario_five_leg.png)
+<img src="scenario_images/scenario_five_leg.png" alt="legend_five"
+	title="A cute kitten" width="200" height="120" />
 
 ![result_five_pop](scenario_images/scenario_five_pop_est.png)
 
@@ -81,25 +100,31 @@ For example, he could define new neighbourhoods based on certain classification 
 
 ## Resources
 
+#### Notebooks
+
+[Binder: Notebooks in an Executable Environment](https://mybinder.org/)
+
+[Jupyter Notebook](https://jupyter.org/)
+
 #### Python Packages
 
-[Matplotlib: Visualization with Python](https://matplotlib.org/)
+[Matplotlib: ](https://matplotlib.org/)Visualization with Python
 
-[GeoPandas](https://geopandas.org/) 
+[GeoPandas: ](https://geopandas.org/)Work with Geospatial Data in Python
 
-[Shapely](https://pypi.org/project/Shapely/)
+[Shapely: ](https://pypi.org/project/Shapely/)Manipulate and Analyze Geometric Objects
 
-[NetworkX: Network Analysis in Python](https://networkx.github.io/)
+[NetworkX: ](https://networkx.github.io/)Network Analysis in Python
 
-[OSMnx: Python for Street Networks](https://github.com/gboeing/osmnx)
+[OSMnx: ](https://github.com/gboeing/osmnx)Python for Street Networks
 
-[PyProj](https://github.com/pyproj4/pyproj)
+[PyProj: ](https://github.com/pyproj4/pyproj)For Projections in Geospatial Data
 
-[PySal](https://pysal.org/)
+[PySal: ](https://pysal.org/)Spatial Analysis Library
 
-[NumPy](https://numpy.org/)
+[NumPy: ](https://numpy.org/)Scientific Computing with Python
 
-[Descartes]() - For plotting polygons in geopandas
+[Descartes: ](https://pypi.org/project/descartes/)For Plotting Polygons in GeoPandas
 
 #### Geospatial Analysis Program(s)
 
@@ -109,6 +134,6 @@ For example, he could define new neighbourhoods based on certain classification 
 
 #### IDE
 
-[Spyder: Scientific Python Development Environment](https://www.spyder-ide.org/)
+[Spyder: ](https://www.spyder-ide.org/)Scientific Python Development Environment
 
 
