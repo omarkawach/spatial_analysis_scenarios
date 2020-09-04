@@ -97,7 +97,9 @@ For example, he could define new neighbourhoods based on certain classification 
 <img src="scenario_images/scenario_five_leg.png" alt="legend_five"
 	title="A cute kitten" width="200" height="120" />
 
-![result_five_pop](scenario_images/scenario_five_pop_est.png)
+<img src="scenario_images/scenario_five_pop_est.png" alt="result_five"
+ width="300" height="220" />
+
 
 **Figure 5**. Ottawa Neighbourhoods Quartile Classification
 
