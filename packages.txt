@@ -6,3 +6,4 @@ osmnx
 pyproj
 pysal
 numpy
+descartes

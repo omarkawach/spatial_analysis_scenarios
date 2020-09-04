@@ -20,6 +20,7 @@ Steps:
 - Select the `scenario_notebooks` folder
 - Select any notebook to demo
 - Set kernel to Python 3
+- Click `Run`
 
 ## Scenarios
 
@@ -96,6 +97,8 @@ For example, he could define new neighbourhoods based on certain classification 
 [PySal](https://pysal.org/)
 
 [NumPy](https://numpy.org/)
+
+[Descartes]() - For plotting polygons in geopandas
 
 #### Geospatial Analysis Program(s)
 
