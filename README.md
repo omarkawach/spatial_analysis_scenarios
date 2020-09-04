@@ -1,6 +1,6 @@
 # Spatial Analysis Scenarios
 
-This repository explores various open sources tools one could use for performing geospatial analysis. There are interactive **Jupyter Notebooks** available for demo purposes via Binder. Developers can also install Python packages themselves and run the code on their own in Spyder. 
+This repository explores various open sources tools one could use for performing geospatial analysis. There are interactive **Jupyter Notebooks** available for demo purposes via **Binder**. Developers can also install Python packages themselves and run the code on their own in **Spyder**. 
 
 ## Users
 
