@@ -68,5 +68,5 @@ for ch in closest_hospitals:
 plt.tight_layout();
 
 # Save to shp
-# some_file.to_file("/Users/omarkawach/Documents/QGIS/Experimental/Ottawa/ONS/new_ons.shp")
+# some_file.to_file("")
     

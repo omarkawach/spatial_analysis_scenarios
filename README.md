@@ -20,7 +20,8 @@ Steps:
 - Select the `scenario_notebooks` folder
 - Select any notebook to demo
 - Set kernel to Python 3
-- Click `Run`
+- Click `Run` to move down one cell
+  - Keep clicking `Run` to move down another cell
 
 ## Scenarios
 
