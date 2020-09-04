@@ -16,7 +16,10 @@ Experimenting with GIS libraries and QGIS
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/omarkawach/spatial_analysis_scenarios.git/master)
 
 Steps:
-- St
+- Click the icon above to launch the repository in Jupyter Notebook
+- Select the `scenario_notebooks` folder
+- Select any notebook to demo
+- Set kernel to Python 3
 
 ## Scenarios
 
