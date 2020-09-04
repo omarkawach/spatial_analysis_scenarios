@@ -57,7 +57,7 @@ Joseph will dispatch an ambulance from the nearest hospital.
 **Legend**
 
 <img src="scenario_images/scenario_two_legend.png" alt="legend_two"
-	title="A cute kitten" width="350" height="250" />
+	title="A cute kitten" width="400" height="280" />
 
 ![result_two](scenario_images/scenario_two.png)
 
