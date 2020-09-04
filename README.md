@@ -55,6 +55,7 @@ Where Mary can look for a new apartment:
 Joseph will dispatch an ambulance from the nearest hospital.
 
 **Legend**
+
 <img src="scenario_images/scenario_two_legend.png" alt="legend_two"
 	title="A cute kitten" width="300" height="220" />
 
@@ -91,6 +92,7 @@ What John does with the data afterwards is up to him.
 For example, he could define new neighbourhoods based on certain classification algorithms.
 
 **Legend**
+
 <img src="scenario_images/scenario_five_leg.png" alt="legend_five"
 	title="A cute kitten" width="200" height="120" />
 
