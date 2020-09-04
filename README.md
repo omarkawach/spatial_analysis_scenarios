@@ -24,23 +24,34 @@ Steps:
 2. [Download Anaconda and then launch Spyder](https://www.anaconda.com/products/individual)
    
 
-3. Open a console where you cloned the repo, install all necessary python packages in one go using ` pip install --use-feature=2020-resolver -r packages.txt `
+3. Open a console where you cloned the repo, install all necessary python packages in one go using:
+   
+   ` pip install --use-feature=2020-resolver -r packages.txt `
 
 4. You may now run/manipulate code
 
 
 ## Scenarios
 
-#### First Scenario
+### First Scenario
 Mary requires regular visits to the hospitals, and is looking for a new apartment to rent. 
 Mary would like her apartment to be located in a neighbourhood with a hospital in it. 
+
+```
+Packages:
+    - GeoPandas: To read shapefiles
+    - Matplotlib: To plot data
+Shapefiles: 
+    - Ottawa Hospitals
+    - Ottawa Neighbourhoods
+```
 
 ![result](scenario_images/scenario_one.png)
 
 **Figure 1**. 10 Neighbourhoods with Hospitals in them
 
 ```
-Where Mary can look for a new apartment:
+Result of where Mary can look for a new apartment:
 - Civic Hospital-Central Park
 - Billings Bridge - Alta Vista
 - Riverview
@@ -50,9 +61,20 @@ Where Mary can look for a new apartment:
 - Byward Market
 ```
 
-#### Second Scenario
+### Second Scenario
 911 Operator Joseph needs to know which hospitals are closest to a caller's neighbourhood. 
 Joseph will dispatch an ambulance from the nearest hospital.
+
+```
+Packages:
+    - GeoPandas: To read shapefiles
+    - Matplotlib: To plot data
+    - Shapely: To create GeoSeries' for calculating distances 
+    - PyProj - To change the espg of shapefiles
+Shapefiles: 
+    - Ottawa Hospitals
+    - Ottawa Neighbourhoods
+```
 
 **Legend**
 
@@ -65,25 +87,51 @@ Joseph will dispatch an ambulance from the nearest hospital.
 
 **NOTE**: The large blue region is Ottawa's greenbelt. It's center is far from Queensway-Carleton Hospital. 
 
-#### Third Scenario
+### Third Scenario
 For some recent we're in the center of Ottawa and want to find the shortest path to a road crossing. 
+
+```
+Packages:
+    - GeoPandas: To create GeoDataFrames
+    - PyProj: To change the espg of GeoDataFrames
+    - Pandas: Convert dictionary to a Panda Series
+    - OSMnx: For graphing and statistics
+    - NetworkX: To calculate the shortest path
+```
 
 ![result_three](scenario_images/scenario_three.png)
 
 **Figure 3**. Shortest path
 
-#### Four Scenario
+### Four Scenario
 Perhaps for some weird QA purpose we wanted to check if all the neighbourhoods are connected. 
 We could depict a spatial weight network (planar) to confirm things are in order. 
+
+```
+Packages:
+    - GeoPandas: To read shapefiles
+    - PySal: To calculate and plot spatial weights
+Shapefiles: 
+    - Ottawa Neighbourhoods
+```
 
 <img src="scenario_images/scenario_four.png" alt="result_four"
 	title="A cute kitten" width="300" height="220" />
 
 **Figure 4**. Spatial Weight Network Ottawa
 
-#### Fifth Scenario
+### Fifth Scenario
 John is doing a study and population density in Ottawa's many neighbourhoods. 
 He loads his shapefile and can now sort it to only hold geometry and population estimates. 
+
+```
+Packages:
+    - GeoPandas: To read shapefiles
+    - Matplotlib: To plot data
+    - NumPy: To help with classification
+Shapefiles: 
+    - Ottawa Neighbourhoods
+```
 
 ![result_five](scenario_images/scenario_fiv.png)
 
@@ -105,15 +153,17 @@ For example, he could define new neighbourhoods based on certain classification 
 
 ## Resources
 
-#### Notebooks
+### Notebooks
 
 [Binder: ](https://mybinder.org/)Notebooks in an Executable Environment
 
 [Jupyter Notebook: ](https://jupyter.org/)Interactive Python Notebooks
 
-#### Python Packages
+### Python Packages
 
 [Matplotlib: ](https://matplotlib.org/)Visualization with Python
+
+[Pandas: ](https://pandas.pydata.org)Data Analysis in Python
 
 [GeoPandas: ](https://geopandas.org/)Work with Geospatial Data in Python
 
@@ -131,13 +181,13 @@ For example, he could define new neighbourhoods based on certain classification 
 
 [Descartes: ](https://pypi.org/project/descartes/)For Plotting Polygons in GeoPandas
 
-#### Geospatial Analysis Program(s)
+### Geospatial Analysis Program(s)
 
 [QGIS Download: ](https://www.qgis.org/en/site/)Open Source Geospatial Analysis Program
 
 [QGIS Docs](https://www.qgistutorials.com/en/): Tutorials and Tips
 
-#### IDE
+### IDE
 
 [Spyder: ](https://www.spyder-ide.org/)Scientific Python Development Environment
 
