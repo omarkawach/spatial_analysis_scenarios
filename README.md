@@ -1,10 +1,7 @@
 # Spatial Analysis Scenarios
 
-
 ## Purpose:
 Experimenting with GIS libraries and QGIS
-
-#
 
 ## Scenarios
 
@@ -15,8 +12,6 @@ Mary would like her apartment to be located in a neighbourhood with a hospital i
 ![result](scenario_images/scenario_one.png)
 
 **Figure 1**. 10 Neighbourhoods with Hospitals in them
-
-# 
 
 #### Second Scenario
 911 Operator Joseph needs to know which hospitals are closest to a caller's neighbourhood. 
@@ -32,16 +27,12 @@ Joseph will dispatch an ambulance from the nearest hospital.
 
 **NOTE**: The large blue region is Ottawa's greenbelt. It's center is far from Queensway-Carleton Hospital. 
 
-#
-
 #### Third Scenario
 For some recent we're in the center of Ottawa and want to find the shortest path to a road crossing. 
 
 ![result_three](scenario_images/scenario_three.png)
 
 **Figure 3**. Shortest path
-
-#
 
 #### Four Scenario
 Perhaps for some weird QA purpose we wanted to check if all the neighbourhoods are connected. 
@@ -50,8 +41,6 @@ We could depict a spatial weight network (planar) to confirm things are in order
 ![result_four](scenario_images/scenario_four.png)
 
 **Figure 4**. Spatial Weight Network Ottawa
-
-#
 
 #### Fifth Scenario
 John is doing a study and population density in Ottawa's many neighbourhoods. 
@@ -72,9 +61,7 @@ For example, he could define new neighbourhoods based on certain classification 
 
 **Figure 5**. Ottawa Neighbourhoods Quartile Classification
 
-#
-
-### Resources and Credits:
+## Resources and Credits:
 
 #### Python Packages
 
