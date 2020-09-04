@@ -1,25 +1,12 @@
 # Spatial Analysis Scenarios
 
 
-### Purpose:
+## Purpose:
 Experimenting with GIS libraries and QGIS
 
----
+#
 
-### Libraries and Tools:
-- Matplotlib
-- GeoPandas
-- Shapely
-- Networkx
-- OSMNX
-- PyProj
-- PySal
-- Numpy
-- QGIS
-
-
----
-### Scenarios
+## Scenarios
 
 #### First Scenario
 Mary requires regular visits to the hospitals, and is looking for a new apartment to rent. 
@@ -29,7 +16,7 @@ Mary would like her apartment to be located in a neighbourhood with a hospital i
 
 **Figure 1**. 10 Neighbourhoods with Hospitals in them
 
-<br /> 
+# 
 
 #### Second Scenario
 911 Operator Joseph needs to know which hospitals are closest to a caller's neighbourhood. 
@@ -45,7 +32,7 @@ Joseph will dispatch an ambulance from the nearest hospital.
 
 **NOTE**: The large blue region is Ottawa's greenbelt. It's center is far from Queensway-Carleton Hospital. 
 
-<br />
+#
 
 #### Third Scenario
 For some recent we're in the center of Ottawa and want to find the shortest path to a road crossing. 
@@ -54,7 +41,7 @@ For some recent we're in the center of Ottawa and want to find the shortest path
 
 **Figure 3**. Shortest path
 
-<br />
+#
 
 #### Four Scenario
 Perhaps for some weird QA purpose we wanted to check if all the neighbourhoods are connected. 
@@ -64,7 +51,7 @@ We could depict a spatial weight network (planar) to confirm things are in order
 
 **Figure 4**. Spatial Weight Network Ottawa
 
-<br />
+#
 
 #### Fifth Scenario
 John is doing a study and population density in Ottawa's many neighbourhoods. 
@@ -85,6 +72,30 @@ For example, he could define new neighbourhoods based on certain classification 
 
 **Figure 5**. Ottawa Neighbourhoods Quartile Classification
 
------
+#
 
 ### Resources and Credits:
+
+#### Python Packages
+
+[Matplotlib: Visualization with Python](https://matplotlib.org/)
+
+
+
+[GeoPandas](https://geopandas.org/) 
+
+[Shapely](https://pypi.org/project/Shapely/)
+
+[NetworkX: Network Analysis in Python](https://networkx.github.io/)
+
+[OSMnx: Python for Street Networks](https://github.com/gboeing/osmnx)
+
+[PyProj](https://github.com/pyproj4/pyproj)
+
+[PySal](https://pysal.org/)
+
+[NumPy](https://numpy.org/)
+
+#### QGIS
+
+

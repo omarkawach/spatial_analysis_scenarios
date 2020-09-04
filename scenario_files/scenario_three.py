@@ -4,6 +4,10 @@
 @author: omarkawach
 """
 
+# Alternative approach below
+# https://github.com/UDST/pandana/blob/dev/examples/Pandana-demo.ipynb
+# or https://github.com/kuanb/peartree 
+
 import geopandas as gpd
 import pandas as pd
 import osmnx as ox
