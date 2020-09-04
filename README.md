@@ -98,7 +98,7 @@ For example, he could define new neighbourhoods based on certain classification 
 	title="A cute kitten" width="200" height="120" />
 
 <img src="scenario_images/scenario_five_pop_est.png" alt="result_five"
- width="300" height="220" />
+ width="370" height="250" />
 
 
 **Figure 5**. Ottawa Neighbourhoods Quartile Classification
@@ -107,9 +107,9 @@ For example, he could define new neighbourhoods based on certain classification 
 
 #### Notebooks
 
-[Binder: Notebooks in an Executable Environment](https://mybinder.org/)
+[Binder: ](https://mybinder.org/)Notebooks in an Executable Environment
 
-[Jupyter Notebook](https://jupyter.org/)
+[Jupyter Notebook: ](https://jupyter.org/)Interactive Python Notebooks
 
 #### Python Packages
 
@@ -133,9 +133,9 @@ For example, he could define new neighbourhoods based on certain classification 
 
 #### Geospatial Analysis Program(s)
 
-[QGIS](https://www.qgis.org/en/site/)
+[QGIS Download: ](https://www.qgis.org/en/site/)Open Source Geospatial Analysis Program
 
-[QGIS Tutorials](https://www.qgistutorials.com/en/)
+[QGIS Docs](https://www.qgistutorials.com/en/): Tutorials and Tips
 
 #### IDE
 
