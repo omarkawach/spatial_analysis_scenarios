@@ -33,7 +33,7 @@ Steps:
 
 ## Scenarios
 
-### First Scenario
+### 1st Scenario
 Mary requires regular visits to the hospitals, and is looking for a new apartment to rent. 
 Mary would like her apartment to be located in a neighbourhood with a hospital in it. 
 
@@ -61,7 +61,7 @@ Result of where Mary can look for a new apartment:
 - Byward Market
 ```
 
-### Second Scenario
+### 2nd Scenario
 911 Operator Joseph needs to know which hospitals are closest to a caller's neighbourhood. 
 Joseph will dispatch an ambulance from the nearest hospital.
 
@@ -87,7 +87,7 @@ Shapefiles:
 
 **NOTE**: The large blue region is Ottawa's greenbelt. It's center is far from Queensway-Carleton Hospital. 
 
-### Third Scenario
+### 3rd Scenario
 For some recent we're in the center of Ottawa and want to find the shortest path to a road crossing. 
 
 ```
@@ -103,7 +103,7 @@ Packages:
 
 **Figure 3**. Shortest path
 
-### Four Scenario
+### 4th Scenario
 Perhaps for some weird QA purpose we wanted to check if all the neighbourhoods are connected. 
 We could depict a spatial weight network (planar) to confirm things are in order. 
 
@@ -120,7 +120,7 @@ Shapefiles:
 
 **Figure 4**. Spatial Weight Network Ottawa
 
-### Fifth Scenario
+### 5th Scenario
 John is doing a study and population density in Ottawa's many neighbourhoods. 
 He loads his shapefile and can now sort it to only hold geometry and population estimates. 
 
@@ -150,6 +150,50 @@ For example, he could define new neighbourhoods based on certain classification 
 
 
 **Figure 5**. Ottawa Neighbourhoods Quartile Classification
+
+### 6th Scenario
+Let's say you have a bunch of neighbourhoods and hospitals as point data. You could build voronoi regions using the hospitals, then intersect them with neighbourhoods to identify all the neighbourhoods closest to each hospital. 
+
+```
+Shapefiles: 
+    - Ottawa Neighbourhoods
+    - Ottawa Hospitals
+```
+
+![result_six](scenario_images/scenario_six.png)
+
+**Figure 6**. Ottawa Neighbourhoods Closest to Hospitals
+
+![result_six_table](scenario_images/scenario_six_table.png)
+
+**Figure 7**. Peview of Attribute Table for Sixth Scenario 
+
+### 7th Scenario
+
+John is looking for a new building to move into. The biggest search criteria for John is to find a building within 10m of a bus route. Help him find the number of potential buildings he may move into. For this scenario, lets assume John can move into ANY building in Ottawa.
+
+```
+Shapefiles: 
+    - OC Transpo Bus Routes
+    - Ottawa Buildings
+```
+
+Out of 245278 building in Ottawa, John can move into ... Come back to this. QGIS is taking too long to use tools on the buildings shapefile.
+
+### 8th Scenario
+
+Find the center of each bus route, and use these centroids to create voronoi polygons. Then, intersect the voronoi polygons with the Ottawa Neighbourhoods. 
+
+```
+Shapefiles: 
+    - OC Transpo Bus Routes
+    - Ottawa Neighbourhoods
+```
+
+![result_eight](scenario_images/scenario_eight.png)
+
+**Figure 8**.
+
 
 ## Resources
 
