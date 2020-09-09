@@ -78,8 +78,7 @@ Shapefiles:
 
 **Legend**
 
-<img src="scenario_images/scenario_two_legend.png" alt="legend_two"
-	title="A cute kitten" width="400" height="280" />
+<img src="scenario_images/scenario_two_legend.png" alt="legend_two" width="400" height="280" />
 
 ![result_two](scenario_images/scenario_two.png)
 
@@ -115,8 +114,7 @@ Shapefiles:
     - Ottawa Neighbourhoods
 ```
 
-<img src="scenario_images/scenario_four.png" alt="result_four"
-	title="A cute kitten" width="300" height="220" />
+<img src="scenario_images/scenario_four.png" alt="result_four" width="300" height="220" />
 
 **Figure 4**. Spatial Weight Network Ottawa
 
@@ -142,8 +140,7 @@ For example, he could define new neighbourhoods based on certain classification 
 
 **Legend**
 
-<img src="scenario_images/scenario_five_leg.png" alt="legend_five"
-	title="A cute kitten" width="200" height="120" />
+<img src="scenario_images/scenario_five_leg.png" alt="legend_five" width="200" height="120" />
 
 <img src="scenario_images/scenario_five_pop_est.png" alt="result_five"
  width="370" height="250" />
@@ -170,19 +167,36 @@ Shapefiles:
 
 ### 7th Scenario
 
-John is looking for a new building to move into. The biggest search criteria for John is to find a building within 10m of a bus route. Help him find the number of potential buildings he may move into. For this scenario, lets assume John can move into ANY building in Ottawa.
+The Montfort Hospital has had a chemical spill. Residents whose neighbourhood boundary intersect within 1km of the hospital are warned to evacuate. Intersected neighbourhoods are merged together into one shapefile to identify the number of impacted buildings. Could go further and include neighbourhoods that are touching impacted neighbourhoods.
 
 ```
 Shapefiles: 
-    - OC Transpo Bus Routes
+    - Ottawa Hospitals
     - Ottawa Buildings
+Tools:
+    - MMQGIS Plugin is convenient for creating buffers
 ```
 
-Out of 245278 building in Ottawa, John can move into ... Come back to this. QGIS is taking too long to use tools on the buildings shapefile.
+![result_seven](scenario_images/scenario_seven.png)
+
+**Figure 8**. Overview of Chemical Spill Scenario
+
+<img src="scenario_images/scenario_seven_within.png" alt="result_seven_within_buffer" width="400" height="50" />
+
+**Figure 9**. Number of Buildings directly Impacted within Buffer
+
+<img src="scenario_images/scenario_seven_neighbourhoods.png" alt="result_seven_within_boundaries" width="400" height="300" />
+
+**Figure 10**. Number of Buildings Impacted in each Neighbourhood
+
+
+
+
+
 
 ### 8th Scenario
 
-Find the center of each bus route, and use these centroids to create voronoi polygons. Then, intersect the voronoi polygons with the Ottawa Neighbourhoods. 
+Find the center of each bus route, and use these centroids to create voronoi polygons. Then, intersect the voronoi polygons with the Ottawa Neighbourhoods. This will help us find the nearest neighbourhood to each route.
 
 ```
 Shapefiles: 
@@ -192,7 +206,7 @@ Shapefiles:
 
 ![result_eight](scenario_images/scenario_eight.png)
 
-**Figure 8**.
+**Figure 8**. Overview of Closest Nieghbourhoods Scenario
 
 
 ## Resources
