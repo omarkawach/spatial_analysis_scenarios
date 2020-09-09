@@ -173,6 +173,7 @@ The Montfort Hospital has had a chemical spill. Residents whose neighbourhood bo
 Shapefiles: 
     - Ottawa Hospitals
     - Ottawa Buildings
+    - Ottawa Neighbourhoods
 Tools:
     - MMQGIS Plugin is convenient for creating buffers
 ```
