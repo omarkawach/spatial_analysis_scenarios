@@ -430,4 +430,4 @@ Find the nearest bus stop to each building within specific Ottawa DAs. This can 
 
 [Qiusheng Wu - Python Geospatial](https://github.com/giswqs/python-geospatial)
 
-For creating a helpful place for me to start this research
+Resource list of Python Packages for geospatial analysis
