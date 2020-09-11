@@ -7,24 +7,21 @@ import geopandas as gpd
 import matplotlib.pyplot as plt
 from shapely.geometry import Point
 
-neighbourhoods = gpd.read_file("../shapefiles/ONS/ons.shp")
+neighbourhoods = gpd.read_file("../shapefiles/OttawaDA_nearHospital/DA_nearHospital.shp")
 neighbourhoods.head()
 
 hospitals = gpd.read_file("../shapefiles/OttawaHospitals/Hospitals.shp")
 hospitals.head()
 
-qualicum = neighbourhoods[neighbourhoods.Name == "Qualicum - Redwood Park"].to_crs(epsg=3857)
-royal_hospital = hospitals[hospitals.NAME == "Royal Ottawa Hospital"].to_crs(epsg=3857)
-
 # Quick brute force approach. Not the most efficient code, but it gets the job done...
 closest_hospitals = []
 
 # Check each neighbourhood
-for n in neighbourhoods.Name:
+for n in neighbourhoods.DAUID:
     closest = -1;
     close_h = ""
     
-    nx = neighbourhoods[neighbourhoods.Name == n].to_crs(epsg=3857)
+    nx = neighbourhoods[neighbourhoods.DAUID == n].to_crs(epsg=3857)
     
     n_lon = nx.geometry.centroid.x.iloc[0]
     n_lat = nx.geometry.centroid.y.iloc[0]
@@ -63,7 +60,7 @@ h = {hospitals.NAME[0]: 'red',
 fig, ax = plt.subplots()
 neighbourhoods.plot(ax=ax, facecolor='gray');
 for ch in closest_hospitals:
-    nx = neighbourhoods[neighbourhoods.Name == ch[0]]
+    nx = neighbourhoods[neighbourhoods.DAUID == ch[0]]
     nx.plot(ax=ax, facecolor=h[ch[1]])
 plt.tight_layout();
 
