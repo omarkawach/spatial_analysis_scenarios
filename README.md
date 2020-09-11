@@ -8,6 +8,9 @@ Example scenarios will fall into one or more of the following categories:
 - Topological
   - A topology is...to be cont'd
   - [Voronoi diagrams embody a form of "automated" topology](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.86.3356&rep=rep1&type=pdf)
+  - Spatial networks 
+    - [Planar if 2D and edges only intersecting at the nodes ](https://arxiv.org/pdf/1611.01890.pdf)
+
 - Geostatistical 
   - Geostatistics is...to be cont'd
 - Attribute Query
@@ -48,6 +51,11 @@ Steps:
 ## Dataset Sources
 
 **[Ottawa Neighbourhood Study (ONS) from Carleton University](https://library.carleton.ca/find/gis/geospatial-data/ottawa-neighbourhoods)**
+
+*Shapefile Location*
+
+See [`/shapefiles/ONS`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/ONS)
+
 
 *Description from source:*
 ```
@@ -132,6 +140,10 @@ The following information was collected for each transit route:
 *Shapefile Location*
 
 See [`/shapefiles/OttawaRoads`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/OttawaRoads)
+
+*Modifications to Original Dataset in this Repo:*
+
+The dataset came with the whole road network of Canada. Modified the dataset to only have Ottawa's road network. 
 
 *Description from source:*
 
@@ -381,6 +393,12 @@ Find the nearest bus stop to each building within specific Ottawa DAs. This can 
 - Shapefile from [`spatial_analysis_scenarios/shapefiles/Four_DAUIDs`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/Four_DAUIDs) which is a modified version of [`spatial_analysis_scenarios/shapefiles/OttawaDA`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/OttawaDA)
 - Shapefile from [`spatial_analysis_scenarios/shapefiles/OC_ROUTES_DAUID_VERTICES`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/OC_ROUTES_DAUID_VERTICES) which is a modified version of [`spatial_analysis_scenarios/shapefiles/OC_TRANSPO_ROUTES`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/OC_TRANSPO_ROUTES)
 
+### More Network Analysis...TODO
+
+*Context*
+
+*QGIS Tool used*
+- NumericalDigitize
 
 ## Resources
 
