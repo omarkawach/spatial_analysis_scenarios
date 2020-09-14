@@ -393,9 +393,30 @@ Find the nearest bus stop to each building within specific Ottawa DAs. This can 
 - Shapefile from [`spatial_analysis_scenarios/shapefiles/Four_DAUIDs`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/Four_DAUIDs) which is a modified version of [`spatial_analysis_scenarios/shapefiles/OttawaDA`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/OttawaDA)
 - Shapefile from [`spatial_analysis_scenarios/shapefiles/OC_ROUTES_DAUID_VERTICES`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/OC_ROUTES_DAUID_VERTICES) which is a modified version of [`spatial_analysis_scenarios/shapefiles/OC_TRANSPO_ROUTES`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/OC_TRANSPO_ROUTES)
 
-### More Network Analysis...TODO
+### Logistical Study using Network Analysis v1.1
 
 *Context*
+
+Prescription drugs are now available for delivery to customers. A Canadian pharmacy chain, Shoppers Drug Mart, finds that one of their customers lives near 3 Shoppers locations. To decide which store should send a driver to deliver the medication, they use QGIS' shortest path algorithm. The shortest path cost will be calculated in meters. 
+
+*Results*
+
+![result_nine](scenario_images/shortest_to_shoppers.png)
+
+**Figure 9**. Shortest Path from Iverness / Benson to Nearest Shoppers
+
+![result_nine](scenario_images/shortest_shoppers_table.png)
+
+**Figure 10**. Table of Shortest Path for Figure 9
+
+*Files Used*
+- Shoppers
+- ShoppersCustomer from Buildings
+- Road Netowkr
+
+*Parameter*
+
+- Default speed: 50km/hr
 
 *QGIS Tool used*
 - NumericalDigitize
