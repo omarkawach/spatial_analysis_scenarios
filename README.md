@@ -187,10 +187,6 @@ Where Mary can look for a new apartment:
 - Matplotlib
   - To plot data
 
-*Potential Use Case*
-1. Link a hydro plant to a number of ONS polygons
-
-
 ### Distance-based Logistics Study v1.0
 
 *Context*
@@ -254,7 +250,6 @@ We're in the center of Ottawa and want to find the shortest path to a road cross
 *Potential Use Case*
 1. Find shortest path from warehouse to multiple stores 
 2. Link distribution centers to population centers
-3. An app used for delivering groceries wants to know which Walmart to get groceries from since there are multiple in the customer's area. This scenario would find the shortest path between the customers house and the Walmarts. 
 
 
 ### Building a Topology using Spatial Weights v1.0
@@ -363,7 +358,7 @@ The Montfort Hospital has had a chemical spill. Residents whose ONS boundary int
 - Shapefile from [`spatial_analysis_scenarios/shapefiles/ONS`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/ONS)
   - Based on the buffer intersection, the shapefile was modified into [`spatial_analysis_scenarios/shapefiles/Chemical_Spill_ONS`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/Chemical_Spill_ONS)
 - Shapefile from [`spatial_analysis_scenarios/shapefiles/OttawaHospitals`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/ONS)
-- Shapefile from [`spatial_analysis_scenarios/shapefiles/OttawaBuildings`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/ONS)
+- Shapefile from [`spatial_analysis_scenarios/shapefiles/OttawaBuildings.zip`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/OttawaBuildings.zip)
 
 *QGIS Plugin Used*
 - MMQGIS Plugin is convenient for creating buffers
@@ -399,6 +394,10 @@ Find the nearest bus stop to each building within specific Ottawa DAs. This can 
 
 Prescription drugs are now available for delivery to customers. A Canadian pharmacy chain, Shoppers Drug Mart, finds that one of their customers lives near 3 Shoppers locations. To decide which store should send a driver to deliver the medication, they use QGIS' shortest path algorithm. The shortest path cost will be calculated in meters. 
 
+*Parameter*
+
+- Default speed: 50km/hr
+
 *Results*
 
 ![result_nine](scenario_images/shortest_to_shoppers.png)
@@ -410,16 +409,36 @@ Prescription drugs are now available for delivery to customers. A Canadian pharm
 **Figure 10**. Table of Shortest Path for Figure 9
 
 *Files Used*
-- Shoppers
-- ShoppersCustomer from Buildings
-- Road Netowkr
+- Text file from [`spatial_analysis_scenarios/locations/ShoppersOttawa.txt`](https://github.com/omarkawach/spatial_analysis_scenarios/blob/master/locations/ShoppersOttawa.txt)
+- Shapefile from [`spatial_analysis_scenarios/shapefiles/ShoppersCustomer`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/ShoppersCustomer) which is a modified version of [`spatial_analysis_scenarios/shapefiles/OttawaBuildings.zip`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/OttawaBuildings.zip)
+- Shapefile from [`spatial_analysis_scenarios/shapefiles/OttawaRoads`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/OttawaRoads)
 
-*Parameter*
 
-- Default speed: 50km/hr
+### Topological Study for Emergency Preparedness v1.1
+*Context*
 
-*QGIS Tool used*
-- NumericalDigitize
+A recent tornado has resulted in a power outage to all Ottawa DAs within 10km of the Rideau Falls Energy Station. The City of Ottawa would like to know the number of buildings and Ottawa DAs impacted. This can be done by assigning each building to the correct DA. 
+
+*Results*
+
+![result_ten](scenario_images/power_outage.png)
+
+**Figure 11**. Ottawa DAs and Buildings Without Power
+
+```
+Buildings without power: 88,780
+Total Ottawa DAs impacted: 592
+```
+
+*Files Used*
+- Text file from [`spatial_analysis_scenarios/locations/RideauFallsHydro.txt`](https://github.com/omarkawach/spatial_analysis_scenarios/blob/master/locations/RideauFallsHydro.txt)
+- Shapefile from [`spatial_analysis_scenarios/shapefiles/BuildingsOutage`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/BuildingsOutage) which is a modified version of [`spatial_analysis_scenarios/shapefiles/OttawaBuildings.zip`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/OttawaBuildings.zip)
+- - Shapefile from [`spatial_analysis_scenarios/shapefiles/HydroDAs`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/HydroDAs) which is a modified version of [`spatial_analysis_scenarios/shapefiles/OttawaDA`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/OttawaDA)
+
+
+### TODO 
+
+Combine closest hospitals for 911 operators to shortest path
 
 ## Resources
 
