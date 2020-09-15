@@ -1,5 +1,4 @@
 .DS_Store
-shapefiles/.DS_Store
 scenario_images/.DS_Store
 .gitignore
 shapefiles/OttawaBuildings/odb_ottawa.cpg
@@ -8,13 +7,8 @@ shapefiles/OttawaBuildings/odb_ottawa.prj
 shapefiles/OttawaBuildings/odb_ottawa.qpj
 shapefiles/OttawaBuildings/odb_ottawa.shp
 shapefiles/OttawaBuildings/odb_ottawa.shx
-shapefiles/.DS_Store
 scenario_images/.DS_Store
 scenario_images/.DS_Store
-shapefiles/.DS_Store
 scenario_images/.DS_Store
-shapefiles/.DS_Store
 shapefiles/OC_ROUTES_VERTICES
-shapefiles/.DS_Store
-shapefiles/.DS_Store
 shapefiles/.DS_Store

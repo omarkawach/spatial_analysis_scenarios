@@ -5,6 +5,7 @@
 """
 import geopandas as gpd
 import matplotlib.pyplot as plt
+import pandas
 
 neighbourhoods = gpd.read_file("../shapefiles/ONS/ons.shp")
 neighbourhoods.head()

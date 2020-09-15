@@ -3,8 +3,8 @@
 """
 @author: omarkawach
 """
+
 import geopandas as gpd
-import matplotlib.pyplot as plt
 from shapely.geometry import Point
 
 neighbourhoods = gpd.read_file("../shapefiles/OttawaDA_nearHospital/DA_nearHospital.shp")
@@ -14,9 +14,8 @@ hospitals = gpd.read_file("../shapefiles/OttawaHospitals/Hospitals.shp")
 hospitals.head()
 
 # Quick brute force approach. Not the most efficient code, but it gets the job done...
-closest_hospitals = []
-
-# Check each neighbourhood
+neighbourhoods["CLOSEST_HOSPITAL"] = None
+neighbourhoods["CH_DISTANCE"] = None
 n_index = 0
 for n in neighbourhoods.DAUID:
     closest = -1;
@@ -44,29 +43,10 @@ for n in neighbourhoods.DAUID:
             closest = dist[0]
             closest_h = h
     
+    neighbourhoods.loc[n_index, 'CLOSEST_HOSPITAL'] = closest_h
+    neighbourhoods.loc[n_index, 'CH_DISTANCE'] = round(closest/1000, 2)
     n_index += 1
-    
-    closest_hospitals.append([n, closest_h, round(closest/1000, 2)])
-
-# Color
-h = {hospitals.NAME[0]: 'red',
-     hospitals.NAME[1]: 'blue',
-     hospitals.NAME[2]: 'black',
-     hospitals.NAME[3]: 'orange',
-     hospitals.NAME[4]: 'purple',
-     hospitals.NAME[5]: 'brown',
-     hospitals.NAME[6]: 'yellow',
-     hospitals.NAME[7]: 'green',
-     hospitals.NAME[8]: 'gray',
-     hospitals.NAME[9]: 'pink'}
-
-fig, ax = plt.subplots()
-neighbourhoods.plot(ax=ax, facecolor='gray');
-for ch in closest_hospitals:
-    nx = neighbourhoods[neighbourhoods.DAUID == ch[0]]
-    nx.plot(ax=ax, facecolor=h[ch[1]])
-plt.tight_layout();
 
 # Save to shp
-# some_file.to_file("")
-    
+neighbourhoods.to_file("/Users/omarkawach/Documents/QGIS/GIS_GIT/spatial_analysis_scenarios/shapefiles/HospitalsAndDAs/Closest_H_to_DA.shp")
+

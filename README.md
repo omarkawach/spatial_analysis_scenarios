@@ -433,12 +433,53 @@ Total Ottawa DAs impacted: 592
 *Files Used*
 - Text file from [`spatial_analysis_scenarios/locations/RideauFallsHydro.txt`](https://github.com/omarkawach/spatial_analysis_scenarios/blob/master/locations/RideauFallsHydro.txt)
 - Shapefile from [`spatial_analysis_scenarios/shapefiles/BuildingsOutage`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/BuildingsOutage) which is a modified version of [`spatial_analysis_scenarios/shapefiles/OttawaBuildings.zip`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/OttawaBuildings.zip)
-- - Shapefile from [`spatial_analysis_scenarios/shapefiles/HydroDAs`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/HydroDAs) which is a modified version of [`spatial_analysis_scenarios/shapefiles/OttawaDA`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/OttawaDA)
+- Shapefile from [`spatial_analysis_scenarios/shapefiles/HydroDAs`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/HydroDAs) which is a modified version of [`spatial_analysis_scenarios/shapefiles/OttawaDA`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/OttawaDA)
 
 
-### TODO 
+### Distance-based Logistics Study v1.1
 
-Combine closest hospitals for 911 operators to shortest path
+*Context* 
+
+A 9-11 Operator now takes a call and sends an ambulance to a caller's home from the nearest hospital via the shortest path.
+
+Steps taken are a combination of [Distance-based Logistics Study v1.0](https://github.com/omarkawach/spatial_analysis_scenarios#distance-based-logistics-study-v10) and [Logistical Study using Network Analysis v1.1](https://github.com/omarkawach/spatial_analysis_scenarios#logistical-study-using-network-analysis-v11).
+
+*Results*
+
+**Legend**
+
+<img src="scenario_images/scenario_two_advanced_legend.png" alt="legend_two" width="210" height="200" />
+
+![result_qgis_one](scenario_images/scenario_two_advanced.png)
+
+**Figure 12**. Ottawa DAs Mapped to their Nearest Hospital
+
+
+
+![result_two](scenario_images/scenario_two_advanced_shortest.png)
+
+**Figure 13**. Shortest Path from Hospital to Caller's Home
+
+*Files Used*
+
+- Shapefile file created in BLANK and saved to BLANK 
+  - The original shapefile was from [`spatial_analysis_scenarios/shapefiles/OttawaDA`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/OttawaDA) but then it was modified in QGIS to only hold polygons that intersect within a 5km buffer of all the hospitals
+- Shapefile from [`spatial_analysis_scenarios/shapefiles/OttawaHospitals`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/OttawaHospitals)
+
+*Python Packages Used*
+  - GeoPandas
+    - To read shapefiles
+  - Matplotlib
+    - To plot data
+  - Shapely
+    - To create GeoSeries' for calculating distances 
+  - PyProj
+    - To change the espg of shapefiles
+
+*Possible Use Case*
+1. During a pandemic, we don't want to overwhelm hospitals. 
+   - Only allow patients into a hospital if they're from a specific ONS polygon
+      - Number of accepted ONS polygons for a hospital could be based on population, number of buildings, etc.
 
 ## Resources
 
