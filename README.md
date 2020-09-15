@@ -400,7 +400,7 @@ Prescription drugs are now available for delivery to customers. A Canadian pharm
 
 *Results*
 
-![result_nine](scenario_images/shortest_to_shoppers.png)
+![result_nine](scenario_images/shortest_path_shoppers.png)
 
 **Figure 9**. Shortest Path from Iverness / Benson to Nearest Shoppers
 
