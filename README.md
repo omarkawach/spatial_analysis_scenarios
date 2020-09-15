@@ -441,19 +441,23 @@ Steps taken are a combination of [Distance-based Logistics Study v1.0](https://g
 
 *Results*
 
+![result_qgis_one](scenario_images/hospitals_label.png)
+
+**Figure 12**. Location of Hospitals in Ottawa
+
 **Legend**
 
 <img src="scenario_images/scenario_two_advanced_legend.png" alt="legend_two" width="210" height="200" />
 
 ![result_qgis_one](scenario_images/scenario_two_advanced.png)
 
-**Figure 12**. Ottawa DAs Mapped to their Nearest Hospital
+**Figure 13**. Ottawa DAs Mapped to their Nearest Hospital
 
 
 
 ![result_two](scenario_images/scenario_two_advanced_shortest.png)
 
-**Figure 13**. Shortest Path from Hospital to Caller's Home
+**Figure 14**. Shortest Path from Hospital to Caller's Home
 
 *Files Used*
 
