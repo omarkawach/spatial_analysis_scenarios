@@ -223,11 +223,6 @@ For dispatching ambulances, 9-11 Operators want to know which hospitals are clos
   - PyProj
     - To change the espg of shapefiles
 
-*Possible Use Case*
-1. During a pandemic, we don't want to overwhelm hospitals. 
-   - Only allow patients into a hospital if they're from a specific ONS polygon
-      - Number of accepted ONS polygons for a hospital could be based on population, number of buildings, etc.
-
 ### Logistical Study using Network Analysis v1.0
 
 *Context*
@@ -440,7 +435,7 @@ Total Ottawa DAs impacted: 592
 
 *Context* 
 
-A 9-11 Operator now takes a call and sends an ambulance to a caller's home from the nearest hospital via the shortest path.
+A 9-11 Operator takes a call and sends an ambulance to a caller's home from the nearest hospital via the shortest path.
 
 Steps taken are a combination of [Distance-based Logistics Study v1.0](https://github.com/omarkawach/spatial_analysis_scenarios#distance-based-logistics-study-v10) and [Logistical Study using Network Analysis v1.1](https://github.com/omarkawach/spatial_analysis_scenarios#logistical-study-using-network-analysis-v11).
 
@@ -462,15 +457,14 @@ Steps taken are a combination of [Distance-based Logistics Study v1.0](https://g
 
 *Files Used*
 
-- Shapefile file created in BLANK and saved to BLANK 
+- Shapefile created in [`spatial_analysis_scenarios/scenario_files/scenario_two_advanced.py`](https://github.com/omarkawach/spatial_analysis_scenarios/blob/master/scenario_files/scenario_two_advanced.py) and saved to [`spatial_analysis_scenarios/shapefiles/HospitalsAndDAs`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/HospitalsAndDAs)
   - The original shapefile was from [`spatial_analysis_scenarios/shapefiles/OttawaDA`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/OttawaDA) but then it was modified in QGIS to only hold polygons that intersect within a 5km buffer of all the hospitals
 - Shapefile from [`spatial_analysis_scenarios/shapefiles/OttawaHospitals`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/OttawaHospitals)
+- Shapefile from [`spatial_analysis_scenarios/shapefiles/OttawaRoads`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/OttawaRoads)
 
 *Python Packages Used*
   - GeoPandas
     - To read shapefiles
-  - Matplotlib
-    - To plot data
   - Shapely
     - To create GeoSeries' for calculating distances 
   - PyProj
