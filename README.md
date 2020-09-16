@@ -60,7 +60,7 @@ Steps:
 
 ## Scenarios
 
-See [Appendix]() for details on files, packages, and data sources used. 
+See [Appendix](https://github.com/omarkawach/spatial_analysis_scenarios#appendix) for details on files, packages, and data sources used. 
 
 ### Healthcare - Finding Polygons that Contain Hospitals
 
@@ -185,14 +185,8 @@ Total Ottawa DAs impacted: 592
 
 ### Dealing with Populations - Classify Neighbourhoods by Population Density
 
-*Category*
-- Geostatistics
+At Statistics Canada, an intern would like to conduct a population density study using ONS data. The data gathered would be used for defining new neighbourhoods based on a simple quartile classification algorithm. 
 
-*Context*
-
-Conduct a population density study using ONS data and then define new neighbourhoods based on quartile classification algorithm.
-
-*Result*
 
 ![](scenario_images/ONS_population_density/density.png)
 
@@ -215,18 +209,7 @@ Conduct a population density study using ONS data and then define new neighbourh
 
 ### Delivery - Pharmacy Prescription Delivery
 
-*Category*
-- Network Analysis
-
-*Context*
-
-Prescription drugs are now available for delivery to customers. A Canadian pharmacy chain, Shoppers Drug Mart, finds that one of their customers lives near 3 Shoppers locations. To decide which store should send a driver to deliver the medication, they use QGIS' shortest path algorithm. The shortest path cost will be calculated in meters. 
-
-*Parameter*
-
-- Default speed: 50km/hr
-
-*Results*
+Prescription drugs are now available for delivery to customers. A Canadian pharmacy chain, Shoppers Drug Mart, finds that one of their customers lives near 3 Shoppers locations. To decide which store should send a driver to deliver the medication, they use QGIS' shortest path algorithm from the network analysis toolbar. The shortest path cost will be calculated in meters. Default speed is 50km/hr.
 
 ![](scenario_images/shoppers_drug_mart/qgis.png)
 
@@ -238,11 +221,7 @@ Prescription drugs are now available for delivery to customers. A Canadian pharm
 
 ### Transit - Finding the Nearest Bus Stop(s) to a Building 
 
-*Context*
-
 Find the nearest bus stop to each building within specific Ottawa DAs. This can be done by using bus stops to create voronoi polygons. Then, intersect the voronoi polygons with the Ottawa DAs. This scenario assumes that the vertices from each bus route are bus stops, even if that is not the case.  
-
-*Result*
 
 ![](scenario_images/voronoi_bus_stops/qgis.png)
 
@@ -250,14 +229,7 @@ Find the nearest bus stop to each building within specific Ottawa DAs. This can 
 
 ### Travel - Fastest Route to the First Road Crossing in a List
 
-*Category*
-- Network Analysis
-
-*Context*
-
-We're in the center of Ottawa and want to find the shortest path to a road crossing. 
-
-*Result*
+We're in the center of Ottawa and want to find the shortest path to a road crossing through network analysis. 
 
 ![](scenario_images/shortest_path_road_crossing/python.png)
 
@@ -274,11 +246,7 @@ We're in the center of Ottawa and want to find the shortest path to a road cross
 - Topology
 - Spatial Statistics 
 
-*Context*
-
 For the ONS dataset, we are looking for ways to represent the spatial relationships between polygons. We do this by depicting a spatial weight network (planar). In this case, the Queen contiguity weight lets us look at shared edges or vertices between polygons. 
-
-*Result*
 
 <img src="scenario_images/ONS_spatial_weight/python.png" alt="result_four" width="300" height="220" />
 
@@ -293,9 +261,7 @@ For the ONS dataset, we are looking for ways to represent the spatial relationsh
 
 [Carleton University - ARSLab](https://arslab.sce.carleton.ca/) 
 
-[Qiusheng Wu - Python Geospatial](https://github.com/giswqs/python-geospatial)
-
-Resource list of Python Packages for geospatial analysis
+[Qiusheng Wu - Python Geospatial Repo on GitHub](https://github.com/giswqs/python-geospatial)
 
 ## Resources
 
