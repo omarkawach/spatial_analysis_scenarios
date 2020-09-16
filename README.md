@@ -168,6 +168,7 @@ Mary requires regular visits to the hospitals, and is looking for a new apartmen
 *Results*
 
 ![](scenario_images/scenario_one.png)
+
 **Figure 1**. 10 ONS polygons with Hospitals in them
 
 ```
