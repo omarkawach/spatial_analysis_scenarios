@@ -10,12 +10,11 @@ Example scenarios will fall into one or more of the following categories:
   - [Voronoi diagrams embody a form of "automated" topology](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.86.3356&rep=rep1&type=pdf)
   - Spatial networks 
     - [Planar if 2D and edges only intersecting at the nodes ](https://arxiv.org/pdf/1611.01890.pdf)
-
 - Geostatistical 
   - Geostatistics is...to be cont'd
 - Attribute Query
   - Attribute queries are...to be cont'd
-- Distance
+- Proximity Analysis
   - Something...
 - Network Analysis
   - Roads, busses, etc...to be cont'd
@@ -155,7 +154,7 @@ names, types, directions and address ranges.
 
 ## Scenarios
 
-### Healthcare - Finding Neighbourhoods that Contain Hospitals
+### Healthcare - Finding Polygons that Contain Hospitals
 
 *Category*
 
@@ -167,7 +166,7 @@ Mary requires regular visits to the hospitals, and is looking for a new apartmen
 
 *Results*
 
-![](scenario_images/scenario_one.png)
+![](scenario_images/polygons_with_hospitals/result.png)
 
 **Figure 1**. 10 ONS polygons with Hospitals in them
 
@@ -183,6 +182,7 @@ Where Mary can look for a new apartment:
 ```
 
 *Files Used*
+- [Python Script]() or [Notebook]()
 - Shapefile from [`spatial_analysis_scenarios/shapefiles/ONS`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/ONS)
 - Shapefile from [`spatial_analysis_scenarios/shapefiles/OttawaHospitals`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/OttawaHospitals)
 
@@ -194,30 +194,34 @@ Where Mary can look for a new apartment:
 
 ### Healthcare - Voronoi Diagrams for Hospital Proximity Study
 
+*Category*
+
+- Proximity Analysis
+
 *Context*
 
 Let's say you have a bunch of neighbourhoods and hospitals as point data. You could build voronoi regions using the hospitals, then intersect them with neighbourhoods to identify all the neighbourhoods closest to each hospital. 
 
 *Results*
 
-![result_six](scenario_images/scenario_six_updated.png)
+![](scenario_images/voronoi_hospitals/qgis.png)
 
-**Figure 6**. ONS Closest to Hospitals
+**Figure 2**. ONS Closest to Hospitals
 
-![result_six_table](scenario_images/scenario_six_table.png)
+![](scenario_images/voronoi_hospitals/table.png)
 
-**Figure 7**. Peview of Attribute Table for Figure 6
+**Figure 3**. Peview of Attribute Table for Figure 6
 
 *Files Used*
 - Shapefile from [`spatial_analysis_scenarios/shapefiles/ONS`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/ONS)
 - Shapefile from [`spatial_analysis_scenarios/shapefiles/OttawaHospitals`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/OttawaHospitals)
 
-
 ### Healthcare - Assign Hospitals to Ottawa DAs for Ambulance Dispatching
 
 *Category*
 
-- Distance based
+- Topology
+- Proximity Analysis
 
 *Context*
 
@@ -225,20 +229,20 @@ For dispatching ambulances, 9-11 Operators want to know which hospitals are clos
 
 *Results*
 
-![result_qgis_one](scenario_images/scenario_two_qgis.png)
+![](scenario_images/hospitals_to_polygons/qgis.png)
 
-**Figure 2**. Ottawa DAs Intersecting with 5km Hospital Buffer (Dissolved)
+**Figure 4**. Ottawa DAs Intersecting with 5km Hospital Buffer (Dissolved)
 
 **Legend**
 
-<img src="scenario_images/scenario_two_legend.png" alt="legend_two" width="400" height="280" />
+<img src="scenario_images/hospitals_to_polygons/legend.png" alt="legend_two" width="400" height="280" />
 
-![result_two](scenario_images/scenario_two_da.png)
+![](scenario_images/hospitals_to_polygons/python.png)
 
-**Figure 3**. Ottawa DAs with the Closest Hospital 
+**Figure 5**. Ottawa DAs with the Closest Hospital 
 
 *Files Used*
-
+- [Python Script]() or [Notebook]()
 - Shapefile from [`spatial_analysis_scenarios/shapefiles/OttawaDA_nearHospital`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/OttawaDA_nearHospital)
   - This was originally the shapefile from [`spatial_analysis_scenarios/shapefiles/OttawaDA`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/OttawaDA) but then it was modified in QGIS to only hold polygons that intersect within a 5km buffer of all the hospitals (see figure 2)
 - Shapefile from [`spatial_analysis_scenarios/shapefiles/OttawaHospitals`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/OttawaHospitals)
@@ -268,21 +272,19 @@ Steps taken are a combination of [Distance-based Logistics Study v1.0](https://g
 
 *Results*
 
-![result_qgis_one](scenario_images/hospitals_label.png)
+![](scenario_images/hospitals_to_polygons_advanced/hospitals_label.png)
 
 **Figure 12**. Location of Hospitals in Ottawa
 
 **Legend**
 
-<img src="scenario_images/scenario_two_advanced_legend.png" alt="legend_two" width="210" height="200" />
+<img src="scenario_images/hospitals_to_polygons_advanced/legend.png" alt="legend_two" width="210" height="200" />
 
-![result_qgis_one](scenario_images/scenario_two_advanced.png)
+![](scenario_images/hospitals_to_polygons_advanced/qgis.png)
 
 **Figure 13**. Ottawa DAs Mapped to their Nearest Hospital
 
-
-
-![result_two](scenario_images/scenario_two_advanced_shortest.png)
+![](scenario_images/hospitals_to_polygons_advanced/shortest_path.png)
 
 **Figure 14**. Shortest Path from Hospital to Caller's Home
 
@@ -318,7 +320,7 @@ The Montfort Hospital has had a chemical spill. Residents whose ONS boundary int
 
 *Results*
 
-![result_seven](scenario_images/scenario_seven_update.png)
+![](scenario_images/scenario_seven_update.png)
 
 **Figure 8**. Overview of Chemical Spill Scenario
 
@@ -356,7 +358,7 @@ A recent tornado has resulted in a power outage to all Ottawa DAs within 10km of
 
 *Results*
 
-![result_ten](scenario_images/power_outage.png)
+![](scenario_images/power_outage.png)
 
 **Figure 11**. Ottawa DAs and Buildings Without Power
 
@@ -382,7 +384,7 @@ Conduct a population density study using ONS data and then define new neighbourh
 
 *Result*
 
-![result_five](scenario_images/scenario_fiv.png)
+![](scenario_images/scenario_fiv.png)
 
 **Figure 4**. ONS Population Density
 
@@ -427,11 +429,11 @@ Prescription drugs are now available for delivery to customers. A Canadian pharm
 
 *Results*
 
-![result_nine](scenario_images/shortest_path_shoppers.png)
+![](scenario_images/shortest_path_shoppers.png)
 
 **Figure 9**. Shortest Path from Iverness / Benson to Nearest Shoppers
 
-![result_nine](scenario_images/shortest_shoppers_table.png)
+![](scenario_images/shortest_shoppers_table.png)
 
 **Figure 10**. Table of Shortest Path for Figure 9
 
@@ -448,7 +450,7 @@ Find the nearest bus stop to each building within specific Ottawa DAs. This can 
 
 *Result*
 
-![result_eight](scenario_images/scenario_eight_updated.png)
+![](scenario_images/scenario_eight_updated.png)
 
 **Figure 8**. Overview of Closest Bus Stop(s) to each Building in DAs
 
@@ -470,7 +472,7 @@ We're in the center of Ottawa and want to find the shortest path to a road cross
 
 *Result*
 
-![result_three](scenario_images/scenario_three.png)
+![](scenario_images/scenario_three.png)
 
 **Figure 3**. Shortest path
 
