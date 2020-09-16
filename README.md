@@ -155,15 +155,19 @@ names, types, directions and address ranges.
 
 ## Scenarios
 
-### Spatial Joining Buildings to Locations v1.0
+### Healthcare - Finding Neighbourhoods that Contain Hospitals
+
+*Category*
+
+- Spatial Joins
+
 *Context* 
 
 Mary requires regular visits to the hospitals, and is looking for a new apartment to rent. Mary would like her apartment to be located in a ONS polygon with a hospital in it. 
 
 *Results*
 
-![result](scenario_images/scenario_one.png)
-
+![](scenario_images/scenario_one.png)
 **Figure 1**. 10 ONS polygons with Hospitals in them
 
 ```
@@ -187,7 +191,32 @@ Where Mary can look for a new apartment:
 - Matplotlib
   - To plot data
 
-### Distance-based Logistics Study v1.0
+### Healthcare - Voronoi Diagrams for Hospital Proximity Study
+
+*Context*
+
+Let's say you have a bunch of neighbourhoods and hospitals as point data. You could build voronoi regions using the hospitals, then intersect them with neighbourhoods to identify all the neighbourhoods closest to each hospital. 
+
+*Results*
+
+![result_six](scenario_images/scenario_six_updated.png)
+
+**Figure 6**. ONS Closest to Hospitals
+
+![result_six_table](scenario_images/scenario_six_table.png)
+
+**Figure 7**. Peview of Attribute Table for Figure 6
+
+*Files Used*
+- Shapefile from [`spatial_analysis_scenarios/shapefiles/ONS`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/ONS)
+- Shapefile from [`spatial_analysis_scenarios/shapefiles/OttawaHospitals`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/OttawaHospitals)
+
+
+### Healthcare - Assign Hospitals to Ottawa DAs for Ambulance Dispatching
+
+*Category*
+
+- Distance based
 
 *Context*
 
@@ -223,215 +252,12 @@ For dispatching ambulances, 9-11 Operators want to know which hospitals are clos
   - PyProj
     - To change the espg of shapefiles
 
-### Logistical Study using Network Analysis v1.0
+### Healthcare - Dispatching Ambulances using Ottawa Road Network
 
-*Context*
+*Categories*
 
-We're in the center of Ottawa and want to find the shortest path to a road crossing. 
-
-*Result*
-
-![result_three](scenario_images/scenario_three.png)
-
-**Figure 3**. Shortest path
-
-*Python Packages Used*
-  - GeoPandas: To create GeoDataFrames
-  - PyProj: To change the espg of GeoDataFrames
-  - Pandas: Convert dictionary to a Panda Series
-  - OSMnx: For graphing and statistics
-  - NetworkX: To calculate the shortest path
-
-*Potential Use Case*
-1. Find shortest path from warehouse to multiple stores 
-2. Link distribution centers to population centers
-
-
-### Building a Topology using Spatial Weights v1.0
-
-For the ONS dataset, we are looking for ways to represent the spatial relationships between polygons. We do this by depicting a spatial weight network (planar). In this case, the Queen contiguity weight lets us look at shared edges or vertices between polygons. 
-
-*Result*
-
-<img src="scenario_images/scenario_four.png" alt="result_four" width="300" height="220" />
-
-**Figure 4**. Spatial Weight Network Ottawa
-
-*File used*
-- Shapefile from [`spatial_analysis_scenarios/shapefiles/ONS`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/ONS)
-
-*Python Packages used*
-  - GeoPandas: To read shapefiles
-  - PySal: To calculate and plot spatial weights
-
-*Potential Use Case*
-1. [Boundary Detection](https://geographicdata.science/book/notebooks/04_spatial_weights.html) to observe differences in wealth (Spatial Econometrics)
-
-
-
-
-### Geostatistical Study on Population Density v1.0
-*Context*
-
-Conduct a population density study using ONS data and then define new neighbourhoods based on quartile classification algorithm.
-
-*Result*
-
-![result_five](scenario_images/scenario_fiv.png)
-
-**Figure 4**. ONS Population Density
-
-**Legend**
-
-<img src="scenario_images/scenario_five_leg.png" alt="legend_five" width="200" height="120" />
-
-<img src="scenario_images/scenario_five_pop_est.png" alt="result_five"
- width="370" height="250" />
-
-**Figure 5**. ONS Quartile Classification for New Neighbourhoods
-
-*Data Used*
-- Shapefile from [`spatial_analysis_scenarios/shapefiles/ONS`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/ONS)
-
-*Python Packages Used*
-- GeoPandas
-  - To read shapefiles
-- Matplotlib
-  - To plot data
-- NumPy
-  - To help with classification
-
-*Potential Use Case*
-1. Model highly infectious populations according to population density
-   - We may theorize that more dense areas play an impact on the number of cases in neighbouring polygons. 
-   - Expand to have topological relationships 
-     - Maybe have buffers based on infection spread
-
-
-### Voronoi Diagrams for Proximity Studies v1.0
-
-*Context*
-
-Let's say you have a bunch of neighbourhoods and hospitals as point data. You could build voronoi regions using the hospitals, then intersect them with neighbourhoods to identify all the neighbourhoods closest to each hospital. 
-
-*Results*
-
-![result_six](scenario_images/scenario_six_updated.png)
-
-**Figure 6**. ONS Closest to Hospitals
-
-![result_six_table](scenario_images/scenario_six_table.png)
-
-**Figure 7**. Peview of Attribute Table for Figure 6
-
-*Files Used*
-- Shapefile from [`spatial_analysis_scenarios/shapefiles/ONS`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/ONS)
-- Shapefile from [`spatial_analysis_scenarios/shapefiles/OttawaHospitals`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/OttawaHospitals)
-
-
-### Topological Study for Emergency Preparedness v1.0
-*Context*
-
-The Montfort Hospital has had a chemical spill. Residents whose ONS boundary intersect within 1km of the hospital are warned to evacuate. First Responders want to know how many buildings are affected so that they may act by priority. 
-
-*Results*
-
-![result_seven](scenario_images/scenario_seven_update.png)
-
-**Figure 8**. Overview of Chemical Spill Scenario
-
-<img src="scenario_images/scenario_seven_within.png" alt="result_seven_within_buffer" width="400" height="50" />
-
-**Figure 9**. Number of Buildings Directly Impacted within 1km Buffer
-
-<img src="scenario_images/scenario_seven_neighbourhoods.png" alt="result_seven_within_boundaries" width="400" height="300" />
-
-**Figure 10**. Number of Buildings Impacted by ONS Polygon
-
-*Data Used*
-
-- Shapefile from [`spatial_analysis_scenarios/shapefiles/ONS`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/ONS)
-  - Based on the buffer intersection, the shapefile was modified into [`spatial_analysis_scenarios/shapefiles/Chemical_Spill_ONS`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/Chemical_Spill_ONS)
-- Shapefile from [`spatial_analysis_scenarios/shapefiles/OttawaHospitals`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/ONS)
-- Shapefile from [`spatial_analysis_scenarios/shapefiles/OttawaBuildings.zip`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/OttawaBuildings.zip)
-
-*QGIS Plugin Used*
-- MMQGIS Plugin is convenient for creating buffers
-
-*Possible Use Cases*
-1. Go further and evacuate neighbourhoods that are touching impacted neighbourhoods. 
-2. Be better prepared for potential future events like the [Lac-Mégantic rail disaster](https://www.tsb.gc.ca/eng/rapports-reports/rail/2013/r13d0054/r13d0054-r-es.html)
-   - Help dispatch and evacuate people. 
-3. Unrelated to emergencies, we could see which buildings are in a DA and connect them for population growth analysis.
-
-
-
-### Voronoi Diagrams for Proximity Studies v1.1
-
-*Context*
-
-Find the nearest bus stop to each building within specific Ottawa DAs. This can be done by using bus stops to create voronoi polygons. Then, intersect the voronoi polygons with the Ottawa DAs. This scenario assumes that the vertices from each bus route are bus stops, even if that is not the case.  
-
-*Result*
-
-![result_eight](scenario_images/scenario_eight_updated.png)
-
-**Figure 8**. Overview of Closest Bus Stop(s) to each Building in DAs
-
-*Files Used*
-
-- Shapefile from [`spatial_analysis_scenarios/shapefiles/Four_DAUIDs`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/Four_DAUIDs) which is a modified version of [`spatial_analysis_scenarios/shapefiles/OttawaDA`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/OttawaDA)
-- Shapefile from [`spatial_analysis_scenarios/shapefiles/OC_ROUTES_DAUID_VERTICES`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/OC_ROUTES_DAUID_VERTICES) which is a modified version of [`spatial_analysis_scenarios/shapefiles/OC_TRANSPO_ROUTES`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/OC_TRANSPO_ROUTES)
-
-### Logistical Study using Network Analysis v1.1
-
-*Context*
-
-Prescription drugs are now available for delivery to customers. A Canadian pharmacy chain, Shoppers Drug Mart, finds that one of their customers lives near 3 Shoppers locations. To decide which store should send a driver to deliver the medication, they use QGIS' shortest path algorithm. The shortest path cost will be calculated in meters. 
-
-*Parameter*
-
-- Default speed: 50km/hr
-
-*Results*
-
-![result_nine](scenario_images/shortest_path_shoppers.png)
-
-**Figure 9**. Shortest Path from Iverness / Benson to Nearest Shoppers
-
-![result_nine](scenario_images/shortest_shoppers_table.png)
-
-**Figure 10**. Table of Shortest Path for Figure 9
-
-*Files Used*
-- Text file from [`spatial_analysis_scenarios/locations/ShoppersOttawa.txt`](https://github.com/omarkawach/spatial_analysis_scenarios/blob/master/locations/ShoppersOttawa.txt)
-- Shapefile from [`spatial_analysis_scenarios/shapefiles/ShoppersCustomer`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/ShoppersCustomer) which is a modified version of [`spatial_analysis_scenarios/shapefiles/OttawaBuildings.zip`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/OttawaBuildings.zip)
-- Shapefile from [`spatial_analysis_scenarios/shapefiles/OttawaRoads`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/OttawaRoads)
-
-
-### Topological Study for Emergency Preparedness v1.1
-*Context*
-
-A recent tornado has resulted in a power outage to all Ottawa DAs within 10km of the Rideau Falls Energy Station. The City of Ottawa would like to know the number of buildings and Ottawa DAs impacted. This can be done by assigning each building to the correct DA. 
-
-*Results*
-
-![result_ten](scenario_images/power_outage.png)
-
-**Figure 11**. Ottawa DAs and Buildings Without Power
-
-```
-Buildings without power: 88,780
-Total Ottawa DAs impacted: 592
-```
-
-*Files Used*
-- Text file from [`spatial_analysis_scenarios/locations/RideauFallsHydro.txt`](https://github.com/omarkawach/spatial_analysis_scenarios/blob/master/locations/RideauFallsHydro.txt)
-- Shapefile from [`spatial_analysis_scenarios/shapefiles/BuildingsOutage`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/BuildingsOutage) which is a modified version of [`spatial_analysis_scenarios/shapefiles/OttawaBuildings.zip`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/OttawaBuildings.zip)
-- Shapefile from [`spatial_analysis_scenarios/shapefiles/HydroDAs`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/HydroDAs) which is a modified version of [`spatial_analysis_scenarios/shapefiles/OttawaDA`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/OttawaDA)
-
-
-### Distance-based Logistics Study v1.1
+- Distance based
+- Network Analysis
 
 *Context* 
 
@@ -478,6 +304,216 @@ Steps taken are a combination of [Distance-based Logistics Study v1.0](https://g
 1. During a pandemic, we don't want to overwhelm hospitals. 
    - Only allow patients into a hospital if they're from a specific ONS polygon
       - Number of accepted ONS polygons for a hospital could be based on population, number of buildings, etc.
+
+
+### Disaster Response - Chemical Spill at Hospital
+
+*Category*
+- Topology
+
+*Context*
+
+The Montfort Hospital has had a chemical spill. Residents whose ONS boundary intersect within 1km of the hospital are warned to evacuate. First Responders want to know how many buildings are affected so that they may act by priority. 
+
+*Results*
+
+![result_seven](scenario_images/scenario_seven_update.png)
+
+**Figure 8**. Overview of Chemical Spill Scenario
+
+<img src="scenario_images/scenario_seven_within.png" alt="result_seven_within_buffer" width="400" height="50" />
+
+**Figure 9**. Number of Buildings Directly Impacted within 1km Buffer
+
+<img src="scenario_images/scenario_seven_neighbourhoods.png" alt="result_seven_within_boundaries" width="400" height="300" />
+
+**Figure 10**. Number of Buildings Impacted by ONS Polygon
+
+*Data Used*
+
+- Shapefile from [`spatial_analysis_scenarios/shapefiles/ONS`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/ONS)
+  - Based on the buffer intersection, the shapefile was modified into [`spatial_analysis_scenarios/shapefiles/Chemical_Spill_ONS`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/Chemical_Spill_ONS)
+- Shapefile from [`spatial_analysis_scenarios/shapefiles/OttawaHospitals`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/ONS)
+- Shapefile from [`spatial_analysis_scenarios/shapefiles/OttawaBuildings.zip`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/OttawaBuildings.zip)
+
+*QGIS Plugin Used*
+- MMQGIS Plugin is convenient for creating buffers
+
+*Possible Use Cases*
+1. Go further and evacuate neighbourhoods that are touching impacted neighbourhoods. 
+2. Be better prepared for potential future events like the [Lac-Mégantic rail disaster](https://www.tsb.gc.ca/eng/rapports-reports/rail/2013/r13d0054/r13d0054-r-es.html)
+   - Help dispatch and evacuate people. 
+3. Unrelated to emergencies, we could see which buildings are in a DA and connect them for population growth analysis.
+
+### Disaster Response - Power Generator Outage after Tornado
+
+*Category*
+- Topology 
+*Context*
+
+A recent tornado has resulted in a power outage to all Ottawa DAs within 10km of the Rideau Falls Energy Station. The City of Ottawa would like to know the number of buildings and Ottawa DAs impacted. This can be done by assigning each building to the correct DA. 
+
+*Results*
+
+![result_ten](scenario_images/power_outage.png)
+
+**Figure 11**. Ottawa DAs and Buildings Without Power
+
+```
+Buildings without power: 88,780
+Total Ottawa DAs impacted: 592
+```
+
+*Files Used*
+- Text file from [`spatial_analysis_scenarios/locations/RideauFallsHydro.txt`](https://github.com/omarkawach/spatial_analysis_scenarios/blob/master/locations/RideauFallsHydro.txt)
+- Shapefile from [`spatial_analysis_scenarios/shapefiles/BuildingsOutage`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/BuildingsOutage) which is a modified version of [`spatial_analysis_scenarios/shapefiles/OttawaBuildings.zip`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/OttawaBuildings.zip)
+- Shapefile from [`spatial_analysis_scenarios/shapefiles/HydroDAs`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/HydroDAs) which is a modified version of [`spatial_analysis_scenarios/shapefiles/OttawaDA`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/OttawaDA)
+
+
+### Dealing with Populations - Classify Neighbourhoods by Population Density
+
+*Category*
+- Geostatistics
+
+*Context*
+
+Conduct a population density study using ONS data and then define new neighbourhoods based on quartile classification algorithm.
+
+*Result*
+
+![result_five](scenario_images/scenario_fiv.png)
+
+**Figure 4**. ONS Population Density
+
+**Legend**
+
+<img src="scenario_images/scenario_five_leg.png" alt="legend_five" width="200" height="120" />
+
+<img src="scenario_images/scenario_five_pop_est.png" alt="result_five"
+ width="370" height="250" />
+
+**Figure 5**. ONS Quartile Classification for New Neighbourhoods
+
+*Data Used*
+- Shapefile from [`spatial_analysis_scenarios/shapefiles/ONS`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/ONS)
+
+*Python Packages Used*
+- GeoPandas
+  - To read shapefiles
+- Matplotlib
+  - To plot data
+- NumPy
+  - To help with classification
+
+*Potential Use Case*
+1. Model highly infectious populations according to population density
+   - We may theorize that more dense areas play an impact on the number of cases in neighbouring polygons. 
+   - Expand to have topological relationships 
+     - Maybe have buffers based on infection spread
+
+### Delivery - Pharmacy Prescription Delivery
+
+*Category*
+- Network Analysis
+
+*Context*
+
+Prescription drugs are now available for delivery to customers. A Canadian pharmacy chain, Shoppers Drug Mart, finds that one of their customers lives near 3 Shoppers locations. To decide which store should send a driver to deliver the medication, they use QGIS' shortest path algorithm. The shortest path cost will be calculated in meters. 
+
+*Parameter*
+
+- Default speed: 50km/hr
+
+*Results*
+
+![result_nine](scenario_images/shortest_path_shoppers.png)
+
+**Figure 9**. Shortest Path from Iverness / Benson to Nearest Shoppers
+
+![result_nine](scenario_images/shortest_shoppers_table.png)
+
+**Figure 10**. Table of Shortest Path for Figure 9
+
+*Files Used*
+- Text file from [`spatial_analysis_scenarios/locations/ShoppersOttawa.txt`](https://github.com/omarkawach/spatial_analysis_scenarios/blob/master/locations/ShoppersOttawa.txt)
+- Shapefile from [`spatial_analysis_scenarios/shapefiles/ShoppersCustomer`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/ShoppersCustomer) which is a modified version of [`spatial_analysis_scenarios/shapefiles/OttawaBuildings.zip`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/OttawaBuildings.zip)
+- Shapefile from [`spatial_analysis_scenarios/shapefiles/OttawaRoads`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/OttawaRoads)
+
+### Transit - Finding the Nearest Bus Stop(s) to a Building 
+
+*Context*
+
+Find the nearest bus stop to each building within specific Ottawa DAs. This can be done by using bus stops to create voronoi polygons. Then, intersect the voronoi polygons with the Ottawa DAs. This scenario assumes that the vertices from each bus route are bus stops, even if that is not the case.  
+
+*Result*
+
+![result_eight](scenario_images/scenario_eight_updated.png)
+
+**Figure 8**. Overview of Closest Bus Stop(s) to each Building in DAs
+
+*Files Used*
+
+- Shapefile from [`spatial_analysis_scenarios/shapefiles/Four_DAUIDs`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/Four_DAUIDs) which is a modified version of [`spatial_analysis_scenarios/shapefiles/OttawaDA`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/OttawaDA)
+- Shapefile from [`spatial_analysis_scenarios/shapefiles/OC_ROUTES_DAUID_VERTICES`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/OC_ROUTES_DAUID_VERTICES) which is a modified version of [`spatial_analysis_scenarios/shapefiles/OC_TRANSPO_ROUTES`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/OC_TRANSPO_ROUTES)
+
+
+
+### Travel - Fastest Route to the First Road Crossing in a List
+
+*Category*
+- Network Analysis
+
+*Context*
+
+We're in the center of Ottawa and want to find the shortest path to a road crossing. 
+
+*Result*
+
+![result_three](scenario_images/scenario_three.png)
+
+**Figure 3**. Shortest path
+
+*Python Packages Used*
+  - GeoPandas: To create GeoDataFrames
+  - PyProj: To change the espg of GeoDataFrames
+  - Pandas: Convert dictionary to a Panda Series
+  - OSMnx: For graphing and statistics
+  - NetworkX: To calculate the shortest path
+
+*Potential Use Case*
+1. Find shortest path from warehouse to multiple stores 
+2. Link distribution centers to population centers
+
+
+### Spatial Weights - Proximity Analysis between Polygons
+
+*Category*
+- Topology
+- Spatial Statistics 
+
+*Context*
+
+For the ONS dataset, we are looking for ways to represent the spatial relationships between polygons. We do this by depicting a spatial weight network (planar). In this case, the Queen contiguity weight lets us look at shared edges or vertices between polygons. 
+
+*Result*
+
+<img src="scenario_images/scenario_four.png" alt="result_four" width="300" height="220" />
+
+**Figure 4**. Spatial Weight Network Ottawa
+
+*File used*
+- Shapefile from [`spatial_analysis_scenarios/shapefiles/ONS`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/ONS)
+
+*Python Packages used*
+  - GeoPandas: To read shapefiles
+  - PySal: To calculate and plot spatial weights
+
+*Potential Use Case*
+1. [Boundary Detection](https://geographicdata.science/book/notebooks/04_spatial_weights.html) to observe differences in wealth (Spatial Econometrics)
+   - [Combining spatial statistics and spatial data analysis](http://resources.esri.com/help/9.3/arcgisengine/java/gp_toolref/spatial_statistics_toolbox/spatial_weights.htm)
+
+
+
 
 ## Resources
 
