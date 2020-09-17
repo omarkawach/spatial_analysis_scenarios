@@ -1,6 +1,22 @@
 # Spatial Analysis Scenarios
 
-This repository explores various open sources tools one could use for performing geospatial analysis. There are interactive **Jupyter Notebooks** available for demo purposes via **Binder**. Developers can also install Python packages themselves and run the code on their own in **Spyder**. The goal is to discover approaches one could use for coupling between simulation models. 
+### Overview
+
+This repository explores various open sources tools one could use for performing geospatial analysis. The goal is to discuss a bank of simulation models that could be incorporated into [DEVS GIS Simulation Explorer](https://github.com/staubibr/arslab-web/tree/master/app-gis). There are interactive **Jupyter Notebooks** available for demo purposes via **Binder**. Developers can also install Python packages themselves and run the code on their own in **Spyder**. 
+
+### Introduction
+
+Large and small scale problems are difficult for humans to conceptualize. This is especially true when we consider global issues ([Resnik et al., 2016](https://onlinelibrary.wiley.com/doi/full/10.1111/cogs.12388)). The COVID-19 pandemic is one of the many global issues humanity has come to face in the 21st century. Local, national, and global real-time, non-real-time, or simulated disease cases must be carefully analyzed to address this challenge. Geographical tracking and mapping of the pandemic through the application of Geographic Information Systems (GIS) has been proven to be a powerful system for disease monitoring and planning ([Buolos & Geraghty, 2020](https://ij-healthgeographics.biomedcentral.com/articles/10.1186/s12942-020-00202-8)). Such a system has allowed researchers to present large volumes of data in an intuitive way. For one, web-based mapping has created an environment for accessible remote collaboration between decision makers ([Franch-Pardo et al., 2020](https://www.sciencedirect.com/science/article/pii/S0048969720335531)). By integrating simulation models into map-based web applications, researchers can also highlight spatiotemporal trends in various scenarios. This study aims to ...
+
+### Background
+
+GIS
+
+[Spatial analysis](https://mgimond.github.io/Spatial/introGIS.html)
+
+Visualization
+
+### Things to Discuss
 
 Example scenarios will fall into one or more of the following categories:
 - Spatial Join (analysis)
@@ -21,6 +37,7 @@ Example scenarios will fall into one or more of the following categories:
     - [Planar if 2D and edges only intersecting at the nodes ](https://arxiv.org/pdf/1611.01890.pdf)
 - Geostatistical 
   - Geostatistics is...to be cont'd
+  - [First law of geography](https://wiki.gis.com/wiki/index.php/First_law_of_geography) 
 - Attribute Query
   - Attribute queries are...to be cont'd
 - Proximity Analysis
