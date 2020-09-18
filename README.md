@@ -94,7 +94,7 @@ Steps:
 
 ![](scenario_images/hospitals_legend.png)
 
-![](scenario_images/hospital_units_refined.png)
+![](scenario_images/hospital_access.png)
 
 
 
