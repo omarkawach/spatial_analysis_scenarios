@@ -80,12 +80,13 @@ Steps:
 *Starting Data*
 
 - Ottawa Buildings
+- Ottawa DAs
 - Ottawa Hospitals
 - Ottawa Road Network
 
 *Process*
 
-- Road Distance: Calculated the shortest path between buildings and hospitals
+- Road Distance: Select buildings within certain Ottawa DAs and then calculated the shortest path between buildings and hospitals
   - QGIS
 - Health Units: Assigning buildings to their closest hospitals
   - Python
