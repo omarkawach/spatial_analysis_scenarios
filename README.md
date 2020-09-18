@@ -73,9 +73,29 @@ Steps:
 
 4. You may now run/manipulate code
 
-## Models
+## Models 
 
-### Emergency Assistance - Health Unit Services 
+### Emergency Services - Health Unit Access 
+
+*Starting Data*
+
+- Ottawa Buildings
+- Ottawa Hospitals
+- Ottawa Road Network
+
+*Process*
+
+- Road Distance: Calculated the shortest path between buildings and hospitals
+  - QGIS
+- Health Units: Assigning buildings to their closest hospitals
+  - Python
+
+*Result*
+
+![](scenario_images/hospitals_legend.png)
+
+![](scenario_images/hospital_units_refined.png)
+
 
 
 
