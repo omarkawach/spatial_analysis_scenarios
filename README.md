@@ -73,6 +73,10 @@ Steps:
 
 4. You may now run/manipulate code
 
+## Models
+
+### Emergency Assistance - Health Unit Services 
+
 
 
 ## Scenarios
@@ -162,6 +166,9 @@ Through topological studies and proximity analysis, 9-11 Operators discovered wh
    - Only allow patients into a hospital if they're from a specific ONS polygon
       - Number of accepted ONS polygons for a hospital could be based on population, number of buildings, etc.
 
+Come up with resulting model 
+
+Any house that emits a call
 
 ### Disaster Response - Chemical Spill at Hospital
 

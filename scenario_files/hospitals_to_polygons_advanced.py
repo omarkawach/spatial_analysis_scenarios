@@ -16,6 +16,7 @@ hospitals = gpd.read_file("../shapefiles/OttawaHospitals/Hospitals.shp")
 neighbourhoods["CLOSEST_HOSPITAL"] = None
 neighbourhoods["CH_DISTANCE"] = None
 n_index = 0
+
 # Check each neighbourhood (all 761)
 for n in neighbourhoods.DAUID:
     # Set the closest distance to -1
