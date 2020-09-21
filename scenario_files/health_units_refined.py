@@ -5,7 +5,6 @@
 """
 # Import packages
 import geopandas as gpd
-from shapely.geometry import Point
 
 # Load data
 buildings = gpd.read_file("../shapefiles/healthcare_study_area/Buildings/buildings.shp")

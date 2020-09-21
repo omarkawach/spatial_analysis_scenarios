@@ -77,28 +77,44 @@ Steps:
 
 ### Emergency Services - Health Unit Access 
 
-*Starting Data*
+**Note**: In this case, we'll consider rehabilitation centres as hospitals.
 
-- Ottawa Buildings
-- Ottawa DAs
-- Ottawa Hospitals
-- Ottawa Road Network
+Suppose we'd like to allocate access to healthcare based on a resident's nearest hospital.  To save on computational power, the current focus will be on 3 Ottawa DAs and the buildings that are spatially intersected within them (see **Figure 1**). We'll begin the model generation workflow by calculating the road distance between hospitals and buildings through the shortest path algorithm. This is accomplished in QGIS' Graphical Modeler (see **Figure 2**). Afterwards, buildings are assigned to their nearest hospital by using a simple [python script](https://github.com/omarkawach/spatial_analysis_scenarios/blob/master/scenario_files/health_units_refined.py). We'll call this assignment "Hospital-Building (HB) coupling". Then, all these HB couplings will produce an Emergency Service Coupled Model. 
 
-*Process*
+![](scenario_images/Health_Units/polygons.png)
 
-- Road Distance: Select buildings within certain Ottawa DAs and then calculated the shortest path between buildings and hospitals
-  - QGIS
-- Health Units: Assigning buildings to their closest hospitals
-  - Python
+**Figure 1**. Three Ottawa DAs and their Buildings
 
-*Result*
+![](scenario_images/Health_Units/model_builder.png)
 
-![](scenario_images/hospitals_legend.png)
+**Figure 2**. Road Distance Graphical Modeler
 
-![](scenario_images/hospital_access.png)
+**Legend**
+![](scenario_images/Health_Units/hospitals_legend.png)
 
+![](scenario_images/Health_Units/hospital_access.png)
 
+**Figure 3**. Health Unit - Building Couplings
 
+![](scenario_images/Health_Units/workflows.png)
+
+**Figure 4**. Emergency Service Model Generation Workflow
+
+### Urban Logistics - Prescription Delivery
+
+A local pharmacy chain, Shoppers Drug Mart, launches a prescription delivery application. To save on costs and increase efficiencies, Shoppers is interested in delivering prescriptions from the closest Shoppers to the customer. To achieve this...
+
+![](scenario_images/prescription_delivery/model_builder.png)
+
+**Figure 5**. Closest Pharmacy Graphical Modeler 
+
+![](scenario_images/prescription_delivery/result.png)
+
+**Figure 6**. Closest Pharmacy 
+
+![](scenario_images/prescription_delivery/workflow.png)
+
+**Figure 7**. Delivery Service Model Generation Workflow
 
 ## Scenarios
 
