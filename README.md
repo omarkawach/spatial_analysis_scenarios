@@ -85,7 +85,7 @@ Suppose we'd like to allocate access to healthcare based on a resident's nearest
 
 **Figure 1**. Three Ottawa DAs and their Buildings
 
-![](scenario_images/Health_Units/model_builder.png)
+![](scenario_images/Health_Units/graphic_model.png)
 
 **Figure 2**. Road Distance Graphical Modeler
 
@@ -102,7 +102,7 @@ Suppose we'd like to allocate access to healthcare based on a resident's nearest
 
 ### Urban Logistics - Prescription Delivery
 
-A local pharmacy chain, Shoppers Drug Mart, launches a prescription delivery application. To save on costs and increase efficiencies, Shoppers is interested in delivering prescriptions from the closest Shoppers to the customer. To achieve this...
+A local pharmacy chain, Shoppers Drug Mart, launches a prescription delivery application. To save on costs and increase efficiencies, Shoppers is interested in delivering prescriptions from the closest Shoppers to the customer. To achieve this...Look for stores within 2.5km
 
 ![](scenario_images/prescription_delivery/model_builder.png)
 
@@ -115,6 +115,20 @@ A local pharmacy chain, Shoppers Drug Mart, launches a prescription delivery app
 ![](scenario_images/prescription_delivery/workflow.png)
 
 **Figure 7**. Delivery Service Model Generation Workflow
+
+### Waterbody Analysis - Seasonal Flooding
+
+**Note**: This model does not take elevation levels into consideration
+
+Before Ottawa's flood season begins, city planners want to know approx. how many homes are most at risk. Assuming a 1km flood risk buffer, we can create a multi-ring buffer where we split the risk by 200m each. 
+
+![](scenario_images/water_without_dem/modeler.png)
+
+**Figure 8**. Flood Risk Model Generation Workflow 
+
+![](scenario_images/water_without_dem/Buildings_impacted.png)
+
+**Figure 9**. Buildings at Risk
 
 ## Scenarios
 
@@ -474,6 +488,21 @@ Road network files are digital representations of Canada's
 national road network, containing information such as street
 names, types, directions and address ranges.
 ```
+
+**[Waterbody Data from Rideau Value Conservation Authority (RVCA)](https://rvcagis.github.io/jkan/)**
+
+*Description from Source*
+
+https://rvcagis.github.io/jkan/datasets/rvca-waterbodies/
+
+```
+RVCA Waterbodies represent the Lakes, Ponds and large Rivers within the RVCA, as a
+polygon feature class. They have been delineated using the MNRF LIO waterbody standard
+and using the existing LIO Waterbody layer as a base. This dataset is used extensively
+for Subwatershed & Catchment Reporting, as well as Regulations
+```
+
+
 ### Scenario Files and Packages
 
 ##### Healthcare - Finding Polygons that Contain Hospitals
