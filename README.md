@@ -122,7 +122,7 @@ A local pharmacy chain, Shoppers Drug Mart, launches a prescription delivery app
 
 Before Ottawa's flood season begins, city planners want to know approx. how many homes are most at risk. Assuming a 1km flood risk buffer, we can create a multi-ring buffer where we split the risk by 200m each. 
 
-![](scenario_images/water_without_dem/modeler.png)
+![](scenario_images/water_without_dem/graphic_model.png)
 
 **Figure 8**. Flood Risk Model Generation Workflow 
 
