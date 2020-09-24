@@ -196,19 +196,6 @@ After analysis, Mary would receive results stating that she may look for apartme
 
 
 
-
-### Healthcare - Voronoi Diagrams for Hospital Proximity Study
-
-If you were a resident around Central Ottawa, you'd likely want to know which hospital(s) you could get to fastest in the event of an emergency. Proxomity analysis through Voronoi diagrams allows analysts to find the closest point within a region. For this scenario, we have a large number of ONS polygons and 10 hospitals (point data). The Voronoi regions are built using the hospitals and then intersected with ONS polygons to identify which neighbourhoods are closest to a hospital. 
-
-![](scenario_images/voronoi_hospitals/qgis.png)
-
-**Figure 2**. ONS Closest to Hospitals
-
-![](scenario_images/voronoi_hospitals/table.png)
-
-**Figure 3**. Peview of Attribute Table for Figure 2
-
 ### Healthcare - Assign Hospitals to Ottawa DAs for Ambulance Dispatching
 
 9-11 Operators are looking for more efficient ways to help those in need. Through proximity analysis, researchers can discover the closest hospital to a caller's DA. This would allow ambulances to be dispatched accordingly. The analysis first begins by building a topology where we address ONS polygons within 5km of a hospital. Once we have our desired ONS polygons, the centroid of each polygon is extracted. The centroid from each polygon will be used to calculate the distance from the centroid to a hospital. The closest hospital to a polygon's centroid will be used for assigning hospitals to polygons. This would conclude our proximity analysis. 
@@ -540,12 +527,6 @@ for Subwatershed & Catchment Reporting, as well as Regulations
 *Python Packages Used*
 - GeoPandas to read shapefiles
 - Matplotlib to plot data
-
-##### Healthcare - Voronoi Diagrams for Hospital Proximity Study
-
-*Files Used*
-- Shapefile from [`spatial_analysis_scenarios/shapefiles/ONS`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/ONS)
-- Shapefile from [`spatial_analysis_scenarios/shapefiles/OttawaHospitals`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/OttawaHospitals)
 
 ##### Healthcare - Assign Hospitals to Ottawa DAs for Ambulance Dispatching
 
