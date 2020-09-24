@@ -118,7 +118,8 @@ To answer these questions, Tim will need to acquire current data specific to Ott
 
 The delivery service workflow generated for this model can be reincorporated to not only support prescription delivery for pharmacies, but also to link distribution centers to population centers, warehouses to stores, warehouses to stores to customers, etc. For the case of pharmacies, the Graphical Modeler in **Figure 6** automates the majority of the delivery service workflow. The final output would be the path to the closest pharmacy, which is what was seen in **Figure 5**. 
 
-We can go a step further and couple pharmacies to 
+Going a step further, the workflow can be implemented on a much larger scale. Suppose Shoppers is ready to launch their application and would like to have every Shoppers Drug Mart deliver prescriptions to customers within a 2.5km distance buffer. Voronoi diagrams would allow analysts to identify the closest Shoppers to a customer's building. This can be done through creating Voronoi polygons from all the Shoppers Drug Mart point data with a large buffer extent and then clipping the Voronoi polygons with our specified 2.5km distance buffer (see **Figure 10**). Then we can use the Graphical Modeler as seen in **Figure 8** to find the shortest path between the closest Shoppers to a customer. 
+
 
 ![](Model_Prescription_Delivery/images/result.png)
 
@@ -132,17 +133,21 @@ We can go a step further and couple pharmacies to
 
 **Figure 7**. Delivery Service Model Generation Workflow
 
-![](Model_Prescription_Delivery/images/workflow.png)
+![](Model_Prescription_Delivery/images/graphical_modeler.png)
 
 **Figure 8**. Graphical Modeler for Finding the Distance between Pharmacies and Customers
 
 ![](Model_Prescription_Delivery/images/services.png)
 
-**Figure 9**. Buildings with Access to Prescription Delivery
+**Figure 9**. Buildings with Access to Prescription Delivery near McCarthy
+
+![](Model_Prescription_Delivery/images/voronoi.png)
+
+**Figure 10**. Large Scale Delivery
 
 ![](Model_Prescription_Delivery/images/coupled_mod.png)
 
-**Figure 10** Delivery Service Coupled Model
+**Figure 11**. Delivery Service Coupled Model (maybe add ellipses so it looks like we have more couplings, e.g. coupling, coupling, ... , coupling)
 
 ### Waterbody Analysis - Seasonal Flooding
 
