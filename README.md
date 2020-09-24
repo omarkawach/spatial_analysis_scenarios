@@ -19,7 +19,15 @@ Visualization
 ### Things to Discuss
 
 Example scenarios will fall into one or more of the following categories:
-- Spatial Join (analysis)
+
+
+- Topological
+  - A topology is...to be cont'd
+  - Buffers
+  - [Voronoi diagrams embody a form of "automated" topology](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.86.3356&rep=rep1&type=pdf)
+  - Spatial networks 
+    - [Planar if 2D and edges only intersecting at the nodes ](https://arxiv.org/pdf/1611.01890.pdf)
+  - Spatial Join (analysis)
   - [Spatial relationship types](https://desktop.arcgis.com/en/arcmap/latest/extensions/data-reviewer/types-of-spatial-relationships-that-can-be-validated.htm)
     - Touches
     - Contains
@@ -28,18 +36,12 @@ Example scenarios will fall into one or more of the following categories:
     - Within
     - Crosses
     - Overlaps
-
-- Topological
-  - A topology is...to be cont'd
-  - Buffers
-  - [Voronoi diagrams embody a form of "automated" topology](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.86.3356&rep=rep1&type=pdf)
-  - Spatial networks 
-    - [Planar if 2D and edges only intersecting at the nodes ](https://arxiv.org/pdf/1611.01890.pdf)
 - Geostatistical 
   - Geostatistics is...to be cont'd
   - [First law of geography](https://wiki.gis.com/wiki/index.php/First_law_of_geography) 
 - Attribute Query
   - Attribute queries are...to be cont'd
+  - Filtering 
 - Proximity Analysis
   - Something...
 - Network Analysis
@@ -102,7 +104,7 @@ Suppose we'd like to allocate access to healthcare based on a resident's nearest
 
 ### Urban Logistics - Prescription Delivery
 
-A Canadian pharmacy chain, Shoppers Drug Mart, wants to launch a prescription delivery application. To save on costs and increase efficiencies, Shoppers is interested in delivering prescriptions to customers from the closest pharmacy. before launching, Shoppers must first find willing participants to test the application. 
+A Canadian pharmacy chain, Shoppers Drug Mart, wants to launch a prescription delivery application. To save on costs and increase efficiencies, Shoppers is interested in delivering prescriptions to customers from the closest pharmacy. Before launching, Shoppers must first find willing participants to test the application. 
 
 In Ottawa, Jonathan, a 24-year-old Carleton University student has recently tested positive for COVID-19 and must self-isolate for two weeks. He calls his local Shoppers to see if they can deliver his monthly prescribed medication. The pharmacist at Jonathan's local shoppers lets him know that they don't currently offer such services, but it is in their services pipeline. To avoid waiting for prescription delivery services to be available, the pharmacist asks Jonathan if he'd like to participate in beta testing their new prescription delivery application. Jonathan agrees and provides Shoppers with his consent to conduct research. 
 
@@ -114,27 +116,33 @@ Before creating a study area, Tim, a GIS Analyst working for Shoppers must first
 
 To answer these questions, Tim will need to acquire current data specific to Ottawa like road networks, building footprints, and Shoppers locations. Once this data has been acquired, only then can he start extracting data to fit the extent of his study area. Using building footprints, Tim locates Jonathan's building, and sets a 2.5km buffer around it. Tim uses a spatial intersection tool to find that 3 local Shoppers Drug Marts are within this buffer. Then, he uses Ottawa's road network to find the shortest path between Jonathan's building and the 3 local Shoppers Drug Marts. With some basic SQL code, only the closest Shopper's Drug Mart to Jonathan's building is coupled. In this case, a delivery driver would be dispatched from the Merivale location to deliver Jonathan's prescribed medication (see **Figure 5**). 
 
-The delivery service workflow generated for this model can be reincorporated to not only support prescription delivery for pharmacies, but also to link distribution centers to population centers, warehouses to stores, warehouses to stores to customers, etc. For the case of pharmacies, the Graphical Modeler in **Figure 6** automates the majority of the delivery service workflow. The final output would be the path to the closest pharmacy, which is what was seen in **Figure 5**. We can go a step further and couple pharmacies to 
+The delivery service workflow generated for this model can be reincorporated to not only support prescription delivery for pharmacies, but also to link distribution centers to population centers, warehouses to stores, warehouses to stores to customers, etc. For the case of pharmacies, the Graphical Modeler in **Figure 6** automates the majority of the delivery service workflow. The final output would be the path to the closest pharmacy, which is what was seen in **Figure 5**. 
 
-![](scenario_images/prescription_delivery/result.png)
+We can go a step further and couple pharmacies to 
+
+![](Model_Prescription_Delivery/images/result.png)
 
 **Figure 5**. Closest Pharmacy 
 
-![](scenario_images/prescription_delivery/model_builder.png)
+![](Model_Prescription_Delivery/images/model_builder.png)
 
 **Figure 6**. Closest Pharmacy Graphical Modeler 
 
-![](scenario_images/prescription_delivery/updated_workflow.png)
+![](Model_Prescription_Delivery/images/updated_workflow.png)
 
 **Figure 7**. Delivery Service Model Generation Workflow
 
-![](scenario_images/prescription_delivery/graphic_workflow.png)
+![](Model_Prescription_Delivery/images/workflow.png)
 
 **Figure 8**. Graphical Modeler for Finding the Distance between Pharmacies and Customers
 
-![](scenario_images/prescription_delivery/service.png)
+![](Model_Prescription_Delivery/images/services.png)
 
 **Figure 9**. Buildings with Access to Prescription Delivery
+
+![](Model_Prescription_Delivery/images/coupled_mod.png)
+
+**Figure 10** Delivery Service Coupled Model
 
 ### Waterbody Analysis - Seasonal Flooding
 
@@ -305,18 +313,6 @@ At Statistics Canada, an intern would like to conduct a population density study
    - We may theorize that more dense areas play an impact on the number of cases in neighbouring polygons. 
    - Expand to have topological relationships 
      - Maybe have buffers based on infection spread
-
-### Delivery - Pharmacy Prescription Delivery
-
-Prescription drugs are now available for delivery to customers. A Canadian pharmacy chain, Shoppers Drug Mart, finds that one of their customers lives near 3 Shoppers locations. To decide which store should send a driver to deliver the medication, they use QGIS' shortest path algorithm from the network analysis toolbar. The shortest path cost will be calculated in meters. Default speed is 50km/hr.
-
-![](scenario_images/shoppers_drug_mart/qgis.png)
-
-**Figure 15**. Shortest Path from Iverness / Benson to Nearest Shoppers
-
-![](scenario_images/shoppers_drug_mart/table.png)
-
-**Figure 16**. Table of Shortest Path for Figure 15
 
 ### Transit - Finding the Nearest Bus Stop(s) to a Building 
 
@@ -603,11 +599,6 @@ for Subwatershed & Catchment Reporting, as well as Regulations
 - NumPy to help with classification
 
 ##### Delivery - Pharmacy Prescription Delivery
-
-*Files Used*
-- Text file from [`spatial_analysis_scenarios/locations/ShoppersOttawa.txt`](https://github.com/omarkawach/spatial_analysis_scenarios/blob/master/locations/ShoppersOttawa.txt)
-- Shapefile from [`spatial_analysis_scenarios/shapefiles/ShoppersCustomer`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/ShoppersCustomer) which is a modified version of [`spatial_analysis_scenarios/shapefiles/OttawaBuildings.zip`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/OttawaBuildings.zip)
-- Shapefile from [`spatial_analysis_scenarios/shapefiles/OttawaRoads`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/OttawaRoads)
 
 ##### Transit - Finding the Nearest Bus Stop(s) to a Building 
 
