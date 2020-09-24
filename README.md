@@ -102,19 +102,35 @@ Suppose we'd like to allocate access to healthcare based on a resident's nearest
 
 ### Urban Logistics - Prescription Delivery
 
-A local pharmacy chain, Shoppers Drug Mart, launches a prescription delivery application. To save on costs and increase efficiencies, Shoppers is interested in delivering prescriptions from the closest Shoppers to the customer. To achieve this...Look for stores within 2.5km
+A Canadian pharmacy chain, Shoppers Drug Mart, wants to launch a prescription delivery application. To save on costs and increase efficiencies, Shoppers is interested in delivering prescriptions to customers from the closest pharmacy. before launching, Shoppers must first find willing participants to test the application. 
 
-![](scenario_images/prescription_delivery/model_builder.png)
+In Ottawa, Jonathan, a 24-year-old Carleton University student has recently tested positive for COVID-19 and must self-isolate for two weeks. He calls his local Shoppers to see if they can deliver his monthly prescribed medication. The pharmacist at Jonathan's local shoppers lets him know that they don't currently offer such services, but it is in their services pipeline. To avoid waiting for prescription delivery services to be available, the pharmacist asks Jonathan if he'd like to participate in beta testing their new prescription delivery application. Jonathan agrees and provides Shoppers with his consent to conduct research. 
 
-**Figure 5**. Closest Pharmacy Graphical Modeler 
+Before creating a study area, Tim, a GIS Analyst working for Shoppers must first ask himself the following questions:
+
+- Where is Jonathan located?
+- What distance(s) are delivery drivers permitted to drive?
+- Where are the Shoppers Drug Marts within the driveable distance?
+
+To answer these questions, Tim will need to acquire current data specific to Ottawa like road networks, building footprints, and Shoppers locations. Once this data has been acquired, only then can he start extracting data to fit the extent of his study area. Using building footprints, Tim locates Jonathan's building, and sets a 2.5km buffer around it. Tim uses a spatial intersection tool to find that 3 local Shoppers Drug Marts are within this buffer. Then, he uses Ottawa's road network to find the shortest path between Jonathan's building and the 3 local Shoppers Drug Marts. With some basic SQL code, only the closest Shopper's Drug Mart to Jonathan's building is coupled. In this case, a delivery driver would be dispatched from the Merivale location to deliver Jonathan's prescribed medication (see **Figure 5**). 
+
+The delivery service workflow generated for this model can be reincorporated to not only support prescription delivery for pharmacies, but also to link distribution centers to population centers, warehouses to stores, warehouses to stores to customers, etc. For the case of pharmacies, the Graphical Modeler in **Figure 6** automates the majority of the delivery service workflow. The final output would be the path to the closest pharmacy, which is what was seen in **Figure 5**. We can go a step further and couple pharmacies to 
 
 ![](scenario_images/prescription_delivery/result.png)
 
-**Figure 6**. Closest Pharmacy 
+**Figure 5**. Closest Pharmacy 
 
-![](scenario_images/prescription_delivery/workflow.png)
+![](scenario_images/prescription_delivery/model_builder.png)
+
+**Figure 6**. Closest Pharmacy Graphical Modeler 
+
+![](scenario_images/prescription_delivery/updated_workflow.png)
 
 **Figure 7**. Delivery Service Model Generation Workflow
+
+![](scenario_images/prescription_delivery/workflow_enhanced.png)
+
+**Figure 8**. 
 
 ### Waterbody Analysis - Seasonal Flooding
 
@@ -129,6 +145,10 @@ Before Ottawa's flood season begins, city planners want to know approx. how many
 ![](scenario_images/water_without_dem/Buildings_impacted.png)
 
 **Figure 9**. Buildings at Risk
+
+![](scenario_images/water_without_dem/workflow.png)
+
+**Figure 10** Waterbody Analysis Model Generation Workflow
 
 ## Scenarios
 

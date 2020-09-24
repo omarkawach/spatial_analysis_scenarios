@@ -1,7 +1,7 @@
 Location,Lon,Lat
 Robertson,-75.81689,45.32982
 Carling,-75.803346,45.360049
-Richmond Bayshore,-75.790986,45.369697
+Richmond Bayshore,-75.789781,45.362977
 Greenbank,-75.777596,45.334110
 Carlingwood Mall,-75.766267,45.377053
 Merivale Mall,-75.731228,45.345572
