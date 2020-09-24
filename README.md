@@ -128,9 +128,13 @@ The delivery service workflow generated for this model can be reincorporated to 
 
 **Figure 7**. Delivery Service Model Generation Workflow
 
-![](scenario_images/prescription_delivery/workflow_enhanced.png)
+![](scenario_images/prescription_delivery/graphic_workflow.png)
 
-**Figure 8**. 
+**Figure 8**. Graphical Modeler for Finding the Distance between Pharmacies and Customers
+
+![](scenario_images/prescription_delivery/service.png)
+
+**Figure 9**. Buildings with Access to Prescription Delivery
 
 ### Waterbody Analysis - Seasonal Flooding
 
