@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project>
+    <title>odb_ottawa</title>
+    <layers>
+        <layer>
+            <datasource>
+                <type>ESRI Shapefile</type>
+                <path>/Users/omarkawach/Documents/QGIS/GIS_GIT/spatial_analysis_scenarios/shapefiles/OttawaBuildings/odb_ottawa.shp</path>
+            </datasource>
+            <layername>odb_ottawa</layername>
+            <title/>
+            <variable_order>
+                <time_ids>
+                    <id>time 0</id>
+                </time_ids>
+                <var>
+                    Longitude
+                    <displayed_decimals>6</displayed_decimals>
+                </var>
+                <var>
+                    Latitude
+                    <displayed_decimals>6</displayed_decimals>
+                </var>
+                <var>CSDUID</var>
+                <var>CSDNAME</var>
+                <var>Data_prov</var>
+                <var>Build_ID</var>
+                <var>
+                    Shape_Leng
+                    <displayed_decimals>6</displayed_decimals>
+                </var>
+                <var>
+                    Shape_Area
+                    <displayed_decimals>6</displayed_decimals>
+                </var>
+            </variable_order>
+            <custom_classifications/>
+            <weights_entries/>
+            <default_vars>
+                <default_var>
+                    <name/>
+                    <time_id>time 0</time_id>
+                </default_var>
+                <default_var>
+                    <name/>
+                    <time_id>time 0</time_id>
+                </default_var>
+                <default_var>
+                    <name/>
+                    <time_id>time 0</time_id>
+                </default_var>
+                <default_var>
+                    <name/>
+                    <time_id>time 0</time_id>
+                </default_var>
+            </default_vars>
+        </layer>
+    </layers>
+</project>

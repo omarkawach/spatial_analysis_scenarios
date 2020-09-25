@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project>
+    <title>Wards_COVID</title>
+    <layers>
+        <layer>
+            <datasource>
+                <type>ESRI Shapefile</type>
+                <path>Wards_COVID.shp</path>
+            </datasource>
+            <layername>Wards_COVID</layername>
+            <title/>
+            <variable_order>
+                <time_ids>
+                    <id>time 0</id>
+                </time_ids>
+                <var>
+                    n_case_pop
+                    <displayed_decimals>6</displayed_decimals>
+                </var>
+                <var>
+                    CasesByPop
+                    <displayed_decimals>6</displayed_decimals>
+                </var>
+                <var>OBJECTID</var>
+                <var>DESCRIPTIO</var>
+                <var>NAME</var>
+                <var>NAME_FR</var>
+                <var>WARD_NUM</var>
+                <var>WARD_EN</var>
+                <var>WARD_FR</var>
+                <var>COUNCILLOR</var>
+                <var>WARD_NAME_</var>
+                <var>WARD_NAM_1</var>
+                <var>LINK_EN</var>
+                <var>LINK_FR</var>
+                <var>LINK_LABEL</var>
+                <var>LINK_LAB_1</var>
+                <var>
+                    Shape_Leng
+                    <displayed_decimals>6</displayed_decimals>
+                </var>
+                <var>
+                    Shape_Area
+                    <displayed_decimals>6</displayed_decimals>
+                </var>
+                <var>COVID_Ward</var>
+                <var>COVID_Wa_1</var>
+                <var>COVID_Cu_1</var>
+                <var>
+                    SJ_POP
+                    <displayed_decimals>6</displayed_decimals>
+                </var>
+            </variable_order>
+            <custom_classifications/>
+            <weights_entries>
+                <weights>
+                    <title>covid_queen</title>
+                    <default/>
+                    <meta_info>
+                        <weights_type>custom</weights_type>
+                        <path>covid_queen.gal</path>
+                        <id_variable>WARD_NUM</id_variable>
+                        <symmetry>unknown</symmetry>
+                        <num_observations>23</num_observations>
+                        <min_neighbors>2</min_neighbors>
+                        <max_neighbors>9</max_neighbors>
+                        <mean_neighbors>5.043478260869565</mean_neighbors>
+                        <median_neighbors>5</median_neighbors>
+                        <non_zero_perc>21.92816635160681</non_zero_perc>
+                    </meta_info>
+                </weights>
+            </weights_entries>
+            <default_vars>
+                <default_var>
+                    <name>n_case_pop</name>
+                    <time_id>time 0</time_id>
+                </default_var>
+                <default_var>
+                    <name/>
+                    <time_id>time 0</time_id>
+                </default_var>
+                <default_var>
+                    <name/>
+                    <time_id>time 0</time_id>
+                </default_var>
+                <default_var>
+                    <name/>
+                    <time_id>time 0</time_id>
+                </default_var>
+            </default_vars>
+        </layer>
+    </layers>
+</project>

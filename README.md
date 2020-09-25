@@ -167,6 +167,123 @@ Before Ottawa's flood season begins, city planners want to know approx. how many
 
 **Figure 10** Waterbody Analysis Model Generation Workflow
 
+### Spatial Econometrics - Covid Spread (Work In Progress)
+
+Tool used:
+- [GeoDa](http://geodacenter.github.io/)
+
+From the City of Ottawa, I found the number of confirmed cases by ward. Then I performed the following calculations / computations:
+
+- Ward data didn't have population data so I did a vector join in QGIS from Ottawa DA data
+- Created a weights file with Queen Matrix (neighborhoods defined by shared border and corners)
+
+![](GeoDa_Work/queen_more.png)
+
+-	(# of confirmed cases in ward /  population in ward) = CasesByPop which can be considered the number of cases per capita
+- Used a spatial lag calculator with row-standardized weights
+  - Gives every ward an equal weight
+    - Doesnt use contiguity matrix (zeroes and ones)
+    - Uses fractional weighting between zero and one
+  - (queen * CasesByPop) = n_cases_pop
+    - Same as saying we took the sum of each neighbors n_cases_pop and then divided by the number of neighbors
+    - Lets use see the avg cases per capita our neighbors have
+- We can then take n_cases_pop and use it thematically to show how much of an impact our neighbors could have on covid cases
+
+Cases per capita by population
+![](GeoDa_Work/cases_by_pop.png)
+
+Spatial lag by row standardized weights, how our neighbors cases can impact our number of cases
+![](GeoDa_Work/n_cases_pop.png)
+
+
+
+Excludes retirement homes and longterm care homes
+
+https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7395580/ 
+
+https://www.youtube.com/watch?v=V_OE8Kqp1dM 
+
+https://github.com/GeoDaCenter/covid 
+
+https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7139267/ 
+
+DOES THE NEIGHBORING MAKE SENSE??? YOU CANT HAVE ISLANDS SINCE THERE ARE NO NEIGHBOURS. YOU HAVE TO FIX THAT SOMEHOW
+
+LOWER THE WEIGHT OF THINGS FARTHER AWAY IF YOU DO DISTANCE (DISTANCE BASED WEIGHT) - TOPPLERS LAW
+
+ROW STANDARDIZATION WEIGHTS BETWEEN 0 AND 1, INTERPRETATION AS AVERAGE OF NEIGHBORS
+- instead of contiguity matrix (zeroes and ones if neighbors), it uses weights matrix
+  - you want to do this most of the time 
+    - you want the sum of all the weights to equal one 
+      - ex. three neighbours to one and divide by 3
+      - ex. 5 neighbours divide 1 by five
+    - gives each area we're interested in, and equal weight
+      - each give us an equal amount to what we're computing
+        - spatial correlating or regression
+
+LAG MODEL - spatial lag / autoregressive model SAR myth paper
+
+https://www.mdpi.com/2225-1146/2/4/217/htm
+
+Moran's I? What do the values mean? Maybe see how population impacts the number of neighbors you have? Check out space in geoda and click univariate morans i or do the local one to see potentially statistically signifcant areas
+- lisa cluster map
+- lisa signifigance map
+
+WEIGHT MATRICES FOR SPATIAL CORRELATION (shouldnt have large impact)
+- QUEEN
+  - shared boudnary or shared corner
+- ROOK
+  - only shared boudnary 
+- DISTANCE
+  - neighbors within distance (by row standardization)
+  - know if lat/lon or cartesian first 
+  - lon/lat
+    - use arc distance (over surface of sphere)
+  - cartesian 
+    - use euclidiean 
+- INVERSE DISTANCE
+  - closest in some sense by strongest neighbour 
+    - could be by non spatial aspects 
+  - 
+- KERNEL 
+- K-NEAREST neighbor (knn)
+  - x nearest neighbours 
+  - based on centroids and euclidian distance
+
+PRESCISION FRESHOLD
+- when two shapes meet at a point, how precise do you want the point to be
+
+SYMMETRY
+- ASYMETRIC
+- NON ASYMETRIC
+
+ORDER OF CONTIGUITY
+- 1
+  - ONLY IF YOU TOUCH ON A BORDER OR CORNER DIRECTLY WILL U BE A NEIGHBOR
+- 2
+  - NEIGHBOR OF A NEIGHBOR IS ALSO A NEIGHBOR OF MINE LOCATION -> NEIGHBOR -> NEIGHBORS NEIGHBOR
+  - Here is where you should maybe select include lower orders
+
+What is spatial lag? https://libraries.mit.edu/files/gis/regression_presentation_iap2013.pdf 
+- Spatial autocorrelation http://ncgia.ucsb.edu/technical-reports/PDF/92-10.pdf
+
+- Not that it wont always be just 6 or 12 neighbours
+
+We have a shapefile containing the population and homes in hundreds of DAs.
+- Create knn weights k=6 and create an inverse as well https://geodacenter.github.io/workbook/4b_dist_weights/lab4b.html#creating-knn-weights 
+- Then do one with epanechnikov kernel weight
+- create spatially lagged variable
+  - spatial lag in table calculator 
+  - try with k6 first
+    - spatial lag with row standardized weights
+      - k6_sc_lag = avg houses of 6 neighbors = (x1 + x2 ... x6) / 6 with row standardized weights
+    - spatial lag as a sum of neighboring values
+      - k6_sc_lag2 = sum of pop of six neighbors
+    - spatial window average
+      - k6_sc_lag3 = the observation itself and the average so divided by 7 instead
+    - spatial window sum
+      - without dividing by 7
+
 ## Scenarios
 
 See [Appendix](https://github.com/omarkawach/spatial_analysis_scenarios#appendix) for details on files, packages, and data sources used. 
