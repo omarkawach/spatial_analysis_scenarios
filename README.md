@@ -4,9 +4,6 @@
 
 This repository explores various open sources tools one could use for performing geospatial analysis. The goal is to discuss a bank of simulation models that could be incorporated into [DEVS GIS Simulation Explorer](https://github.com/staubibr/arslab-web/tree/master/app-gis). There are interactive **Jupyter Notebooks** available for demo purposes via **Binder**. Developers can also install Python packages themselves and run the code on their own in **Spyder**. 
 
-### Introduction
-
-Large and small scale problems are difficult for humans to conceptualize. This is especially true when we consider global issues ([Resnik et al., 2016](https://onlinelibrary.wiley.com/doi/full/10.1111/cogs.12388)). The COVID-19 pandemic is one of the many global issues humanity has come to face in the 21st century. Local, national, and global real-time, non-real-time, or simulated disease cases must be carefully analyzed to address this challenge. Geographical tracking and mapping of the pandemic through the application of Geographic Information Systems (GIS) has been proven to be a powerful system for disease monitoring and planning ([Buolos & Geraghty, 2020](https://ij-healthgeographics.biomedcentral.com/articles/10.1186/s12942-020-00202-8)). Such a system has allowed researchers to present large volumes of data in an intuitive way. For one, web-based mapping has created an environment for accessible remote collaboration between decision makers ([Franch-Pardo et al., 2020](https://www.sciencedirect.com/science/article/pii/S0048969720335531)). By integrating simulation models into map-based web applications, researchers can also highlight spatiotemporal trends in various scenarios. This study aims to ...
 
 ### Background
 
@@ -75,7 +72,7 @@ Steps:
 
 4. You may now run/manipulate code
 
-## Models 
+## Models (DRAFT)
 
 ### Emergency Services - Health Unit Access 
 
@@ -157,47 +154,55 @@ Before Ottawa's flood season begins, city planners want to know approx. how many
 
 ![](scenario_images/water_without_dem/graphic_model.png)
 
-**Figure 8**. Flood Risk Model Generation Workflow 
+**Figure 12**. Flood Risk Model Generation Workflow 
 
 ![](scenario_images/water_without_dem/Buildings_impacted.png)
 
-**Figure 9**. Buildings at Risk
+**Figure 13**. Buildings at Risk
 
 ![](scenario_images/water_without_dem/workflow.png)
 
-**Figure 10** Waterbody Analysis Model Generation Workflow
+**Figure 14** Waterbody Analysis Model Generation Workflow
 
-### Spatial Econometrics - Covid Spread (Work In Progress)
+### Spatial Statistics - COVID-19 Spread
 
-Tool used:
-- [GeoDa](http://geodacenter.github.io/)
+Since the inception of Topler's First Law of Geography (TFL), researchers in the GIS community have employed such a concept to to describe spatial dependence ([Leitner et al., 2018](https://www.researchgate.net/publication/323419139_Laws_of_Geography)). In the field of epidomiology, one could apply TFL to synthetically simulate the spread of infectious diseases in a geographical environment based on spatial weighitng ([Zhong et al., 2009](https://www.researchgate.net/profile/Song_Dunjiang/publication/226204125_Simulation_of_the_spread_of_infectious_diseases_in_a_geographical_environment/links/00b495316b307a20ab000000/Simulation-of-the-spread-of-infectious-diseases-in-a-geographical-environment.pdf)). Such an application can play a vital role in disease prevention and control when coupled with modern spatio-temporal analysis techniques ([Watkins et al., 2007](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1805744/)). 
 
-From the City of Ottawa, I found the number of confirmed cases by ward. Then I performed the following calculations / computations:
+The recent COVID-19 outbreak has made it apparent how unprepared governments are for a global pandemic of this scale ([Timmis, and Brussow, 2020](https://sfamjournals.onlinelibrary.wiley.com/doi/10.1111/1462-2920.15029)). Matters are made worse by the fact that large, and even small scale problems are difficult for humans to conceptualize. This is especially true when we consider global issues like global warming ([Resnik et al., 2016](https://onlinelibrary.wiley.com/doi/full/10.1111/cogs.12388)). Given the unprecedented amount of data surrounding the ongoing pandemic, local / national / global real-time, non-real-time, or simulated disease cases must be carefully analyzed to recognize high risk geographical regions which may be susceptible to outbreaks or further disease spreading. 
 
-- Ward data didn't have population data so I did a vector join in QGIS from Ottawa DA data
-- Created a weights file with Queen Matrix (neighborhoods defined by shared border and corners)
+Geographical tracking and mapping of pandemic data through the application of Geographic Information Systems (GIS) has been proven to be a powerful system for disease monitoring and planning ([Buolos & Geraghty, 2020](https://ij-healthgeographics.biomedcentral.com/articles/10.1186/s12942-020-00202-8)). Such a system has allowed researchers to present large volumes of data in an intuitive way. For one, web-based mapping has created an environment for accessible remote collaboration between decision makers ([Franch-Pardo et al., 2020](https://www.sciencedirect.com/science/article/pii/S0048969720335531)). By integrating simulation models into map-based web applications, researchers can also highlight spatiotemporal trends in various scenarios. 
+
+Spatial models involving the spread of COVID-19 between populations offers a unique perspective into how cases can spillover from densely populated areas to less dense areas ([Eilersen, and Sneppen, 2020](https://www.medrxiv.org/content/10.1101/2020.09.04.20188359v1.full.pdf) **NOT YET PEER REVIEWED**). In **Table 1**, the data retrieved from the City of Ottawa reveals the number of cummulative COVID-19 cases by ward as of September 25 2020. The COVID-19 dataset from the City of Ottawa did not provide population statistics, so it had to be added manually by spatial joining data from an Ottawa DA shapefile. 
+
+**Table 1**. Cummulative COVID-19 Cases as Reported on September 25 (maybe use more up to date info later)
+
+<img src="GeoDa_Work/cumu_ottawa_sept25.png" alt="cases_by_ward" width="420" height="450" />
+
+**Note**: Exlucdes retirement home and longterm care home cases
+
+To better visualize the data from **Table 1**, the number of cases per capita (*Cumu_cases / Population*) was plotted onto a map using quantile classification (6 classes).
+
+
+![](GeoDa_Work/cases_by_pop.png)
+
+**Figure 15**. COVID-19 cases per capita 
+
+Before thematically identifying which wards are at a high risk of disease case spillover, a Queen matrix was applied to the Ottawa Wards shapefile to find each ward's neighbours by shared border and corners. 
 
 ![](GeoDa_Work/queen_more.png)
 
--	(# of confirmed cases in ward /  population in ward) = CasesByPop which can be considered the number of cases per capita
-- Used a spatial lag calculator with row-standardized weights
-  - Gives every ward an equal weight
-    - Doesnt use contiguity matrix (zeroes and ones)
-    - Uses fractional weighting between zero and one
-  - (queen * CasesByPop) = n_cases_pop
-    - Same as saying we took the sum of each neighbors n_cases_pop and then divided by the number of neighbors
-    - Lets use see the avg cases per capita our neighbors have
-- We can then take n_cases_pop and use it thematically to show how much of an impact our neighbors could have on covid cases
+**Figure 16**. Osgoode Ward and it's Neighbours  
 
-Cases per capita by population
-![](GeoDa_Work/cases_by_pop.png)
+A spatial lag calculator with row-standardized weights would give every ward an equal weight since the Queen matrix would be fractional instead of zeroes and ones (contiguity). Using the spatial lag calculator, one could sum the number of cases in each neighbouring ward and then divide by the number of neighboring wards (*Queen * (Cumu_cases / Population)*). Plotting this result shows the wards at a high risk of disease spillover from neighbouring wards. 
 
-Spatial lag by row standardized weights, how our neighbors cases can impact our number of cases
+
 ![](GeoDa_Work/n_cases_pop.png)
+**Figure 17**. Quantile Classification of Wards at Risk of Disease Spillover
 
+-- Today's cutoff --
 
-
-Excludes retirement homes and longterm care homes
+Limitations
+- GWR https://pro.arcgis.com/en/pro-app/tool-reference/spatial-statistics/geographicallyweightedregression.htm 
 
 https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7395580/ 
 
