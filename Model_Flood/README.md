@@ -1,0 +1,1 @@
+You'll need to get the DEM data from here: https://ftp.maps.canada.ca/pub/nrcan_rncan/vector/index/html/geospatial_product_index_en.html#link 

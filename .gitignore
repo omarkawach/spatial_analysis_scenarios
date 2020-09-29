@@ -14,3 +14,8 @@ shapefiles/OC_ROUTES_VERTICES
 shapefiles/.DS_Store
 shapefiles/.DS_Store
 shapefiles/RVCA/RVCA_WaterbodySHP
+Model_Flood/canvec_50K_ON_Elevation_shp.zip
+Model_Flood/cdem_dem_031G_tif.zip
+Model_Flood/canvec_50K_ON_Elevation_shp
+Model_Flood/ottawa_dem_031G
+Model_Flood/outputs_as_shapefiles/hillshade.tif

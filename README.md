@@ -2,16 +2,20 @@
 
 ### Overview
 
-This repository explores various open sources tools one could use for performing geospatial analysis. The goal is to discuss a bank of simulation models that could be incorporated into [DEVS GIS Simulation Explorer](https://github.com/staubibr/arslab-web/tree/master/app-gis). There are interactive **Jupyter Notebooks** available for demo purposes via **Binder**. Developers can also install Python packages themselves and run the code on their own in **Spyder**. 
+This repository explores various open sources tools one could use for performing geospatial analysis. The goal is to develop a method to generate large scale DEVS simulation models from GIS data (hospitals --> map onto, paramters doctors, beds, etc.). Then processing it and turning it into a model. Library of models. 
+
+First half of simulation life cycle...library later, code behaviour
+
+discuss a bank of simulation models that could be incorporated into [DEVS GIS Simulation Explorer](https://github.com/staubibr/arslab-web/tree/master/app-gis). There are interactive **Jupyter Notebooks** available for demo purposes via **Binder**. Developers can also install Python packages themselves and run the code on their own in **Spyder**. 
 
 
 ### Background
 
 GIS
 
-[Spatial analysis](https://mgimond.github.io/Spatial/introGIS.html)
+DEVS
 
-Visualization
+[Spatial analysis](https://mgimond.github.io/Spatial/introGIS.html)
 
 ### Things to Discuss
 
@@ -146,7 +150,7 @@ Going a step further, the workflow can be implemented on a much larger scale. Su
 
 **Figure 11**. Delivery Service Coupled Model (maybe add ellipses so it looks like we have more couplings, e.g. coupling, coupling, ... , coupling)
 
-### Waterbody Analysis - Seasonal Flooding
+### Water Analysis - Damage to Infastructure due to Flooding
 
 **Note**: This model does not take elevation levels into consideration
 
@@ -162,13 +166,27 @@ Before Ottawa's flood season begins, city planners want to know approx. how many
 
 ![](scenario_images/water_without_dem/workflow.png)
 
-**Figure 14** Waterbody Analysis Model Generation Workflow
+**Figure 14**. Waterbody Analysis Model Generation Workflow
 
-### Spatial Statistics - COVID-19 Spread
+![](Model_Flood/images/Elev.png)
+
+**Figure 15**. Elevation Map
+
+![](Model_Flood/images/Dangerzone.png)
+
+**Figure 16**. Danger Zones and the Elevations within 
+
+![](Model_Flood/images/Dangerzone_one.png)
+
+**Figure 17**. Dangerzone One - Buildings by Elevation 
+
+### Spatial Statistics - COVID-19 Spread (weights)
 
 Since the inception of Topler's First Law of Geography (TFL), researchers in the GIS community have employed such a concept to to describe spatial dependence ([Leitner et al., 2018](https://www.researchgate.net/publication/323419139_Laws_of_Geography)). In the field of epidomiology, one could apply TFL to synthetically simulate the spread of infectious diseases in a geographical environment based on spatial weighitng ([Zhong et al., 2009](https://www.researchgate.net/profile/Song_Dunjiang/publication/226204125_Simulation_of_the_spread_of_infectious_diseases_in_a_geographical_environment/links/00b495316b307a20ab000000/Simulation-of-the-spread-of-infectious-diseases-in-a-geographical-environment.pdf)). Such an application can play a vital role in disease prevention and control when coupled with modern spatio-temporal analysis techniques ([Watkins et al., 2007](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1805744/)). 
 
 The recent COVID-19 outbreak has made it apparent how unprepared governments are for a global pandemic of this scale ([Timmis, and Brussow, 2020](https://sfamjournals.onlinelibrary.wiley.com/doi/10.1111/1462-2920.15029)). Matters are made worse by the fact that large, and even small scale problems are difficult for humans to conceptualize. This is especially true when we consider global issues like global warming ([Resnik et al., 2016](https://onlinelibrary.wiley.com/doi/full/10.1111/cogs.12388)). Given the unprecedented amount of data surrounding the ongoing pandemic, local / national / global real-time, non-real-time, or simulated disease cases must be carefully analyzed to recognize high risk geographical regions which may be susceptible to outbreaks or further disease spreading. 
+
+3RD PARAGRAPH AT START
 
 Geographical tracking and mapping of pandemic data through the application of Geographic Information Systems (GIS) has been proven to be a powerful system for disease monitoring and planning ([Buolos & Geraghty, 2020](https://ij-healthgeographics.biomedcentral.com/articles/10.1186/s12942-020-00202-8)). Such a system has allowed researchers to present large volumes of data in an intuitive way. For one, web-based mapping has created an environment for accessible remote collaboration between decision makers ([Franch-Pardo et al., 2020](https://www.sciencedirect.com/science/article/pii/S0048969720335531)). By integrating simulation models into map-based web applications, researchers can also highlight spatiotemporal trends in various scenarios. 
 
@@ -429,6 +447,8 @@ At Statistics Canada, an intern would like to conduct a population density study
      - Maybe have buffers based on infection spread
 
 ### Transit - Finding the Nearest Bus Stop(s) to a Building 
+
+JTFS
 
 Find the nearest bus stop to each building within specific Ottawa DAs. This can be done by using bus stops to create voronoi polygons. Then, intersect the voronoi polygons with the Ottawa DAs. This scenario assumes that the vertices from each bus route are bus stops, even if that is not the case.  
 
