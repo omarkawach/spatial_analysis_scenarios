@@ -178,7 +178,7 @@ FIND A PUBLISHED MULTI-RING BUFFER EXAMPLE, NEED SOURCES
 
 ![](Model_Flood/images/Elevation.png)
 
-**Figure 15**. IDW with NN 
+**Figure 15**. Elevation Contours 
 
 ![](Model_Flood/images/IDW_with_NN.png)
 
