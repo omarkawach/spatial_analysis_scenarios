@@ -1,4 +1,4 @@
-# Spatial Analysis Scenarios
+# Spatial Analysis Scenarios (WORK IN PROGRESS)
 
 ### Overview
 
@@ -10,6 +10,8 @@ discuss a bank of simulation models that could be incorporated into [DEVS GIS Si
 
 
 ### Background
+
+Geographical tracking and mapping of pandemic data through the application of Geographic Information Systems (GIS) has been proven to be a powerful system for disease monitoring and planning ([Buolos & Geraghty, 2020](https://ij-healthgeographics.biomedcentral.com/articles/10.1186/s12942-020-00202-8)). Such a system has allowed researchers to present large volumes of data in an intuitive way. For one, web-based mapping has created an environment for accessible remote collaboration between decision makers ([Franch-Pardo et al., 2020](https://www.sciencedirect.com/science/article/pii/S0048969720335531)). By integrating simulation models into map-based web applications, researchers can also highlight spatiotemporal trends in various scenarios. 
 
 GIS
 
@@ -76,7 +78,7 @@ Steps:
 
 4. You may now run/manipulate code
 
-## Models (DRAFT)
+## Models
 
 ### Emergency Services - Health Unit Access 
 
@@ -104,6 +106,10 @@ Suppose we'd like to allocate access to healthcare based on a resident's nearest
 **Figure 4**. Emergency Service Model Generation Workflow
 
 ### Urban Logistics - Prescription Delivery
+
+MAYBE MENTION HOW SHORTEST PATH CAN ALSO BE DONE IN RASTERS?
+
+CAN ALSO USE SERVICE AREAS TO SHOW TIME INTERVALS OF TRAVEL https://desktop.arcgis.com/en/arcmap/latest/extensions/network-analyst/service-area.htm
 
 A Canadian pharmacy chain, Shoppers Drug Mart, wants to launch a prescription delivery application. To save on costs and increase efficiencies, Shoppers is interested in delivering prescriptions to customers from the closest pharmacy. Before launching, Shoppers must first find willing participants to test the application. 
 
@@ -152,9 +158,9 @@ Going a step further, the workflow can be implemented on a much larger scale. Su
 
 ### Water Analysis - Damage to Infastructure due to Flooding
 
-**Note**: This model does not take elevation levels into consideration
+FIND A PUBLISHED MULTI-RING BUFFER EXAMPLE, NEED SOURCES
 
-Before Ottawa's flood season begins, city planners want to know approx. how many homes are most at risk. Assuming a 1km flood risk buffer, we can create a multi-ring buffer where we split the risk by 200m each. 
+As severe flooding increases across Canada due to climate change [ADD SOURCE HERE], proactive measures by various levels of governemtn is required. Without such intervention, flooding in regions like Ottawa-Gatineau will contiue to become a problem (ADD SOURCE HERE). Sandbagsa are commonly used as a defence against floods. Having data on which homes and neighbours to protect would be vital information. For example, assume a 1km flood risk buffer was created in one neighbourhood and then split into quarters via the multi-ring buffer method. Each ring in **Figure 13** can represent a sandbag line of defence so first responders can allot sandbags accordingly. The limitation for this model is that it does not take elevation into consideration. The speed and height at which water approaches a home is an important factor. The DAs surrounding the Wastewater Treatment Plant in Ottawa has a diverse amount of elevation. The severity of the flooding has been mapped using a three-ring buffer. Each ring in the three-ring buffer will represent 600m for a total of 1.8km. Also, the homes at the highest risk are those under 70m of elevation. To specify the amount of elevation in an area, Inverse Distance Weighting (IDW) with Nearest Neighbour (NN) Analysis is used to build a raster. Then we use the raster calculator to find which areas are below 70m of elevation. We then polygonize the raster and intersect it with the three-ring buffer. 
 
 ![](scenario_images/water_without_dem/graphic_model.png)
 
@@ -168,31 +174,34 @@ Before Ottawa's flood season begins, city planners want to know approx. how many
 
 **Figure 14**. Waterbody Analysis Model Generation Workflow
 
-![](Model_Flood/images/Elev.png)
 
-**Figure 15**. Elevation Map
 
-![](Model_Flood/images/Dangerzone.png)
+![](Model_Flood/images/Elevation.png)
 
-**Figure 16**. Danger Zones and the Elevations within 
+**Figure 15**. IDW with NN 
 
-![](Model_Flood/images/Dangerzone_one.png)
+![](Model_Flood/images/IDW_with_NN.png)
 
-**Figure 17**. Dangerzone One - Buildings by Elevation 
+**Figure 16**. IDW with NN 
+
+![](Model_Flood/images/RasterCalc.png)
+
+**Figure 17**. Raster Calculator Result
+
+![](Model_Flood/images/Flood.png)
+
+**Figure 18**. Buildings at Risk by Danger Zones and Elevations
 
 ### Spatial Statistics - COVID-19 Spread (weights)
 
-Since the inception of Topler's First Law of Geography (TFL), researchers in the GIS community have employed such a concept to to describe spatial dependence ([Leitner et al., 2018](https://www.researchgate.net/publication/323419139_Laws_of_Geography)). In the field of epidomiology, one could apply TFL to synthetically simulate the spread of infectious diseases in a geographical environment based on spatial weighitng ([Zhong et al., 2009](https://www.researchgate.net/profile/Song_Dunjiang/publication/226204125_Simulation_of_the_spread_of_infectious_diseases_in_a_geographical_environment/links/00b495316b307a20ab000000/Simulation-of-the-spread-of-infectious-diseases-in-a-geographical-environment.pdf)). Such an application can play a vital role in disease prevention and control when coupled with modern spatio-temporal analysis techniques ([Watkins et al., 2007](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1805744/)). 
+Since the inception of Topler's First Law of Geography (TFL), researchers in the GIS community have employed such a concept to describe spatial dependence ([Leitner et al., 2018](https://www.researchgate.net/publication/323419139_Laws_of_Geography)). In the field of epidemiology, one could apply TFL to synthetically simulate the spread of infectious diseases in a geographical environment based on spatial weighitng ([Zhong et al., 2009](https://www.researchgate.net/profile/Song_Dunjiang/publication/226204125_Simulation_of_the_spread_of_infectious_diseases_in_a_geographical_environment/links/00b495316b307a20ab000000/Simulation-of-the-spread-of-infectious-diseases-in-a-geographical-environment.pdf)). Such an application can play a vital role in disease prevention and control when coupled with modern spatio-temporal analysis techniques ([Watkins et al., 2007](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1805744/)). 
 
-The recent COVID-19 outbreak has made it apparent how unprepared governments are for a global pandemic of this scale ([Timmis, and Brussow, 2020](https://sfamjournals.onlinelibrary.wiley.com/doi/10.1111/1462-2920.15029)). Matters are made worse by the fact that large, and even small scale problems are difficult for humans to conceptualize. This is especially true when we consider global issues like global warming ([Resnik et al., 2016](https://onlinelibrary.wiley.com/doi/full/10.1111/cogs.12388)). Given the unprecedented amount of data surrounding the ongoing pandemic, local / national / global real-time, non-real-time, or simulated disease cases must be carefully analyzed to recognize high risk geographical regions which may be susceptible to outbreaks or further disease spreading. 
+The recent COVID-19 outbreak has made it apparent how unprepared governments are for a global pandemic of this scale ([Timmis, and Brussow, 2020](https://sfamjournals.onlinelibrary.wiley.com/doi/10.1111/1462-2920.15029)). Matters are made worse by the fact that large, and even small-scale problems are difficult for humans to conceptualize. This is especially true when we consider global issues like global warming ([Resnik et al., 2016](https://onlinelibrary.wiley.com/doi/full/10.1111/cogs.12388)). Given the unprecedented amount of data surrounding the ongoing pandemic, local / national / global real-time, non-real-time, or simulated disease cases must be carefully analyzed to recognize high risk geographical regions which may be susceptible to outbreaks or further disease spreading. 
 
-3RD PARAGRAPH AT START
 
-Geographical tracking and mapping of pandemic data through the application of Geographic Information Systems (GIS) has been proven to be a powerful system for disease monitoring and planning ([Buolos & Geraghty, 2020](https://ij-healthgeographics.biomedcentral.com/articles/10.1186/s12942-020-00202-8)). Such a system has allowed researchers to present large volumes of data in an intuitive way. For one, web-based mapping has created an environment for accessible remote collaboration between decision makers ([Franch-Pardo et al., 2020](https://www.sciencedirect.com/science/article/pii/S0048969720335531)). By integrating simulation models into map-based web applications, researchers can also highlight spatiotemporal trends in various scenarios. 
+Spatial models involving the spread of COVID-19 between populations offers a unique perspective into how cases can spillover from densely populated areas to less dense areas ([Eilersen, and Sneppen, 2020](https://www.medrxiv.org/content/10.1101/2020.09.04.20188359v1.full.pdf) **NOT YET PEER REVIEWED**). In **Table 1**, the data retrieved from the City of Ottawa reveals the number of cumulative  COVID-19 cases by ward as of September 25, 2020. The COVID-19 dataset from the City of Ottawa did not provide population statistics, so it had to be added manually by spatial joining data from an Ottawa DA shapefile. 
 
-Spatial models involving the spread of COVID-19 between populations offers a unique perspective into how cases can spillover from densely populated areas to less dense areas ([Eilersen, and Sneppen, 2020](https://www.medrxiv.org/content/10.1101/2020.09.04.20188359v1.full.pdf) **NOT YET PEER REVIEWED**). In **Table 1**, the data retrieved from the City of Ottawa reveals the number of cummulative COVID-19 cases by ward as of September 25 2020. The COVID-19 dataset from the City of Ottawa did not provide population statistics, so it had to be added manually by spatial joining data from an Ottawa DA shapefile. 
-
-**Table 1**. Cummulative COVID-19 Cases as Reported on September 25 (maybe use more up to date info later)
+**Table 1**. cumulative  COVID-19 Cases as Reported on September 25 (maybe use more up to date info later)
 
 <img src="GeoDa_Work/cumu_ottawa_sept25.png" alt="cases_by_ward" width="420" height="450" />
 
