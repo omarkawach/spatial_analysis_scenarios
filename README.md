@@ -1,32 +1,69 @@
-# Spatial Analysis Scenarios (WORK IN PROGRESS)
+# Modeling: Spatial Analysis (DRAFT)
 
-### Overview
+This repository explores various open sources tools one could use for performing geospatial analysis. The end goal is to develop a method to generate large scale DEVS simulation models from GIS data. There are interactive **Jupyter Notebooks** available for demo purposes via **Binder**. Developers can also install Python packages themselves and run the code on their own in **Spyder**. For GIS experts, **GeoDa** and **QGIS** installation links are included at the bottom of the repo.
 
-This repository explores various open sources tools one could use for performing geospatial analysis. The goal is to develop a method to generate large scale DEVS simulation models from GIS data (hospitals --> map onto, paramters doctors, beds, etc.). Then processing it and turning it into a model. Library of models. 
+### Getting Started
+
+#### Jupyter Notebook Demo of Scenarios 
+
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/omarkawach/spatial_analysis_scenarios.git/master)
+
+Select the `scenario_notebooks` folder once Binder has loaded the repo in Jupyter Notebook. Next, choose any notebook to demo. Make sure to set the kernel to Python 3 when prompted. 
+
+**Note:** Some cells may need more than a few seconds or minutes to run. Some libraries may also be unsupported by Binder.
+
+#### Python Development Setup
+
+1. In a console, cd into your desired directory and run the following:
+   
+   `git clone https://github.com/omarkawach/spatial_analysis_scenarios.git`
+   
+2. [Download Anaconda and then launch Spyder](https://www.anaconda.com/products/individual)
+   
+
+3. Open a console where you cloned the repo, install all necessary python packages in one go using:
+   
+   ` pip install -r packages.txt `
+
+4. You may now run/manipulate code
+
+
+
+## Background
+
+#### GIS
+
+A geographic information system (GIS) can be referred as the proliferation of data spatially referenced to Earth. The two main components of spatial data are location (where) and attributes (what). These components of spatial data are mappable digitally and / or on paper. There also exist two main types of data in GIS. Vector data (objects) and raster data (field). Vector data can be 0-dimensional, 1-dimensional, and 2-dimensional. In the 0th dimension, coordinate points exist on their own. In the 1st dimension, two points can be used to create a line. In the 2nd dimension, three or more lines can be joined to make a polygon. Rasters can either be continuous (progressive data that varies) or discrete (thematic or categorical). Rectangular tessellated rasters are most common since they are easier mathematically. 
+
+**Find somewhere else to put this?**
+Geographical tracking and mapping of pandemic data through the application of Geographic Information Systems (GIS) has been proven to be a powerful system for disease monitoring and planning ([Buolos & Geraghty, 2020](https://ij-healthgeographics.biomedcentral.com/articles/10.1186/s12942-020-00202-8)). Such a system allows researchers to present large volumes of data in an intuitive way. For one, web-based mapping has created an environment for accessible remote collaboration between decision makers ([Franch-Pardo et al., 2020](https://www.sciencedirect.com/science/article/pii/S0048969720335531)). By integrating simulation models into map-based web applications, researchers can also highlight spatiotemporal trends in various scenarios. 
+
+(hospitals --> map onto, paramters doctors, beds, etc.). Then processing it and turning it into a model. Library of models. 
 
 First half of simulation life cycle...library later, code behaviour
 
-discuss a bank of simulation models that could be incorporated into [DEVS GIS Simulation Explorer](https://github.com/staubibr/arslab-web/tree/master/app-gis). There are interactive **Jupyter Notebooks** available for demo purposes via **Binder**. Developers can also install Python packages themselves and run the code on their own in **Spyder**. 
+
+#### DEVS
+
+-- Bruno --
+
+#### Spatial Analysis (the flow here is weird...fix later)
+
+The utilisation of spatial analysis techniques in the field of GIS is imperative, especially when solving real-world problems. From the wide range of spatial analysis techniques, this paper will focus on topological, geostatistical, spatial/attribute querying, network analysis techniques. 
 
 
-### Background
+[Article on coupling large scale models to GIS](https://www.sciencedirect.com/science/article/pii/S1877042811013267)
 
-Geographical tracking and mapping of pandemic data through the application of Geographic Information Systems (GIS) has been proven to be a powerful system for disease monitoring and planning ([Buolos & Geraghty, 2020](https://ij-healthgeographics.biomedcentral.com/articles/10.1186/s12942-020-00202-8)). Such a system has allowed researchers to present large volumes of data in an intuitive way. For one, web-based mapping has created an environment for accessible remote collaboration between decision makers ([Franch-Pardo et al., 2020](https://www.sciencedirect.com/science/article/pii/S0048969720335531)). By integrating simulation models into map-based web applications, researchers can also highlight spatiotemporal trends in various scenarios. 
-
-GIS
-
-DEVS
-
-[Spatial analysis](https://mgimond.github.io/Spatial/introGIS.html)
-
-### Things to Discuss
-
-Example scenarios will fall into one or more of the following categories:
+[More ESRI](https://www.esri.com/arcgis-blog/products/product/analytics/how-to-perform-spatial-analysis/)
 
 
-- Topological
+[Use cases ESRI blog](https://www.esri.com/arcgis-blog/products/analytics/analytics/learn-spatial-analysis-techniques-with-scenario-based-case-studies/)
+
+
+##### Topology
+
   - A topology is...to be cont'd
-  - Buffers
+  - Buffers (proximity)
   - [Voronoi diagrams embody a form of "automated" topology](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.86.3356&rep=rep1&type=pdf)
   - Spatial networks 
     - [Planar if 2D and edges only intersecting at the nodes ](https://arxiv.org/pdf/1611.01890.pdf)
@@ -39,162 +76,32 @@ Example scenarios will fall into one or more of the following categories:
     - Within
     - Crosses
     - Overlaps
-- Geostatistical 
-  - Geostatistics is...to be cont'd
+
+
+##### Geostatistics
+
+  - nearest neighbour, inverse distance, and classifcations are not geostatistics
+  - spatiotemporal = space and time
   - [First law of geography](https://wiki.gis.com/wiki/index.php/First_law_of_geography) 
-- Attribute Query
+
+
+##### Query
   - Attribute queries are...to be cont'd
-  - Filtering 
-- Proximity Analysis
-  - Something...
-- Network Analysis
-  - Roads, busses, etc...to be cont'd
+  - spatial queries are...
+  - Filtering
+  - https://www.researchgate.net/publication/321376749_Spatial_and_Attribute_Querying
+ 
+##### Network Analysis
 
-## Demo Notebook Scenarios
+Network analysis is commonly used in instances of urban planning / logistics studies. 
 
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/omarkawach/spatial_analysis_scenarios.git/master)
 
-Steps:
-- Click the icon above to launch this repository in Jupyter Notebook
-- Once Binder loads the repo in Jupyter Notebook, Select the `scenario_notebooks` folder
-- Select any notebook to demo
-- Set kernel to Python 3
-- Click `Run` to move down one cell
-  - Keep clicking `Run` to move down another cell
-
-**Note:** Some cells may need more than a few seconds or minutes to run. 
-
-## Development Setup
-1. In a console, cd into your desired directory and run the following:
-   
-   `git clone https://github.com/omarkawach/spatial_analysis_scenarios.git`
-   
-2. [Download Anaconda and then launch Spyder](https://www.anaconda.com/products/individual)
-   
-
-3. Open a console where you cloned the repo, install all necessary python packages in one go using:
-   
-   ` pip install --use-feature=2020-resolver -r packages.txt `
-
-4. You may now run/manipulate code
 
 ## Models
 
-### Emergency Services - Health Unit Access 
-
-**Note**: In this case, we'll consider rehabilitation centres as hospitals.
-
-Suppose we'd like to allocate access to healthcare based on a resident's nearest hospital.  To save on computational power, the current focus will be on 3 Ottawa DAs and the buildings that are spatially intersected within them (see **Figure 1**). We'll begin the model generation workflow by calculating the road distance between hospitals and buildings through the shortest path algorithm. This is accomplished in QGIS' Graphical Modeler (see **Figure 2**). Afterwards, buildings are assigned to their nearest hospital by using a simple [python script](https://github.com/omarkawach/spatial_analysis_scenarios/blob/master/scenario_files/health_units_refined.py). We'll call this assignment "Hospital-Building (HB) coupling". Then, all these HB couplings will produce an Emergency Service Coupled Model. 
-
-![](scenario_images/Health_Units/polygons.png)
-
-**Figure 1**. Three Ottawa DAs and their Buildings
-
-![](scenario_images/Health_Units/graphic_model.png)
-
-**Figure 2**. Road Distance Graphical Modeler
-
-**Legend**
-![](scenario_images/Health_Units/hospitals_legend.png)
-
-![](scenario_images/Health_Units/hospital_access.png)
-
-**Figure 3**. Health Unit - Building Couplings
-
-![](scenario_images/Health_Units/workflows.png)
-
-**Figure 4**. Emergency Service Model Generation Workflow
-
-### Urban Logistics - Prescription Delivery
-
-MAYBE MENTION HOW SHORTEST PATH CAN ALSO BE DONE IN RASTERS?
-
-CAN ALSO USE SERVICE AREAS TO SHOW TIME INTERVALS OF TRAVEL https://desktop.arcgis.com/en/arcmap/latest/extensions/network-analyst/service-area.htm
-
-A Canadian pharmacy chain, Shoppers Drug Mart, wants to launch a prescription delivery application. To save on costs and increase efficiencies, Shoppers is interested in delivering prescriptions to customers from the closest pharmacy. Before launching, Shoppers must first find willing participants to test the application. 
-
-In Ottawa, Jonathan, a 24-year-old Carleton University student has recently tested positive for COVID-19 and must self-isolate for two weeks. He calls his local Shoppers to see if they can deliver his monthly prescribed medication. The pharmacist at Jonathan's local shoppers lets him know that they don't currently offer such services, but it is in their services pipeline. To avoid waiting for prescription delivery services to be available, the pharmacist asks Jonathan if he'd like to participate in beta testing their new prescription delivery application. Jonathan agrees and provides Shoppers with his consent to conduct research. 
-
-Before creating a study area, Tim, a GIS Analyst working for Shoppers must first ask himself the following questions:
-
-- Where is Jonathan located?
-- What distance(s) are delivery drivers permitted to drive?
-- Where are the Shoppers Drug Marts within the driveable distance?
-
-To answer these questions, Tim will need to acquire current data specific to Ottawa like road networks, building footprints, and Shoppers locations. Once this data has been acquired, only then can he start extracting data to fit the extent of his study area. Using building footprints, Tim locates Jonathan's building, and sets a 2.5km buffer around it. Tim uses a spatial intersection tool to find that 3 local Shoppers Drug Marts are within this buffer. Then, he uses Ottawa's road network to find the shortest path between Jonathan's building and the 3 local Shoppers Drug Marts. With some basic SQL code, only the closest Shopper's Drug Mart to Jonathan's building is coupled. In this case, a delivery driver would be dispatched from the Merivale location to deliver Jonathan's prescribed medication (see **Figure 5**). 
-
-The delivery service workflow generated for this model can be reincorporated to not only support prescription delivery for pharmacies, but also to link distribution centers to population centers, warehouses to stores, warehouses to stores to customers, etc. For the case of pharmacies, the Graphical Modeler in **Figure 6** automates the majority of the delivery service workflow. The final output would be the path to the closest pharmacy, which is what was seen in **Figure 5**. 
-
-Going a step further, the workflow can be implemented on a much larger scale. Suppose Shoppers is ready to launch their application and would like to have every Shoppers Drug Mart deliver prescriptions to customers within a 2.5km distance buffer. Voronoi diagrams would allow analysts to identify the closest Shoppers to a customer's building. This can be done through creating Voronoi polygons from all the Shoppers Drug Mart point data with a large buffer extent and then clipping the Voronoi polygons with our specified 2.5km distance buffer (see **Figure 10**). Then we can use the Graphical Modeler as seen in **Figure 8** to find the shortest path between the closest Shoppers to a customer. 
-
-
-![](Model_Prescription_Delivery/images/result.png)
-
-**Figure 5**. Closest Pharmacy 
-
-![](Model_Prescription_Delivery/images/model_builder.png)
-
-**Figure 6**. Closest Pharmacy Graphical Modeler 
-
-![](Model_Prescription_Delivery/images/updated_workflow.png)
-
-**Figure 7**. Delivery Service Model Generation Workflow
-
-![](Model_Prescription_Delivery/images/graphical_modeler.png)
-
-**Figure 8**. Graphical Modeler for Finding the Distance between Pharmacies and Customers
-
-![](Model_Prescription_Delivery/images/services.png)
-
-**Figure 9**. Buildings with Access to Prescription Delivery near McCarthy
-
-![](Model_Prescription_Delivery/images/voronoi.png)
-
-**Figure 10**. Large Scale Delivery
-
-![](Model_Prescription_Delivery/images/coupled_mod.png)
-
-**Figure 11**. Delivery Service Coupled Model (maybe add ellipses so it looks like we have more couplings, e.g. coupling, coupling, ... , coupling)
-
-### Water Analysis - Damage to Infastructure due to Flooding
-
-FIND A PUBLISHED MULTI-RING BUFFER EXAMPLE, NEED SOURCES
-
-(Draft) As severe flooding increases across Canada due to climate change [ADD SOURCE HERE], proactive measures by various levels of governemtn is required. Without such intervention, flooding in regions like Ottawa-Gatineau will contiue to become a problem (ADD SOURCE HERE). Sandbagsa are commonly used as a defence against floods. Having data on which homes and neighbours to protect would be vital information. For example, assume a 1km flood risk buffer was created in one neighbourhood and then split into quarters via the multi-ring buffer method. Each ring in **Figure 13** can represent a sandbag line of defence so first responders can allot sandbags accordingly. The limitation for this model is that it does not take elevation into consideration. The speed and height at which water approaches a home is an important factor. The DAs surrounding the Wastewater Treatment Plant in Ottawa has a diverse amount of elevation. The severity of the flooding has been mapped using a three-ring buffer. Each ring in the three-ring buffer will represent 600m for a total of 1.8km. Also, the homes at the highest risk are those under 70m of elevation. To specify the amount of elevation in an area, Inverse Distance Weighting (IDW) with Nearest Neighbour (NN) Analysis is used to build a raster. Then we use the raster calculator to find which areas are below 70m of elevation. We then polygonize the raster and intersect it with the three-ring buffer. 
-
-![](scenario_images/water_without_dem/graphic_model.png)
-
-**Figure 12**. Flood Risk Model Generation Workflow 
-
-![](scenario_images/water_without_dem/Buildings_impacted.png)
-
-**Figure 13**. Buildings at Risk
-
-![](scenario_images/water_without_dem/workflow.png)
-
-**Figure 14**. Waterbody Analysis Model Generation Workflow
-
-
-
-![](Model_Flood/images/Elevation.png)
-
-**Figure 15**. Elevation Contours 
-
-![](Model_Flood/images/IDW_with_NN.png)
-
-**Figure 16**. IDW with NN 
-
-![](Model_Flood/images/RasterCalc.png)
-
-**Figure 17**. Raster Calculator Result
-
-![](Model_Flood/images/Flood.png)
-
-**Figure 18**. Buildings at Risk by Danger Zones and Elevations
-
 ### Spatial Statistics - COVID-19 Spread (weights)
 
-Since the inception of Topler's First Law of Geography (TFL), researchers in the GIS community have employed such a concept to describe spatial dependence ([Leitner et al., 2018](https://www.researchgate.net/publication/323419139_Laws_of_Geography)). In the field of epidemiology, one could apply TFL to synthetically simulate the spread of infectious diseases in a geographical environment based on spatial weighitng ([Zhong et al., 2009](https://www.researchgate.net/profile/Song_Dunjiang/publication/226204125_Simulation_of_the_spread_of_infectious_diseases_in_a_geographical_environment/links/00b495316b307a20ab000000/Simulation-of-the-spread-of-infectious-diseases-in-a-geographical-environment.pdf)). Such an application can play a vital role in disease prevention and control when coupled with modern spatio-temporal analysis techniques ([Watkins et al., 2007](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1805744/)). 
+Since the inception of Topler's First Law of Geography (TFL), researchers in the GIS community have employed such a concept to describe spatial dependence ([Leitner et al., 2018](https://www.researchgate.net/publication/323419139_Laws_of_Geography)). In the field of epidemiology, one could apply TFL to synthetically simulate the spread of infectious diseases in a geographical environment based on spatial weighting ([Zhong et al., 2009](https://www.researchgate.net/profile/Song_Dunjiang/publication/226204125_Simulation_of_the_spread_of_infectious_diseases_in_a_geographical_environment/links/00b495316b307a20ab000000/Simulation-of-the-spread-of-infectious-diseases-in-a-geographical-environment.pdf)). Such an application can play a vital role in disease prevention and control when coupled with modern spatio-temporal analysis techniques ([Watkins et al., 2007](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1805744/)). 
 
 The recent COVID-19 outbreak has made it apparent how unprepared governments are for a global pandemic of this scale ([Timmis, and Brussow, 2020](https://sfamjournals.onlinelibrary.wiley.com/doi/10.1111/1462-2920.15029)). Matters are made worse by the fact that large, and even small-scale problems are difficult for humans to conceptualize. This is especially true when we consider global issues like global warming ([Resnik et al., 2016](https://onlinelibrary.wiley.com/doi/full/10.1111/cogs.12388)). Given the unprecedented amount of data surrounding the ongoing pandemic, local / national / global real-time, non-real-time, or simulated disease cases must be carefully analyzed to recognize high risk geographical regions which may be susceptible to outbreaks or further disease spreading. 
 
@@ -212,21 +119,19 @@ To better visualize the data from **Table 1**, the number of cases per capita (*
 
 ![](GeoDa_Work/cases_by_pop.png)
 
-**Figure 15**. COVID-19 cases per capita 
+**Figure 1**. COVID-19 cases per capita 
 
 Before thematically identifying which wards are at a high risk of disease case spillover, a Queen matrix was applied to the Ottawa Wards shapefile to find each ward's neighbours by shared border and corners. 
 
 ![](GeoDa_Work/queen_more.png)
 
-**Figure 16**. Osgoode Ward and it's Neighbours  
+**Figure 2**. Osgoode Ward and it's Neighbours  
 
 A spatial lag calculator with row-standardized weights would give every ward an equal weight since the Queen matrix would be fractional instead of zeroes and ones (contiguity). Using the spatial lag calculator, one could sum the number of cases in each neighbouring ward and then divide by the number of neighboring wards (*Queen * (Cumu_cases / Population)*). Plotting this result shows the wards at a high risk of disease spillover from neighbouring wards. 
 
 
 ![](GeoDa_Work/n_cases_pop.png)
-**Figure 17**. Quantile Classification of Wards at Risk of Disease Spillover
-
--- Today's cutoff --
+**Figure 3**. Quantile Classification of Wards at Risk of Disease Spillover
 
 Limitations
 - GWR https://pro.arcgis.com/en/pro-app/tool-reference/spatial-statistics/geographicallyweightedregression.htm 
@@ -316,9 +221,122 @@ We have a shapefile containing the population and homes in hundreds of DAs.
     - spatial window sum
       - without dividing by 7
 
-## Scenarios
+### Emergency Services - Health Unit Access 
 
-See [Appendix](https://github.com/omarkawach/spatial_analysis_scenarios#appendix) for details on files, packages, and data sources used. 
+The rise in population across developed countries continues to put a strain on ambulance services and health care systems. Unlike ambulance services, studies that address the strain health care systems face are a lot more well-documented and reported on in the media ([Lowthian et al., 2011](https://www.researchgate.net/publication/50266341_Increasing_utilisation_of_emergency_ambulances)). For example, initiatves by the New South Wales (NSW) Ambulance to reduce ambulance demand has been proven to be ineffictive due to the lack of reliable and consistent information. Only recently did NSW Ambulance begin publicly reporting on emergency ambulance response time ([NSW Govt, 2017](https://www.audit.nsw.gov.au/our-work/reports/managing-demand-for-ambulance-services-2017-)). Unfortunately, when it comes to patient outcome, response time data does not work well as a performance metric. The emphasis should instead be on patient outcome. Patient outcome can be improved through proper triage and dispatching, ambulance deployment modellng, and new technolgies and processes like GIS ([Al-Shaqsi, 2010](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4806820/)). Through modern GIS software or shortest path algorithm, dispatachers can dispatch and relocate ambulances while considering travel time and location ([Nguyen, 2015](http://liu.diva-portal.org/smash/get/diva2:781472/FULLTEXT01.pdf))...
+
+In the era of COVID-19, a protocol for patient at-home testing by trained paramedics could be brought to use ([Glauser, 2020](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7062433/)). Hypothetically, resources for such a protocol should be allocated based on the proximity of a patient's residence to a hospital. **Figure 4** depicts a study area composed of 3 Ottawa DAs and the buildings within them. A graphical modeler can be utilised to automate the workflow of calculating the shortest path between a health care facility and a patient's residence (see **Figure 5**).  Afterwards, buildings can be assigned to their nearest hospital by using a simple [python script](https://github.com/omarkawach/spatial_analysis_scenarios/blob/master/scenario_files/health_units_refined.py). We'll call this assignment "Health Unit-Building (HUB) coupling". Then, all these HUB couplings will produce an Emergency Service Coupled Model (see **Figure 6**). 
+
+<img src="scenario_images/Health_Units/polygons.png" alt="polygons" width="520" height="450" />
+
+**Figure 4**. Three Ottawa DAs and their Buildings
+
+![](scenario_images/Health_Units/graphic_model.png)
+
+**Figure 5**. Road Distance Graphical Modeler
+
+**Legend**
+
+![](scenario_images/Health_Units/hospitals_legend.png)
+
+<img src="scenario_images/Health_Units/hospital_access.png" alt="polygons" width="520" height="450" />
+
+**Figure 6**. Health Unit - Building Couplings
+
+![](scenario_images/Health_Units/workflows.png)
+
+**Figure 7**. Emergency Service Model Generation Workflow
+
+An extension to this  we can Target by category to hospital specialty : https://www.researchgate.net/publication/225279062_An_Emergency_System_to_Improve_Ambulance_Dispatching_Ambulance_Diversion_and_Clinical_Handover_Communication-A_Proposed_Model 
+
+We can also use fastest path algorithm instead of shortest path when considering km/hr
+
+### Urban Logistics - Prescription Delivery
+
+MAYBE MENTION HOW SHORTEST PATH CAN ALSO BE DONE IN RASTERS?
+
+CAN ALSO USE SERVICE AREAS TO SHOW TIME INTERVALS OF TRAVEL https://desktop.arcgis.com/en/arcmap/latest/extensions/network-analyst/service-area.htm
+
+A Canadian pharmacy chain, Shoppers Drug Mart, wants to launch a prescription delivery application. To save on costs and increase efficiencies, Shoppers is interested in delivering prescriptions to customers from the closest pharmacy. Before launching, Shoppers must first find willing participants to test the application. 
+
+In Ottawa, Jonathan, a 24-year-old Carleton University student has recently tested positive for COVID-19 and must self-isolate for two weeks. He calls his local Shoppers to see if they can deliver his monthly prescribed medication. The pharmacist at Jonathan's local shoppers lets him know that they don't currently offer such services, but it is in their services pipeline. To avoid waiting for prescription delivery services to be available, the pharmacist asks Jonathan if he'd like to participate in beta testing their new prescription delivery application. Jonathan agrees and provides Shoppers with his consent to conduct research. 
+
+Before creating a study area, Tim, a GIS Analyst working for Shoppers must first ask himself the following questions:
+
+- Where is Jonathan located?
+- What distance(s) are delivery drivers permitted to drive?
+- Where are the Shoppers Drug Marts within the driveable distance?
+
+To answer these questions, Tim will need to acquire current data specific to Ottawa like road networks, building footprints, and Shoppers locations. Once this data has been acquired, only then can he start extracting data to fit the extent of his study area. Using building footprints, Tim locates Jonathan's building, and sets a 2.5km buffer around it. Tim uses a spatial intersection tool to find that 3 local Shoppers Drug Marts are within this buffer. Then, he uses Ottawa's road network to find the shortest path between Jonathan's building and the 3 local Shoppers Drug Marts. With some basic SQL code, only the closest Shopper's Drug Mart to Jonathan's building is coupled. In this case, a delivery driver would be dispatched from the Merivale location to deliver Jonathan's prescribed medication (see **Figure 8**). 
+
+The delivery service workflow generated for this model can be reincorporated to not only support prescription delivery for pharmacies, but also to link distribution centers to population centers, warehouses to stores, warehouses to stores to customers, etc. For the case of pharmacies, the Graphical Modeler in **Figure 9** automates the majority of the delivery service workflow. The final output would be the path to the closest pharmacy, which is what was seen in **Figure 8**. 
+
+Going a step further, the workflow can be implemented on a much larger scale. Suppose Shoppers is ready to launch their application and would like to have every Shoppers Drug Mart deliver prescriptions to customers within a 2.5km distance buffer. Voronoi diagrams would allow analysts to identify the closest Shoppers to a customer's building. This can be done through creating Voronoi polygons from all the Shoppers Drug Mart point data with a large buffer extent and then clipping the Voronoi polygons with our specified 2.5km distance buffer (see **Figure 13**). Then we can use the Graphical Modeler as seen in **Figure 11** to find the shortest path between the closest Shoppers to a customer. 
+
+
+![](Model_Prescription_Delivery/images/result.png)
+
+**Figure 8**. Closest Pharmacy 
+
+![](Model_Prescription_Delivery/images/model_builder.png)
+
+**Figure 9**. Closest Pharmacy Graphical Modeler 
+
+![](Model_Prescription_Delivery/images/updated_workflow.png)
+
+**Figure 10**. Delivery Service Model Generation Workflow
+
+![](Model_Prescription_Delivery/images/graphical_modeler.png)
+
+**Figure 11**. Graphical Modeler for Finding the Distance between Pharmacies and Customers
+
+![](Model_Prescription_Delivery/images/services.png)
+
+**Figure 12**. Buildings with Access to Prescription Delivery near McCarthy
+
+![](Model_Prescription_Delivery/images/voronoi.png)
+
+**Figure 13**. Large Scale Delivery
+
+![](Model_Prescription_Delivery/images/coupled_mod.png)
+
+**Figure 14**. Delivery Service Coupled Model (maybe add ellipses so it looks like we have more couplings, e.g. coupling, coupling, ... , coupling)
+
+### Water Analysis - Damage to Infastructure due to Flooding
+
+FIND A PUBLISHED MULTI-RING BUFFER EXAMPLE, NEED SOURCES
+
+(Draft) As severe flooding increases across Canada due to climate change [ADD SOURCE HERE], proactive measures by various levels of governemtn is required. Without such intervention, flooding in regions like Ottawa-Gatineau will contiue to become a problem (ADD SOURCE HERE). Sandbags are commonly used as a defence against floods. Having data on which homes and neighbours to protect would be vital information. For example, assume a 1km flood risk buffer was created in one neighbourhood and then split into quarters via the multi-ring buffer method. Each ring in **Figure 16** can represent a sandbag line of defence so first responders can allot sandbags accordingly. The limitation for this model is that it does not take elevation into consideration. The speed and height at which water approaches a home is an important factor. The DAs surrounding the Wastewater Treatment Plant in Ottawa has a diverse amount of elevation. The severity of the flooding has been mapped using a three-ring buffer. Each ring in the three-ring buffer will represent 600m for a total of 1.8km. Also, the homes at the highest risk are those under 70m of elevation. To specify the amount of elevation in an area, Inverse Distance Weighting (IDW) with Nearest Neighbour (NN) Analysis is used to build a raster. Then we use the raster calculator to find which areas are below 70m of elevation. We then polygonize the raster and intersect it with the three-ring buffer. 
+
+![](scenario_images/water_without_dem/graphic_model.png)
+
+**Figure 15**. Flood Risk Model Generation Workflow 
+
+![](scenario_images/water_without_dem/Buildings_impacted.png)
+
+**Figure 16**. Buildings at Risk
+
+![](scenario_images/water_without_dem/workflow.png)
+
+**Figure 17**. Waterbody Analysis Model Generation Workflow
+
+![](Model_Flood/images/Elevation.png)
+
+**Figure 18**. Elevation Contours 
+
+![](Model_Flood/images/IDW_with_NN.png)
+
+**Figure 19**. IDW with NN 
+
+![](Model_Flood/images/RasterCalc.png)
+
+**Figure 20**. Raster Calculator Result
+
+![](Model_Flood/images/Flood.png)
+
+**Figure 21**. Buildings at Risk by Danger Zones and Elevations
+
+## Scenarios
 
 ### Healthcare - Finding Polygons that Contain Hospitals
 
@@ -473,11 +491,6 @@ We're in the center of Ottawa and want to find the shortest path to a road cross
 
 **Figure 18**. Shortest path
 
-*Potential Use Case*
-1. Find shortest path from warehouse to multiple stores 
-2. Link distribution centers to population centers
-
-
 ### Spatial Weights - Proximity Analysis between Polygons
 
 *Category*
@@ -535,9 +548,11 @@ For the ONS dataset, we are looking for ways to represent the spatial relationsh
 
 ### Geospatial Analysis Program(s)
 
+[GeoDa: ](https://geodacenter.github.io/)Spatial Data Analysis Program
+
 [QGIS Download: ](https://www.qgis.org/en/site/)Open Source Geospatial Analysis Program
 
-[QGIS Docs](https://www.qgistutorials.com/en/): Tutorials and Tips
+[QGIS Docs: ](https://www.qgistutorials.com/en/)Tutorials and Tips
 
 ### IDE
 
