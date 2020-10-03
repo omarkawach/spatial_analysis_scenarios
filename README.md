@@ -33,7 +33,7 @@ Select the `scenario_notebooks` folder once Binder has loaded the repo in Jupyte
 
 #### GIS
 
-A geographic information system (GIS) can be referred as the proliferation of data spatially referenced to Earth. The two main components of spatial data are location (where) and attributes (what). These components of spatial data are mappable digitally and / or on paper. There also exist two main types of data in GIS. Vector data (objects) and raster data (field). Vector data can be 0-dimensional, 1-dimensional, and 2-dimensional. In the 0th dimension, coordinate points exist on their own. In the 1st dimension, two points can be used to create a line. In the 2nd dimension, three or more lines can be joined to make a polygon. Rasters can either be continuous (progressive data that varies) or discrete (thematic or categorical). Rectangular tessellated rasters are most common since they are easier mathematically. 
+A geographic information system (GIS) can be referred as the proliferation (change this definition) of data spatially referenced to Earth. The two main components of spatial data are location (where) and attributes (what). These components of spatial data are mappable digitally and / or on paper. There also exist two main types of data in GIS. Vector data (objects) and raster data (field). Vector data can be 0-dimensional, 1-dimensional, and 2-dimensional. In the 0th dimension, coordinate points exist on their own. In the 1st dimension, two points can be used to create a line. In the 2nd dimension, three or more lines can be joined to make a polygon. Rasters can either be continuous (progressive data that varies) or discrete (thematic or categorical). Rectangular tessellated rasters are most common since they are easier mathematically. 
 
 **Find somewhere else to put this?**
 Geographical tracking and mapping of pandemic data through the application of Geographic Information Systems (GIS) has been proven to be a powerful system for disease monitoring and planning ([Buolos & Geraghty, 2020](https://ij-healthgeographics.biomedcentral.com/articles/10.1186/s12942-020-00202-8)). Such a system allows researchers to present large volumes of data in an intuitive way. For one, web-based mapping has created an environment for accessible remote collaboration between decision makers ([Franch-Pardo et al., 2020](https://www.sciencedirect.com/science/article/pii/S0048969720335531)). By integrating simulation models into map-based web applications, researchers can also highlight spatiotemporal trends in various scenarios. 
@@ -60,7 +60,7 @@ The utilisation of spatial analysis techniques in the field of GIS is imperative
 [Use cases ESRI blog](https://www.esri.com/arcgis-blog/products/analytics/analytics/learn-spatial-analysis-techniques-with-scenario-based-case-studies/)
 
 
-##### Topology
+##### Topology Processing
 
   - A topology is...to be cont'd
   - Buffers (proximity)
@@ -106,7 +106,7 @@ Since the inception of Topler's First Law of Geography (TFL), researchers in the
 The recent COVID-19 outbreak has made it apparent how unprepared governments are for a global pandemic of this scale ([Timmis, and Brussow, 2020](https://sfamjournals.onlinelibrary.wiley.com/doi/10.1111/1462-2920.15029)). Matters are made worse by the fact that large, and even small-scale problems are difficult for humans to conceptualize. This is especially true when we consider global issues like global warming ([Resnik et al., 2016](https://onlinelibrary.wiley.com/doi/full/10.1111/cogs.12388)). Given the unprecedented amount of data surrounding the ongoing pandemic, local / national / global real-time, non-real-time, or simulated disease cases must be carefully analyzed to recognize high risk geographical regions which may be susceptible to outbreaks or further disease spreading. 
 
 
-Spatial models involving the spread of COVID-19 between populations offers a unique perspective into how cases can spillover from densely populated areas to less dense areas ([Eilersen, and Sneppen, 2020](https://www.medrxiv.org/content/10.1101/2020.09.04.20188359v1.full.pdf) **NOT YET PEER REVIEWED**). In **Table 1**, the data retrieved from the City of Ottawa reveals the number of cumulative  COVID-19 cases by ward as of September 25, 2020. The COVID-19 dataset from the City of Ottawa did not provide population statistics, so it had to be added manually by spatial joining data from an Ottawa DA shapefile. 
+Spatial models involving the spread of COVID-19 between populations offers a unique perspective into how cases can spillover (USE A BETTER WORD) from densely populated areas to less dense areas ([Eilersen, and Sneppen, 2020](https://www.medrxiv.org/content/10.1101/2020.09.04.20188359v1.full.pdf) **NOT YET PEER REVIEWED**). In **Table 1**, the data retrieved from the City of Ottawa reveals the number of cumulative  COVID-19 cases by ward as of September 25, 2020. The COVID-19 dataset from the City of Ottawa did not provide population statistics, so it had to be added manually by spatial joining data from an Ottawa DA shapefile. 
 
 **Table 1**. cumulative  COVID-19 Cases as Reported on September 25 (maybe use more up to date info later)
 
@@ -121,17 +121,17 @@ To better visualize the data from **Table 1**, the number of cases per capita (*
 
 **Figure 1**. COVID-19 cases per capita 
 
-Before thematically identifying which wards are at a high risk of disease case spillover, a Queen matrix was applied to the Ottawa Wards shapefile to find each ward's neighbours by shared border and corners. 
+Before thematically identifying which wards are at a high risk of disease case spillover (USE A BETTER WORD), a Queen matrix was applied to the Ottawa Wards shapefile to find each ward's neighbours by shared border and corners. 
 
 ![](GeoDa_Work/queen_more.png)
 
 **Figure 2**. Osgoode Ward and it's Neighbours  
 
-A spatial lag calculator with row-standardized weights would give every ward an equal weight since the Queen matrix would be fractional instead of zeroes and ones (contiguity). Using the spatial lag calculator, one could sum the number of cases in each neighbouring ward and then divide by the number of neighboring wards (*Queen * (Cumu_cases / Population)*). Plotting this result shows the wards at a high risk of disease spillover from neighbouring wards. 
+A spatial lag calculator with row-standardized weights would give every ward an equal weight since the Queen matrix would be fractional instead of zeroes and ones (contiguity). Using the spatial lag calculator, one could sum the number of cases in each neighbouring ward and then divide by the number of neighboring wards (*Queen * (Cumu_cases / Population)*). Plotting this result shows the wards at a high risk of disease spillover (USE A BETTER WORD) from neighbouring wards. 
 
 
 ![](GeoDa_Work/n_cases_pop.png)
-**Figure 3**. Quantile Classification of Wards at Risk of Disease Spillover
+**Figure 3**. Quantile Classification of Wards at Risk of Disease Spillover (USE A BETTER WORD)
 
 Limitations
 - GWR https://pro.arcgis.com/en/pro-app/tool-reference/spatial-statistics/geographicallyweightedregression.htm 
@@ -223,7 +223,7 @@ We have a shapefile containing the population and homes in hundreds of DAs.
 
 ### Emergency Services - Health Unit Access 
 
-The rise in population across developed countries continues to put a strain on ambulance services and health care systems. Unlike ambulance services, studies that address the strain health care systems face are a lot more well-documented and reported on in the media ([Lowthian et al., 2011](https://www.researchgate.net/publication/50266341_Increasing_utilisation_of_emergency_ambulances)). For example, initiatves by the New South Wales (NSW) Ambulance to reduce ambulance demand has been proven to be ineffictive due to the lack of reliable and consistent information. Only recently did NSW Ambulance begin publicly reporting on emergency ambulance response time ([NSW Govt, 2017](https://www.audit.nsw.gov.au/our-work/reports/managing-demand-for-ambulance-services-2017-)). Unfortunately, when it comes to patient outcome, response time data does not work well as a performance metric. The emphasis should instead be on patient outcome. Patient outcome can be improved through proper triage and dispatching, ambulance deployment modellng, and new technolgies and processes like GIS ([Al-Shaqsi, 2010](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4806820/)). Through modern GIS software or shortest path algorithm, dispatachers can dispatch and relocate ambulances while considering travel time and location ([Nguyen, 2015](http://liu.diva-portal.org/smash/get/diva2:781472/FULLTEXT01.pdf))...
+The rise in population across developed countries continues to put a strain on ambulance services and health care systems. Unlike ambulance services, studies that address the strain health care systems face are a lot more well-documented and reported on in the media ([Lowthian et al., 2011](https://www.researchgate.net/publication/50266341_Increasing_utilisation_of_emergency_ambulances)). For example, initiatves by the New South Wales (NSW) Ambulance to reduce ambulance demand has been proven to be ineffictive due to the lack of reliable and consistent information. Only recently did NSW Ambulance begin publicly reporting on emergency ambulance response time ([NSW Govt, 2017](https://www.audit.nsw.gov.au/our-work/reports/managing-demand-for-ambulance-services-2017-)). Unfortunately, when it comes to patient outcome, response time data does not work well as a performance metric. Patient outcome can be improved through proper triage and dispatching, ambulance deployment modellng, and new technolgies and processes like GIS ([Al-Shaqsi, 2010](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4806820/)). Through modern GIS software or shortest path algorithm, dispatachers can dispatch and relocate ambulances while considering travel time and location ([Nguyen, 2015](http://liu.diva-portal.org/smash/get/diva2:781472/FULLTEXT01.pdf))...
 
 In the era of COVID-19, a protocol for patient at-home testing by trained paramedics could be brought to use ([Glauser, 2020](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7062433/)). Hypothetically, resources for such a protocol should be allocated based on the proximity of a patient's residence to a hospital. **Figure 4** depicts a study area composed of 3 Ottawa DAs and the buildings within them. A graphical modeler can be utilised to automate the workflow of calculating the shortest path between a health care facility and a patient's residence (see **Figure 5**).  Afterwards, buildings can be assigned to their nearest hospital by using a simple [python script](https://github.com/omarkawach/spatial_analysis_scenarios/blob/master/scenario_files/health_units_refined.py). We'll call this assignment "Health Unit-Building (HUB) coupling". Then, all these HUB couplings will produce an Emergency Service Coupled Model (see **Figure 6**). 
 
@@ -250,6 +250,35 @@ In the era of COVID-19, a protocol for patient at-home testing by trained parame
 An extension to this  we can Target by category to hospital specialty : https://www.researchgate.net/publication/225279062_An_Emergency_System_to_Improve_Ambulance_Dispatching_Ambulance_Diversion_and_Clinical_Handover_Communication-A_Proposed_Model 
 
 We can also use fastest path algorithm instead of shortest path when considering km/hr
+
+Alternate approaches include
+
+Through topological studies and proximity analysis, 9-11 Operators discovered what hospital each ONS polygon should be assigned. Now, it's time for them to put their research to the test. 9-11 Operators just received a call from someone living in the Royal Ottawa Hospital neighbourhood. In order to get an ambulance to the caller's building quickly, they require network analysis. The shortest path algorithm is run on Ottawa's Road Network from the hospital to the caller's building. 
+
+![](scenario_images/hospitals_to_polygons_advanced/hospitals_label.png)
+
+**Figure 6**. Location of Hospitals in Ottawa
+
+**Legend**
+
+<img src="scenario_images/hospitals_to_polygons_advanced/legend.png" alt="legend_two" width="210" height="200" />
+
+![](scenario_images/hospitals_to_polygons_advanced/qgis.png)
+
+**Figure 7**. Ottawa DAs Mapped to their Nearest Hospital
+
+![](scenario_images/hospitals_to_polygons_advanced/shortest_path.png)
+
+**Figure 8**. Shortest Path from Hospital to Caller's Home
+
+*Possible Use Case*
+1. During a pandemic, we don't want to overwhelm hospitals. 
+   - Only allow patients into a hospital if they're from a specific ONS polygon
+      - Number of accepted ONS polygons for a hospital could be based on population, number of buildings, etc.
+
+Come up with resulting model 
+
+Any house that emits a call
 
 ### Urban Logistics - Prescription Delivery
 
@@ -361,56 +390,6 @@ After analysis, Mary would receive results stating that she may look for apartme
 
 **Figure 1**. ONS polygons with Hospitals in them
 
-
-
-### Healthcare - Assign Hospitals to Ottawa DAs for Ambulance Dispatching
-
-9-11 Operators are looking for more efficient ways to help those in need. Through proximity analysis, researchers can discover the closest hospital to a caller's DA. This would allow ambulances to be dispatched accordingly. The analysis first begins by building a topology where we address ONS polygons within 5km of a hospital. Once we have our desired ONS polygons, the centroid of each polygon is extracted. The centroid from each polygon will be used to calculate the distance from the centroid to a hospital. The closest hospital to a polygon's centroid will be used for assigning hospitals to polygons. This would conclude our proximity analysis. 
-
-
-
-![](scenario_images/hospitals_to_polygons/qgis.png)
-
-**Figure 4**. Ottawa DAs Intersecting with 5km Hospital Buffer (Dissolved)
-
-**Legend**
-
-<img src="scenario_images/hospitals_to_polygons/legend.png" alt="legend_two" width="400" height="280" />
-
-![](scenario_images/hospitals_to_polygons/python.png)
-
-**Figure 5**. Ottawa DAs with the Closest Hospital 
-
-
-
-### Healthcare - Dispatching Ambulances using Ottawa Road Network
-
-Through topological studies and proximity analysis, 9-11 Operators discovered what hospital each ONS polygon should be assigned. Now, it's time for them to put their research to the test. 9-11 Operators just received a call from someone living in the Royal Ottawa Hospital neighbourhood. In order to get an ambulance to the caller's building quickly, they require network analysis. The shortest path algorithm is run on Ottawa's Road Network from the hospital to the caller's building. 
-
-![](scenario_images/hospitals_to_polygons_advanced/hospitals_label.png)
-
-**Figure 6**. Location of Hospitals in Ottawa
-
-**Legend**
-
-<img src="scenario_images/hospitals_to_polygons_advanced/legend.png" alt="legend_two" width="210" height="200" />
-
-![](scenario_images/hospitals_to_polygons_advanced/qgis.png)
-
-**Figure 7**. Ottawa DAs Mapped to their Nearest Hospital
-
-![](scenario_images/hospitals_to_polygons_advanced/shortest_path.png)
-
-**Figure 8**. Shortest Path from Hospital to Caller's Home
-
-*Possible Use Case*
-1. During a pandemic, we don't want to overwhelm hospitals. 
-   - Only allow patients into a hospital if they're from a specific ONS polygon
-      - Number of accepted ONS polygons for a hospital could be based on population, number of buildings, etc.
-
-Come up with resulting model 
-
-Any house that emits a call
 
 ### Disaster Response - Chemical Spill at Hospital
 
