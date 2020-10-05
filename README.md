@@ -2,7 +2,6 @@
 
 This repository explores various open sources tools one could use for performing geospatial analysis. The end goal is to develop a method to generate large scale DEVS simulation models from GIS data. There are interactive **Jupyter Notebooks** available for demo purposes via **Binder**. Developers can also install Python packages themselves and run the code on their own in **Spyder**. For GIS experts, **GeoDa** and **QGIS** installation links are included at the bottom of the repo.
 
-<iframe src="https://onedrive.live.com/embed?cid=A0BFB350AF1E6169&amp;resid=A0BFB350AF1E6169%214127&amp;authkey=AMiAQh8nrqqRl9w&amp;em=2&amp;wdAr=1.7777777777777777" width="610px" height="367px" frameborder="0">This is an embedded <a target="_blank" href="https://office.com">Microsoft Office</a> presentation, powered by <a target="_blank" href="https://office.com/webapps">Office</a>.</iframe>
 
 ### Getting Started
 
