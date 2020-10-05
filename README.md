@@ -85,55 +85,6 @@ The utilisation of spatial analysis techniques in the field of GIS is imperative
   - spatiotemporal = space and time
   - [First law of geography](https://wiki.gis.com/wiki/index.php/First_law_of_geography) 
 
-
-##### Query
-  - Attribute queries are...to be cont'd
-  - spatial queries are...
-  - Filtering
-  - https://www.researchgate.net/publication/321376749_Spatial_and_Attribute_Querying
- 
-##### Network Analysis
-
-Network analysis is commonly used in instances of urban planning / logistics studies. 
-
-
-
-## Models
-
-### Spatial Statistics - COVID-19 Spread (weights)
-
-Since the inception of Topler's First Law of Geography (TFL), researchers in the GIS community have employed such a concept to describe spatial dependence ([Leitner et al., 2018](https://www.researchgate.net/publication/323419139_Laws_of_Geography)). In the field of epidemiology, one could apply TFL to synthetically simulate the spread of infectious diseases in a geographical environment based on spatial weighting ([Zhong et al., 2009](https://www.researchgate.net/profile/Song_Dunjiang/publication/226204125_Simulation_of_the_spread_of_infectious_diseases_in_a_geographical_environment/links/00b495316b307a20ab000000/Simulation-of-the-spread-of-infectious-diseases-in-a-geographical-environment.pdf)). Such an application can play a vital role in disease prevention and control when coupled with modern spatio-temporal analysis techniques ([Watkins et al., 2007](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1805744/)). 
-
-The recent COVID-19 outbreak has made it apparent how unprepared governments are for a global pandemic of this scale ([Timmis, and Brussow, 2020](https://sfamjournals.onlinelibrary.wiley.com/doi/10.1111/1462-2920.15029)). Matters are made worse by the fact that large, and even small-scale problems are difficult for humans to conceptualize. This is especially true when we consider global issues like global warming ([Resnik et al., 2016](https://onlinelibrary.wiley.com/doi/full/10.1111/cogs.12388)). Given the unprecedented amount of data surrounding the ongoing pandemic, local / national / global real-time, non-real-time, or simulated disease cases must be carefully analyzed to recognize high risk geographical regions which may be susceptible to outbreaks or further disease spreading. 
-
-
-Spatial models involving the spread of COVID-19 between populations offers a unique perspective into how cases can spillover (USE A BETTER WORD) from densely populated areas to less dense areas ([Eilersen, and Sneppen, 2020](https://www.medrxiv.org/content/10.1101/2020.09.04.20188359v1.full.pdf) **NOT YET PEER REVIEWED**). In **Table 1**, the data retrieved from the City of Ottawa reveals the number of cumulative  COVID-19 cases by ward as of September 25, 2020. The COVID-19 dataset from the City of Ottawa did not provide population statistics, so it had to be added manually by spatial joining data from an Ottawa DA shapefile. 
-
-**Table 1**. cumulative  COVID-19 Cases as Reported on September 25 (maybe use more up to date info later)
-
-<img src="GeoDa_Work/cumu_ottawa_sept25.png" alt="cases_by_ward" width="420" height="450" />
-
-**Note**: Exlucdes retirement home and longterm care home cases
-
-To better visualize the data from **Table 1**, the number of cases per capita (*Cumu_cases / Population*) was plotted onto a map using quantile classification (6 classes).
-
-
-![](GeoDa_Work/cases_by_pop.png)
-
-**Figure 1**. COVID-19 cases per capita 
-
-Before thematically identifying which wards are at a high risk of disease case spillover (USE A BETTER WORD), a Queen matrix was applied to the Ottawa Wards shapefile to find each ward's neighbours by shared border and corners. 
-
-![](GeoDa_Work/queen_more.png)
-
-**Figure 2**. Osgoode Ward and it's Neighbours  
-
-A spatial lag calculator with row-standardized weights would give every ward an equal weight since the Queen matrix would be fractional instead of zeroes and ones (contiguity). Using the spatial lag calculator, one could sum the number of cases in each neighbouring ward and then divide by the number of neighboring wards (*Queen * (Cumu_cases / Population)*). Plotting this result shows the wards at a high risk of disease spillover (USE A BETTER WORD) from neighbouring wards. 
-
-
-![](GeoDa_Work/n_cases_pop.png)
-**Figure 3**. Quantile Classification of Wards at Risk of Disease Spillover (USE A BETTER WORD)
-
 Limitations
 - GWR https://pro.arcgis.com/en/pro-app/tool-reference/spatial-statistics/geographicallyweightedregression.htm 
 
@@ -221,6 +172,56 @@ We have a shapefile containing the population and homes in hundreds of DAs.
       - k6_sc_lag3 = the observation itself and the average so divided by 7 instead
     - spatial window sum
       - without dividing by 7
+
+
+##### Query
+  - Attribute queries are...to be cont'd
+  - spatial queries are...
+  - Filtering
+  - https://www.researchgate.net/publication/321376749_Spatial_and_Attribute_Querying
+ 
+##### Network Analysis
+
+Network analysis is commonly used in instances of urban planning / logistics studies. 
+
+
+
+## Models
+
+### Spatial Statistics - COVID-19 Spread (weights)
+
+Since the inception of TFL, researchers in the GIS community have employed such a concept to describe spatial dependence ([Leitner et al., 2018](https://www.researchgate.net/publication/323419139_Laws_of_Geography)). In the field of epidemiology, one could apply TFL to synthetically simulate the spread of infectious diseases in a geographical environment based on spatial weighting ([Zhong et al., 2009](https://www.researchgate.net/profile/Song_Dunjiang/publication/226204125_Simulation_of_the_spread_of_infectious_diseases_in_a_geographical_environment/links/00b495316b307a20ab000000/Simulation-of-the-spread-of-infectious-diseases-in-a-geographical-environment.pdf)). Such an application can play a vital role in disease prevention and control when coupled with modern spatio-temporal analysis techniques ([Watkins et al., 2007](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1805744/)). 
+
+The recent COVID-19 outbreak has made it apparent how unprepared governments are for a global pandemic of this scale ([Timmis, and Brussow, 2020](https://sfamjournals.onlinelibrary.wiley.com/doi/10.1111/1462-2920.15029)). Matters are made worse by the fact that large, and even small-scale problems are difficult for humans to conceptualize. This is especially true when we consider global issues like global warming ([Resnik et al., 2016](https://onlinelibrary.wiley.com/doi/full/10.1111/cogs.12388)). Given the unprecedented amount of data surrounding the ongoing pandemic, local / national / global real-time, non-real-time, or simulated disease cases must be carefully analyzed to recognize high risk geographical regions which may be susceptible to outbreaks or further disease spreading. 
+
+
+Spatial models involving the spread of COVID-19 between populations offers a unique perspective into how cases can spillover (USE A BETTER WORD) from densely populated areas to less dense areas ([Eilersen, and Sneppen, 2020](https://www.medrxiv.org/content/10.1101/2020.09.04.20188359v1.full.pdf) **NOT YET PEER REVIEWED**). In **Table 1**, the data retrieved from the City of Ottawa reveals the number of cumulative  COVID-19 cases by ward as of September 25, 2020. The COVID-19 dataset from the City of Ottawa did not provide population statistics, so it had to be added manually by spatial joining data from an Ottawa DA shapefile. 
+
+**Table 1**. cumulative  COVID-19 Cases as Reported on September 25 (maybe use more up to date info later)
+
+<img src="GeoDa_Work/cumu_ottawa_sept25.png" alt="cases_by_ward" width="420" height="450" />
+
+**Note**: Exlucdes retirement home and longterm care home cases
+
+To better visualize the data from **Table 1**, the number of cases per capita (*Cumu_cases / Population*) was plotted onto a map using quantile classification (6 classes).
+
+
+![](GeoDa_Work/cases_by_pop.png)
+
+**Figure 1**. COVID-19 cases per capita 
+
+Before thematically identifying which wards are at a high risk of disease case spillover (USE A BETTER WORD), a Queen matrix was applied to the Ottawa Wards shapefile to find each ward's neighbours by shared border and corners. 
+
+![](GeoDa_Work/queen_more.png)
+
+**Figure 2**. Osgoode Ward and it's Neighbours  
+
+A spatial lag calculator with row-standardized weights would give every ward an equal weight since the Queen matrix would be fractional instead of zeroes and ones (contiguity). Using the spatial lag calculator, one could sum the number of cases in each neighbouring ward and then divide by the number of neighboring wards (*Queen * (Cumu_cases / Population)*). Plotting this result shows the wards at a high risk of disease spillover (USE A BETTER WORD) from neighbouring wards. 
+
+
+![](GeoDa_Work/n_cases_pop.png)
+**Figure 3**. Quantile Classification of Wards at Risk of Disease Spillover (USE A BETTER WORD)
+
 
 ### Emergency Services - Health Unit Access 
 
