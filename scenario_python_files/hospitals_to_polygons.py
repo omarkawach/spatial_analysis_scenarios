@@ -3,12 +3,16 @@
 """
 @author: omarkawach
 """
+# This is similar to scenario_python_files/hospitals_to_polygons_advanced.py
+# but we instead focus on visualization here
+
 # Load packages
 import geopandas as gpd
 import matplotlib.pyplot as plt
 from shapely.geometry import Point
 
 # Load data
+# Change neighbourhoods file here
 neighbourhoods = gpd.read_file("../shapefiles/OttawaDA_nearHospital/DA_nearHospital.shp")
 hospitals = gpd.read_file("../shapefiles/OttawaHospitals/Hospitals.shp")
 

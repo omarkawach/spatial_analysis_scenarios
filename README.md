@@ -316,19 +316,19 @@ Alternate approaches include
 
 Through topological studies and proximity analysis, 9-11 Operators discovered what hospital each ONS polygon should be assigned. Now, it's time for them to put their research to the test. 9-11 Operators just received a call from someone living in the Royal Ottawa Hospital neighbourhood. In order to get an ambulance to the caller's building quickly, they require network analysis. The shortest path algorithm is run on Ottawa's Road Network from the hospital to the caller's building. 
 
-![](scenario_images/hospitals_to_polygons_advanced/hospitals_label.png)
+![](Model_Hospital/large_study_area/hospitals_label.png)
 
 **Figure 6**. Location of Hospitals in Ottawa
 
 **Legend**
 
-<img src="scenario_images/hospitals_to_polygons_advanced/legend.png" alt="legend_two" width="210" height="200" />
+<img src="Model_Hospital/large_study_area/legend.png" alt="legend_two" width="210" height="200" />
 
-![](scenario_images/hospitals_to_polygons_advanced/qgis.png)
+![](Model_Hospital/large_study_area/qgis.png)
 
 **Figure 7**. Ottawa DAs Mapped to their Nearest Hospital
 
-![](scenario_images/hospitals_to_polygons_advanced/shortest_path.png)
+![](Model_Hospital/large_study_area/shortest_path.png)
 
 **Figure 8**. Shortest Path from Hospital to Caller's Home
 
@@ -400,15 +400,15 @@ FIND A PUBLISHED MULTI-RING BUFFER EXAMPLE, NEED SOURCES
 
 (Draft) As severe flooding increases across Canada due to climate change [ADD SOURCE HERE], proactive measures by various levels of governemtn is required. Without such intervention, flooding in regions like Ottawa-Gatineau will contiue to become a problem (ADD SOURCE HERE). Sandbags are commonly used as a defence against floods. Having data on which homes and neighbours to protect would be vital information. For example, assume a 1km flood risk buffer was created in one neighbourhood and then split into quarters via the multi-ring buffer method. Each ring in **Figure 16** can represent a sandbag line of defence so first responders can allot sandbags accordingly. The limitation for this model is that it does not take elevation into consideration. The speed and height at which water approaches a home is an important factor. The DAs surrounding the Wastewater Treatment Plant in Ottawa has a diverse amount of elevation. The severity of the flooding has been mapped using a three-ring buffer. Each ring in the three-ring buffer will represent 600m for a total of 1.8km. Also, the homes at the highest risk are those under 70m of elevation. To specify the amount of elevation in an area, Inverse Distance Weighting (IDW) with Nearest Neighbour (NN) Analysis is used to build a raster. Then we use the raster calculator to find which areas are below 70m of elevation. We then polygonize the raster and intersect it with the three-ring buffer. 
 
-![](scenario_images/water_without_dem/graphic_model.png)
+![](scenarios/water_without_dem/graphic_model.png)
 
 **Figure 15**. Flood Risk Model Generation Workflow 
 
-![](scenario_images/water_without_dem/Buildings_impacted.png)
+![](scenarios/water_without_dem/Buildings_impacted.png)
 
 **Figure 16**. Buildings at Risk
 
-![](scenario_images/water_without_dem/workflow.png)
+![](scenarios/water_without_dem/workflow.png)
 
 **Figure 17**. Waterbody Analysis Model Generation Workflow
 
@@ -449,7 +449,7 @@ After analysis, Mary would receive results stating that she may look for apartme
 - Byward Market
 
 
-![](scenario_images/polygons_with_hospitals/result.png)
+![](scenarios/polygons_with_hospitals/result.png)
 
 **Figure 1**. ONS polygons with Hospitals in them
 
@@ -458,15 +458,15 @@ After analysis, Mary would receive results stating that she may look for apartme
 
 Ottawa's Montfort Hospital has had a chemical spill. Residents who are directly within 1km of the hospital are warned to evacuate immediately. Residents whose ONS Boundary *intersect* with the 1km buffer are also expected to evacuated moments later. Before First Responders head into the polygons impacted by the chemical spill, they want to know how many buildings are impacted so that they may act by prioirity. This research would allow First Responders to know an approximate headcount as well. 
 
-![](scenario_images/chemical_spill/qgis.png)
+![](scenarios/chemical_spill/qgis.png)
 
 **Figure 9**. Overview of Chemical Spill Scenario
 
-<img src="scenario_images/chemical_spill/immediate_impact.png" alt="result_seven_within_buffer" width="400" height="50" />
+<img src="scenarios/chemical_spill/immediate_impact.png" alt="result_seven_within_buffer" width="400" height="50" />
 
 **Figure 10**. Number of Buildings Directly Impacted within 1km Buffer
 
-<img src="scenario_images/chemical_spill/neighbourhoods_impacted.png" alt="result_seven_within_boundaries" width="400" height="300" />
+<img src="scenarios/chemical_spill/neighbourhoods_impacted.png" alt="result_seven_within_boundaries" width="400" height="300" />
 
 **Figure 11**. Number of Buildings Impacted by ONS Polygon
 
@@ -481,7 +481,7 @@ Ottawa's Montfort Hospital has had a chemical spill. Residents who are directly 
 
 A recent tornado has resulted in a power outage to all Ottawa DAs within 10km of the Rideau Falls Energy Station. The City of Ottawa would like to know the number of buildings and Ottawa DAs impacted. This can be done by assigning each building to the correct DA. 
 
-![](scenario_images/power_outage/qgis.png)
+![](scenarios/power_outage/qgis.png)
 
 **Figure 12**. Ottawa DAs and Buildings Without Power
 
@@ -496,15 +496,15 @@ Total Ottawa DAs impacted: 592
 At Statistics Canada, an intern would like to conduct a population density study using ONS data. The data gathered would be used for defining new neighbourhoods based on a simple quartile classification algorithm. 
 
 
-![](scenario_images/ONS_population_density/density.png)
+![](scenarios/ONS_population_density/density.png)
 
 **Figure 13**. ONS Population Density
 
 **Legend**
 
-<img src="scenario_images/ONS_population_density/legend.png" alt="legend_five" width="200" height="120" />
+<img src="scenarios/ONS_population_density/legend.png" alt="legend_five" width="200" height="120" />
 
-<img src="scenario_images/ONS_population_density/quartile.png" alt="result_five"
+<img src="scenarios/ONS_population_density/quartile.png" alt="result_five"
  width="370" height="250" />
 
 **Figure 14**. ONS Quartile Classification for New Neighbourhoods
@@ -521,7 +521,7 @@ JTFS
 
 Find the nearest bus stop to each building within specific Ottawa DAs. This can be done by using bus stops to create voronoi polygons. Then, intersect the voronoi polygons with the Ottawa DAs. This scenario assumes that the vertices from each bus route are bus stops, even if that is not the case.  
 
-![](scenario_images/voronoi_bus_stops/qgis.png)
+![](scenarios/voronoi_bus_stops/qgis.png)
 
 **Figure 17**. Overview of Closest Bus Stop(s) to each Building in DAs
 
@@ -529,19 +529,15 @@ Find the nearest bus stop to each building within specific Ottawa DAs. This can 
 
 We're in the center of Ottawa and want to find the shortest path to a road crossing through network analysis. 
 
-![](scenario_images/shortest_path_road_crossing/python.png)
+![](scenarios/shortest_path_road_crossing/python.png)
 
 **Figure 18**. Shortest path
 
 ### Spatial Weights - Proximity Analysis between Polygons
 
-*Category*
-- Topology
-- Spatial Statistics 
-
 For the ONS dataset, we are looking for ways to represent the spatial relationships between polygons. We do this by depicting a spatial weight network (planar). In this case, the Queen contiguity weight lets us look at shared edges or vertices between polygons. 
 
-<img src="scenario_images/ONS_spatial_weight/python.png" alt="result_four" width="300" height="220" />
+<img src="scenarios/ONS_spatial_weight/python.png" alt="result_four" width="300" height="220" />
 
 **Figure 19**. Spatial Weight Network Ottawa
 
@@ -724,97 +720,3 @@ for Subwatershed & Catchment Reporting, as well as Regulations
 
 
 ### Scenario Files and Packages
-
-##### Healthcare - Finding Polygons that Contain Hospitals
-
-*Files Used*
-- [Python Script](https://github.com/omarkawach/spatial_analysis_scenarios/blob/master/scenario_files/polygons_with_hospitals.py) or [Notebook](https://github.com/omarkawach/spatial_analysis_scenarios/blob/master/scenario_notebooks/polygons_with_hospitals.ipynb)
-- Shapefile from [`spatial_analysis_scenarios/shapefiles/ONS`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/ONS)
-- Shapefile from [`spatial_analysis_scenarios/shapefiles/OttawaHospitals`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/OttawaHospitals)
-
-*Python Packages Used*
-- GeoPandas to read shapefiles
-- Matplotlib to plot data
-
-##### Healthcare - Assign Hospitals to Ottawa DAs for Ambulance Dispatching
-
-*Files Used*
-- [Python Script](https://github.com/omarkawach/spatial_analysis_scenarios/blob/master/scenario_files/hospitals_to_polygons.py) or [Notebook](https://github.com/omarkawach/spatial_analysis_scenarios/blob/master/scenario_notebooks/hospitals_to_polygons.ipynb)
-- Shapefile from [`spatial_analysis_scenarios/shapefiles/OttawaDA_nearHospital`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/OttawaDA_nearHospital)
-  - This was originally the shapefile from [`spatial_analysis_scenarios/shapefiles/OttawaDA`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/OttawaDA) but then it was modified in QGIS to only hold polygons that intersect within a 5km buffer of all the hospitals (see figure 4)
-- Shapefile from [`spatial_analysis_scenarios/shapefiles/OttawaHospitals`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/OttawaHospitals)
-
-*Python Packages Used*
-  - GeoPandas to read shapefiles
-  - Matplotlib to plot data
-  - Shapely to create GeoSeries' for calculating distances 
-  - PyProj to change the espg of shapefiles
-
-##### Healthcare - Dispatching Ambulances using Ottawa Road Network
-
-*Files Used*
-- Shapefile created in [`spatial_analysis_scenarios/scenario_files/hospitals_to_polygons_advanced.py`](https://github.com/omarkawach/spatial_analysis_scenarios/blob/master/scenario_files/scenario_two_advanced.py) and saved to [`spatial_analysis_scenarios/shapefiles/HospitalsAndDAs`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/HospitalsAndDAs)
-  - The original shapefile was from [`spatial_analysis_scenarios/shapefiles/OttawaDA`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/OttawaDA) but then it was modified in QGIS to only hold polygons that intersect within a 5km buffer of all the hospitals
-- Shapefile from [`spatial_analysis_scenarios/shapefiles/OttawaHospitals`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/OttawaHospitals)
-- Shapefile from [`spatial_analysis_scenarios/shapefiles/OttawaRoads`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/OttawaRoads)
-
-*Python Packages Used*
-  - GeoPandas to read shapefiles
-  - Shapely to create GeoSeries' for calculating distances 
-  - PyProj to change the espg of shapefiles
-
-##### Disaster Response - Chemical Spill at Hospital
-
-*Files Used*
-- Shapefile from [`spatial_analysis_scenarios/shapefiles/ONS`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/ONS)
-  - Based on the buffer intersection, the shapefile was modified into [`spatial_analysis_scenarios/shapefiles/Chemical_Spill_ONS`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/Chemical_Spill_ONS)
-- Shapefile from [`spatial_analysis_scenarios/shapefiles/OttawaHospitals`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/ONS)
-- Shapefile from [`spatial_analysis_scenarios/shapefiles/OttawaBuildings.zip`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/OttawaBuildings.zip)
-
-*QGIS Plugin Used*
-- MMQGIS Plugin is convenient for creating buffers
-
-##### Disaster Response - Power Generator Outage after Tornado
-
-*Files Used*
-- Text file from [`spatial_analysis_scenarios/locations/RideauFallsHydro.txt`](https://github.com/omarkawach/spatial_analysis_scenarios/blob/master/locations/RideauFallsHydro.txt)
-- Shapefile from [`spatial_analysis_scenarios/shapefiles/BuildingsOutage`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/BuildingsOutage) which is a modified version of [`spatial_analysis_scenarios/shapefiles/OttawaBuildings.zip`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/OttawaBuildings.zip)
-- Shapefile from [`spatial_analysis_scenarios/shapefiles/HydroDAs`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/HydroDAs) which is a modified version of [`spatial_analysis_scenarios/shapefiles/OttawaDA`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/OttawaDA)
-
-##### Dealing with Populations - Classify Neighbourhoods by Population Density
-
-*Files Used*
-- [Python Script](https://github.com/omarkawach/spatial_analysis_scenarios/blob/master/scenario_files/ONS_population_density.py) or [Notebook](https://github.com/omarkawach/spatial_analysis_scenarios/blob/master/scenario_notebooks/ONS_population_density.ipynb)
-- Shapefile from [`spatial_analysis_scenarios/shapefiles/ONS`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/ONS)
-
-*Python Packages Used*
-- GeoPandas to read shapefiles
-- Matplotlib to plot data
-- NumPy to help with classification
-
-##### Delivery - Pharmacy Prescription Delivery
-
-##### Transit - Finding the Nearest Bus Stop(s) to a Building 
-
-*Files Used*
-- Shapefile from [`spatial_analysis_scenarios/shapefiles/Four_DAUIDs`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/Four_DAUIDs) which is a modified version of [`spatial_analysis_scenarios/shapefiles/OttawaDA`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/OttawaDA)
-- Shapefile from [`spatial_analysis_scenarios/shapefiles/OC_ROUTES_DAUID_VERTICES`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/OC_ROUTES_DAUID_VERTICES) which is a modified version of [`spatial_analysis_scenarios/shapefiles/OC_TRANSPO_ROUTES`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/OC_TRANSPO_ROUTES)
-
-##### Travel - Fastest Route to the First Road Crossing in a List
-
-*Python Packages Used*
-  - GeoPandas: To create GeoDataFrames
-  - PyProj: To change the espg of GeoDataFrames
-  - Pandas: Convert dictionary to a Panda Series
-  - OSMnx: For graphing and statistics
-  - NetworkX: To calculate the shortest path
-
-##### Spatial Weights - Proximity Analysis between Polygons
-
-*Files used*
-- [Python Script](https://github.com/omarkawach/spatial_analysis_scenarios/blob/master/scenario_files/ONS_spatial_weight.py) or [Notebook](https://github.com/omarkawach/spatial_analysis_scenarios/blob/master/scenario_notebooks/ONS_spatial_weight.ipynb)
-- Shapefile from [`spatial_analysis_scenarios/shapefiles/ONS`](https://github.com/omarkawach/spatial_analysis_scenarios/tree/master/shapefiles/ONS)
-
-*Python Packages used*
-  - GeoPandas: To read shapefiles
-  - PySal: To calculate and plot spatial weights
