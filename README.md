@@ -1,6 +1,17 @@
 # Modeling: Spatial Analysis (DRAFT)
 
-This repository explores various open sources tools one could use for performing geospatial analysis. The end goal is to develop a method to generate large scale DEVS simulation models from GIS data. There are interactive **Jupyter Notebooks** available for demo purposes via **Binder**. Developers can also install Python packages themselves and run the code on their own in **Spyder**. For GIS experts, **GeoDa** and **QGIS** installation links are included at the bottom of the repo.
+This repository has various open sources tools one could use for performing geospatial analysis. There are interactive **Jupyter Notebooks** available for demo purposes via **Binder**. Developers can also install Python packages themselves and run the code on their own in **Spyder**. For GIS experts, **GeoDa** and **QGIS** installation links are included at the bottom of the repo.
+
+Outline for the paper:
+- Motivaiton and Objectives
+- Background
+  - Intro to GIS
+  - Intro to DEVS
+  - Intro to Spatial Analysis
+  - How do GIS and DEVS related to each other 
+  - How will spatial analysis be used to build this relationship between GIS and DEVS
+- Discussion
+  - Models and some background
 
 
 ### Getting Started
@@ -28,11 +39,15 @@ Select the `scenario_notebooks` folder once Binder has loaded the repo in Jupyte
 
 4. You may now run/manipulate code
 
+## Motivaiton and Objectives
+
+Modelling and Simulaiton (M&S) has shown to be useful for studying real-world systems and to support decision-making through models that abstract systems under study. Building accurate models that adequately represents real-world systems is both difficult and time consuming, especially on a large-scale for complex spatial systems such as emergency response / services, urban logistics, etc. Since GIS data contains highlighy detailed, often hierarchically organized information that can be used to build simulation models, it is compatible with the modular nature of DEVS formalism. With this information in mind, the goal of this research is to determine a method for automating the generation of large-scale, spatial DEVS simulation models from GIS data. 
+
 ## Background
 
 #### GIS
 
-A geographic information system (GIS) can be referred as the proliferation of data spatially referenced to Earth **(change this definition)**. The two main components of spatial data are location (where) and attributes (what). These components of spatial data are mappable digitally and / or on paper. There also exist two main types of data in GIS. Vector data (objects) and raster data (field). Vector data can be 0-dimensional, 1-dimensional, and 2-dimensional. In the 0th dimension, coordinate points exist on their own. In the 1st dimension, two points can be used to create a line. In the 2nd dimension, three or more lines can be joined to make a polygon. Rasters can either be continuous (progressive data that varies) or discrete (thematic or categorical). Rectangular tessellated rasters are most common since they are easier mathematically. 
+Geographic information systems (GIS) open the door to the analysis, manipulation, and visualization of data spatially referenced to Earth. The two main components of spatial data are location (where) and attributes (what). These components of spatial data are mappable digitally and / or on paper. There also exist two main types of data in GIS. Vector data (objects) and raster data (field). Vector data can be 0-dimensional, 1-dimensional, and 2-dimensional. In the 0th dimension, coordinate points exist on their own. In the 1st dimension, two points can be used to create a line. In the 2nd dimension, three or more lines can be joined to make a polygon. Rasters can either be continuous (progressive data that varies) or discrete (thematic or categorical). Rectangular tessellated rasters are most common since they are easier mathematically. 
 
 **Find somewhere else to put this?**
 Geographical tracking and mapping of pandemic data through the application of Geographic Information Systems (GIS) has been proven to be a powerful system for disease monitoring and planning ([Buolos & Geraghty, 2020](https://ij-healthgeographics.biomedcentral.com/articles/10.1186/s12942-020-00202-8)). Such a system allows researchers to present large volumes of data in an intuitive way. For one, web-based mapping has created an environment for accessible remote collaboration between decision makers ([Franch-Pardo et al., 2020](https://www.sciencedirect.com/science/article/pii/S0048969720335531)). By integrating simulation models into map-based web applications, researchers can also highlight spatiotemporal trends in various scenarios. 
@@ -47,6 +62,13 @@ First half of simulation life cycle...library later, code behaviour
 -- Bruno --
 
 #### Spatial Analysis (the flow here is weird...fix later)
+
+Questions to answer
+1. Data manipulation
+   - Process, project, etc.
+2. spatial data statistical analysis
+3. spatial modelling
+4. visualizing 
 
 The utilisation of spatial analysis techniques in the field of GIS is imperative, especially when solving real-world problems. From the wide range of spatial analysis techniques, this paper will focus on topological, geostatistical, spatial/attribute querying, network analysis techniques. 
 
@@ -76,9 +98,46 @@ The utilisation of spatial analysis techniques in the field of GIS is imperative
     - Crosses
     - Overlaps
 
+Data issues with spatial dependce (how data relates in space)
+- MAUP (Modifiable Areal Unit Problem)
+  - Location of boundaries used to aggregate data can influence results of statistical tests (Moran's I)
+  - How boundaries impact summary statistics (look at stdev most importantly)
+  - Gerrymandering is a good example of this (larger population decides the election)
+  - Difficult to get proportional representation (redrawing district lines), lopsided representation, political polarization
+- Scale can cause problems 
+  - Data can become homogenous, impacts autocorrelation 
+- Ecological fallacy like MAUP
+  - Individuals vs Popuplations 
+  - Cant take aggregated results and apply them to individuals
+  - statistical result change based on data aggregation
+  - Provincial average income versus municipal average income (cant assume an individual makes provincial avg if they live in Toronto)
+- Boundary Problem
+  - Segments data
+  - when data excluded due to boudnary, lose of information that influences the data that remains (we could pull things out of context)
+  - can impact statistical tests
+  - Best practice to keep SOME surrounding data
 
-##### Spatial Statistics 
+
+##### Spatial Statistics (needs to be run)
   - Spatial autocorrelation follows toplers law
+    - Spatial data = spatial autocorrelation
+    - introduces redundancy in data, affects the outcome of statistical tests and correlation coefficient
+      - CC = relationship between two values (or multiple locations) using Moran's I
+        - Check to see if patterns dont occur just by chance, accept or reject hypothesis, show the distribution is not random (cause and effect in data), p-value, z-score
+      - Moran's I to assess spatial autocorrelation (most people dont bother since data came as they were)
+        - where n is the number of regions or spatial units, with a weighting matrix (w)
+        - can incorporate contiguity, adjacency, and distance as well as attribute data (concepts of topology)
+        - between -1 and +1
+          - +ve is similar values found together
+          - -ve is disisimilar values found together (rare)
+          - 0 means dist is **random** and no spatial autocorrelation
+      - Look at dispersed (negative I) versus clustered (positive I)
+      - Measure signifigance of Moran's I
+        - Look at p-values (prob. spatial autocorrelation is correlated, look for low value )and z-score (absolute value means your data is likely to spatially autocorrelated, look for high value, stdev of mean)
+      - Distance decay
+        - Moran's I decreases as more observations (farther away) are included in the calculations, therefore less influence
+    - Use for finding hotspots (maybe like concencration of retired people, where are they in a population)
+    - Most stats assume data is random, but not when it comes to spatial data
   - Map clusters (density, identify hotspots (of covid))
   - Spatial relationships (weights matrix, GWR)
   - nearest neighbour, inverse distance, and classifcations are not geostatistics
@@ -186,9 +245,9 @@ Network analysis is commonly used in instances of urban planning / logistics stu
 
 
 
-## Models
+## Discussion
 
-### Spatial Statistics - COVID-19 Spread (weights)
+### Spatial Statistics - COVID-19 Spread Model (weights)
 
 Since the inception of TFL, researchers in the GIS community have employed such a concept to describe spatial dependence ([Leitner et al., 2018](https://www.researchgate.net/publication/323419139_Laws_of_Geography)). In the field of epidemiology, one could apply TFL to synthetically simulate the spread of infectious diseases in a geographical environment based on spatial weighting ([Zhong et al., 2009](https://www.researchgate.net/profile/Song_Dunjiang/publication/226204125_Simulation_of_the_spread_of_infectious_diseases_in_a_geographical_environment/links/00b495316b307a20ab000000/Simulation-of-the-spread-of-infectious-diseases-in-a-geographical-environment.pdf)). Such an application can play a vital role in disease prevention and control when coupled with modern spatio-temporal analysis techniques ([Watkins et al., 2007](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1805744/)). 
 
@@ -223,25 +282,25 @@ A spatial lag calculator with row-standardized weights would give every ward an 
 **Figure 3**. Quantile Classification of Wards at Risk of Disease Spillover (USE A BETTER WORD)
 
 
-### Emergency Services - Health Unit Access 
+### Emergency Services - Health Unit Access Model
 
 The rise in population across developed countries continues to put a strain on ambulance services and health care systems. Unlike ambulance services, studies that address the strain health care systems face are a lot more well-documented and reported on in the media ([Lowthian et al., 2011](https://www.researchgate.net/publication/50266341_Increasing_utilisation_of_emergency_ambulances)). For example, initiatves by the New South Wales (NSW) Ambulance to reduce ambulance demand has been proven to be ineffictive due to the lack of reliable and consistent information. Only recently did NSW Ambulance begin publicly reporting on emergency ambulance response time ([NSW Govt, 2017](https://www.audit.nsw.gov.au/our-work/reports/managing-demand-for-ambulance-services-2017-)). Unfortunately, when it comes to patient outcome, response time data does not work well as a performance metric. Patient outcome can be improved through proper triage (prioritize) and dispatching, ambulance deployment modellng, and new technolgies and processes like GIS ([Al-Shaqsi, 2010](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4806820/)). Through modern GIS software or shortest path algorithm, dispatachers can dispatch and relocate ambulances while considering travel time and location ([Nguyen, 2015](http://liu.diva-portal.org/smash/get/diva2:781472/FULLTEXT01.pdf))...
 
 In the era of COVID-19, a protocol for patient at-home testing by trained paramedics could be brought to use ([Glauser, 2020](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7062433/)). Hypothetically, resources for such a protocol should be allocated based on the proximity of a patient's residence to a hospital. **Figure 4** depicts a study area composed of 3 Ottawa DAs and the buildings within them. A graphical modeler can be utilised to automate the workflow of calculating the shortest path between a health care facility and a patient's residence (see **Figure 5**).  Afterwards, buildings can be assigned to their nearest hospital by using a simple [python script](https://github.com/omarkawach/spatial_analysis_scenarios/blob/master/scenario_files/health_units_refined.py). We'll call this assignment "Health Unit-Building (HUB) coupling". Then, all these HUB couplings will produce an Emergency Service Coupled Model (see **Figure 6**). 
 
-<img src="scenario_images/Health_Units/polygons.png" alt="polygons" width="520" height="450" />
+<img src="Model_Hospital/images/polygons.png" alt="polygons" width="520" height="450" />
 
 **Figure 4**. Three Ottawa DAs and their Buildings
 
-![](scenario_images/Health_Units/graphic_model.png)
+![](Model_Hospital/images/graphic_model.png)
 
 **Figure 5**. Road Distance Graphical Modeler
 
 **Legend**
 
-![](scenario_images/Health_Units/hospitals_legend.png)
+![](Model_Hospital/images/hospitals_legend.png)
 
-<img src="scenario_images/Health_Units/hospital_access.png" alt="polygons" width="520" height="450" />
+<img src="Model_Hospital/images/hospital_access.png" alt="polygons" width="520" height="450" />
 
 **Figure 6**. Health Unit - Building Couplings
 
@@ -282,7 +341,9 @@ Come up with resulting model
 
 Any house that emits a call
 
-### Urban Logistics - Prescription Delivery
+Can instead use QNEAT3 Distance Matrices "OD Matrix from layers as lines (m:n)". Fix CRS first
+
+### Urban Logistics - Prescription Delivery Model
 
 MAYBE MENTION HOW SHORTEST PATH CAN ALSO BE DONE IN RASTERS?
 
@@ -333,7 +394,7 @@ Going a step further, the workflow can be implemented on a much larger scale. Su
 
 **Figure 14**. Delivery Service Coupled Model (maybe add ellipses so it looks like we have more couplings, e.g. coupling, coupling, ... , coupling)
 
-### Water Analysis - Damage to Infastructure due to Flooding
+### Emergency Services - Flood Model
 
 FIND A PUBLISHED MULTI-RING BUFFER EXAMPLE, NEED SOURCES
 
