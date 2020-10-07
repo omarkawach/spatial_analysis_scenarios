@@ -312,21 +312,20 @@ Alternate approaches include
 
 Through topological studies and proximity analysis, 9-11 Operators discovered what hospital each ONS polygon should be assigned. Now, it's time for them to put their research to the test. 9-11 Operators just received a call from someone living in the Royal Ottawa Hospital neighbourhood. In order to get an ambulance to the caller's building quickly, they require network analysis. The shortest path algorithm is run on Ottawa's Road Network from the hospital to the caller's building. 
 
-![](Model_Hospital/large_study_area/hospitals_label.png)
+Extract centroids from DAs. 
+Do distance matrix from DA to hospital. 
+Join Attributes by Field Value to DA choose ones within 2.5km using select by expression tool. 
+- Match DAUID to origin_id
+- Keep destination ID and total cost
+- Join type is one-to-many
+- Discard records which could not be joined
+- Set prefix to OD_
+- Discard records that couldnt be joined
 
-**Figure 6**. Location of Hospitals in Ottawa
-
-**Legend**
-
-<img src="Model_Hospital/large_study_area/legend.png" alt="legend_two" width="210" height="200" />
-
-![](Model_Hospital/large_study_area/qgis.png)
+![](Model_Hospital/large_study_area/images/hosp_large.png)
 
 **Figure 7**. Ottawa DAs Mapped to their Nearest Hospital
 
-![](Model_Hospital/large_study_area/shortest_path.png)
-
-**Figure 8**. Shortest Path from Hospital to Caller's Home
 
 *Possible Use Case*
 1. During a pandemic, we don't want to overwhelm hospitals. 
@@ -362,7 +361,7 @@ The delivery service workflow generated for this model can be reincorporated to 
 Going a step further, the workflow can be implemented on a much larger scale. Suppose Shoppers is ready to launch their application and would like to have every Shoppers Drug Mart deliver prescriptions to customers within a 2.5km distance buffer. Voronoi diagrams would allow analysts to identify the closest Shoppers to a customer's building. This can be done through creating Voronoi polygons from all the Shoppers Drug Mart point data with a large buffer extent and then clipping the Voronoi polygons with our specified 2.5km distance buffer (see **Figure 13**). Then we can use the Graphical Modeler as seen in **Figure 11** to find the shortest path between the closest Shoppers to a customer. 
 
 
-![](Model_Prescription_Delivery/images/result.png)
+![](Model_Prescription_Delivery/small_study_area/images/result.png)
 
 **Figure 8**. Closest Pharmacy 
 
@@ -378,11 +377,11 @@ Going a step further, the workflow can be implemented on a much larger scale. Su
 
 **Figure 11**. Graphical Modeler for Finding the Distance between Pharmacies and Customers
 
-![](Model_Prescription_Delivery/images/services.png)
+![](Model_Prescription_Delivery/small_study_area/images/services.png)
 
 **Figure 12**. Buildings with Access to Prescription Delivery near McCarthy
 
-![](Model_Prescription_Delivery/images/voronoi.png)
+![](Model_Prescription_Delivery/large_study_area/images/voronoi.png)
 
 **Figure 13**. Large Scale Delivery
 
@@ -396,31 +395,31 @@ FIND A PUBLISHED MULTI-RING BUFFER EXAMPLE, NEED SOURCES
 
 (Draft) As severe flooding increases across Canada due to climate change [ADD SOURCE HERE], proactive measures by various levels of governemtn is required. Without such intervention, flooding in regions like Ottawa-Gatineau will contiue to become a problem (ADD SOURCE HERE). Sandbags are commonly used as a defence against floods. Having data on which homes and neighbours to protect would be vital information. For example, assume a 1km flood risk buffer was created in one neighbourhood and then split into quarters via the multi-ring buffer method. Each ring in **Figure 16** can represent a sandbag line of defence so first responders can allot sandbags accordingly. The limitation for this model is that it does not take elevation into consideration. The speed and height at which water approaches a home is an important factor. The DAs surrounding the Wastewater Treatment Plant in Ottawa has a diverse amount of elevation. The severity of the flooding has been mapped using a three-ring buffer. Each ring in the three-ring buffer will represent 600m for a total of 1.8km. Also, the homes at the highest risk are those under 70m of elevation. To specify the amount of elevation in an area, Inverse Distance Weighting (IDW) with Nearest Neighbour (NN) Analysis is used to build a raster. Then we use the raster calculator to find which areas are below 70m of elevation. We then polygonize the raster and intersect it with the three-ring buffer. 
 
-![](scenarios/water_without_dem/graphic_model.png)
+![](Model_Flood/small_study_area/graphic_model.png)
 
 **Figure 15**. Flood Risk Model Generation Workflow 
 
-![](scenarios/water_without_dem/Buildings_impacted.png)
+![](Model_Flood/small_study_area/Buildings_impacted.png)
 
 **Figure 16**. Buildings at Risk
 
-![](scenarios/water_without_dem/workflow.png)
+![](Model_Flood/small_study_area/workflow.png)
 
 **Figure 17**. Waterbody Analysis Model Generation Workflow
 
-![](Model_Flood/images/Elevation.png)
+![](Model_Flood/large_study_area/images/Elevation.png)
 
 **Figure 18**. Elevation Contours 
 
-![](Model_Flood/images/IDW_with_NN.png)
+![](Model_Flood/large_study_area/images/IDW_with_NN.png)
 
 **Figure 19**. IDW with NN 
 
-![](Model_Flood/images/RasterCalc.png)
+![](Model_Flood/large_study_area/images/RasterCalc.png)
 
 **Figure 20**. Raster Calculator Result (or add distance weight)
 
-![](Model_Flood/images/Flood.png)
+![](Model_Flood/large_study_area/images/Flood.png)
 
 **Figure 21**. Buildings at Risk by Danger Zones and Elevations
 
@@ -445,7 +444,7 @@ After analysis, Mary would receive results stating that she may look for apartme
 - Byward Market
 
 
-![](scenarios/polygons_with_hospitals/result.png)
+![](scenarios/Hospitals_Within_Polygons/result.png)
 
 **Figure 1**. ONS polygons with Hospitals in them
 
@@ -454,15 +453,15 @@ After analysis, Mary would receive results stating that she may look for apartme
 
 Ottawa's Montfort Hospital has had a chemical spill. Residents who are directly within 1km of the hospital are warned to evacuate immediately. Residents whose ONS Boundary *intersect* with the 1km buffer are also expected to evacuated moments later. Before First Responders head into the polygons impacted by the chemical spill, they want to know how many buildings are impacted so that they may act by prioirity. This research would allow First Responders to know an approximate headcount as well. 
 
-![](scenarios/chemical_spill/qgis.png)
+![](scenarios/Chemical_Spill_at_Hospital/qgis.png)
 
 **Figure 9**. Overview of Chemical Spill Scenario
 
-<img src="scenarios/chemical_spill/immediate_impact.png" alt="result_seven_within_buffer" width="400" height="50" />
+<img src="scenarios/Chemical_Spill_at_Hospital/immediate_impact.png" alt="result_seven_within_buffer" width="400" height="50" />
 
 **Figure 10**. Number of Buildings Directly Impacted within 1km Buffer
 
-<img src="scenarios/chemical_spill/neighbourhoods_impacted.png" alt="result_seven_within_boundaries" width="400" height="300" />
+<img src="scenarios/Chemical_Spill_at_Hospital/neighbourhoods_impacted.png" alt="result_seven_within_boundaries" width="400" height="300" />
 
 **Figure 11**. Number of Buildings Impacted by ONS Polygon
 
@@ -477,7 +476,7 @@ Ottawa's Montfort Hospital has had a chemical spill. Residents who are directly 
 
 A recent tornado has resulted in a power outage to all Ottawa DAs within 10km of the Rideau Falls Energy Station. The City of Ottawa would like to know the number of buildings and Ottawa DAs impacted. This can be done by assigning each building to the correct DA. 
 
-![](scenarios/power_outage/qgis.png)
+![](scenarios/Power_Outage/qgis.png)
 
 **Figure 12**. Ottawa DAs and Buildings Without Power
 
@@ -492,15 +491,15 @@ Total Ottawa DAs impacted: 592
 At Statistics Canada, an intern would like to conduct a population density study using ONS data. The data gathered would be used for defining new neighbourhoods based on a simple quartile classification algorithm. 
 
 
-![](scenarios/ONS_population_density/density.png)
+![](scenarios/ONS_PopulationStudy/density.png)
 
 **Figure 13**. ONS Population Density
 
 **Legend**
 
-<img src="scenarios/ONS_population_density/legend.png" alt="legend_five" width="200" height="120" />
+<img src="scenarios/ONS_PopulationStudy/legend.png" alt="legend_five" width="200" height="120" />
 
-<img src="scenarios/ONS_population_density/quartile.png" alt="result_five"
+<img src="scenarios/ONS_PopulationStudy/quartile.png" alt="result_five"
  width="370" height="250" />
 
 **Figure 14**. ONS Quartile Classification for New Neighbourhoods
@@ -517,7 +516,7 @@ JTFS
 
 Find the nearest bus stop to each building within specific Ottawa DAs. This can be done by using bus stops to create voronoi polygons. Then, intersect the voronoi polygons with the Ottawa DAs. This scenario assumes that the vertices from each bus route are bus stops, even if that is not the case.  
 
-![](scenarios/voronoi_bus_stops/qgis.png)
+![](scenarios/Voronoi_Bus_Stops/qgis.png)
 
 **Figure 17**. Overview of Closest Bus Stop(s) to each Building in DAs
 
@@ -525,7 +524,7 @@ Find the nearest bus stop to each building within specific Ottawa DAs. This can 
 
 We're in the center of Ottawa and want to find the shortest path to a road crossing through network analysis. 
 
-![](scenarios/shortest_path_road_crossing/python.png)
+![](scenarios/ShortestPath_RoadCrossing/python.png)
 
 **Figure 18**. Shortest path
 
@@ -533,7 +532,7 @@ We're in the center of Ottawa and want to find the shortest path to a road cross
 
 For the ONS dataset, we are looking for ways to represent the spatial relationships between polygons. We do this by depicting a spatial weight network (planar). In this case, the Queen contiguity weight lets us look at shared edges or vertices between polygons. 
 
-<img src="scenarios/ONS_spatial_weight/python.png" alt="result_four" width="300" height="220" />
+<img src="scenarios/ONS_SpatialWeightStudy/python.png" alt="result_four" width="300" height="220" />
 
 **Figure 19**. Spatial Weight Network Ottawa
 
