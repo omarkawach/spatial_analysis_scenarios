@@ -1,16 +1,9 @@
 .DS_Store
 scenario_images/.DS_Store
 .gitignore
-shapefiles/OttawaBuildings/odb_ottawa.cpg
-shapefiles/OttawaBuildings/odb_ottawa.dbf
-shapefiles/OttawaBuildings/odb_ottawa.prj
-shapefiles/OttawaBuildings/odb_ottawa.qpj
-shapefiles/OttawaBuildings/odb_ottawa.shp
-shapefiles/OttawaBuildings/odb_ottawa.shx
 scenario_images/.DS_Store
 scenario_images/.DS_Store
 scenario_images/.DS_Store
-shapefiles/OC_ROUTES_VERTICES
 shapefiles/.DS_Store
 shapefiles/.DS_Store
 shapefiles/RVCA/RVCA_WaterbodySHP
@@ -19,3 +12,5 @@ Model_Flood/cdem_dem_031G_tif.zip
 Model_Flood/canvec_50K_ON_Elevation_shp
 Model_Flood/ottawa_dem_031G
 Model_Flood/outputs_as_shapefiles/hillshade.tif
+shapefiles/OttawaBuildings
+shapefiles/OC_ROUTES_VERTICES
