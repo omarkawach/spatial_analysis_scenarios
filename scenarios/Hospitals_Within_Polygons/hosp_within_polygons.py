@@ -6,11 +6,10 @@
 # Import packages
 import geopandas as gpd
 import matplotlib.pyplot as plt
-import pandas
 
 # Load data
-neighbourhoods = gpd.read_file("../shapefiles/ONS/ons.shp")
-hospitals = gpd.read_file("../shapefiles/OttawaHospitals/Hospitals.shp")
+neighbourhoods = gpd.read_file("../../shapefiles/ONS/ons.shp")
+hospitals = gpd.read_file("../../shapefiles/OttawaHospitals/Hospitals.shp")
 
 # Plot data
 fig, ax = plt.subplots()

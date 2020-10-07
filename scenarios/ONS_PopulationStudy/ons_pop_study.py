@@ -9,7 +9,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # Load data
-neighbourhoods = gpd.read_file("../shapefiles/ONS/ons.shp")
+neighbourhoods = gpd.read_file("../../shapefiles/ONS/ons.shp")
 
 
 # Only grab the data we need

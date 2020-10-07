@@ -57,5 +57,5 @@ for n in neighbourhoods.DAUID:
     n_index += 1
 
 # Save to shp
-neighbourhoods.to_file("/Users/omarkawach/Documents/QGIS/GIS_GIT/spatial_analysis_scenarios/shapefiles/HospitalsAndDAs/Closest_H_to_DA.shp")
+# neighbourhoods.to_file("../Model_Hospital/large_study_area/HospitalsAndDAs/Closest_H_to_DA.shp")
 

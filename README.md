@@ -288,23 +288,19 @@ The rise in population across developed countries continues to put a strain on a
 
 In the era of COVID-19, a protocol for patient at-home testing by trained paramedics could be brought to use ([Glauser, 2020](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7062433/)). Hypothetically, resources for such a protocol should be allocated based on the proximity of a patient's residence to a hospital. **Figure 4** depicts a study area composed of 3 Ottawa DAs and the buildings within them. A graphical modeler can be utilised to automate the workflow of calculating the shortest path between a health care facility and a patient's residence (see **Figure 5**).  Afterwards, buildings can be assigned to their nearest hospital by using a simple [python script](https://github.com/omarkawach/spatial_analysis_scenarios/blob/master/scenario_files/health_units_refined.py). We'll call this assignment "Health Unit-Building (HUB) coupling". Then, all these HUB couplings will produce an Emergency Service Coupled Model (see **Figure 6**). 
 
-<img src="Model_Hospital/images/polygons.png" alt="polygons" width="520" height="450" />
+<img src="Model_Hospital/small_study_area/images/buildings_in_DAs.png" alt="polygons" width="520" height="400" />
 
 **Figure 4**. Three Ottawa DAs and their Buildings
 
-![](Model_Hospital/images/graphic_model.png)
+![](Model_Hospital/small_study_area/images/graphic_model.png)
 
 **Figure 5**. Road Distance Graphical Modeler
 
-**Legend**
-
-![](Model_Hospital/images/hospitals_legend.png)
-
-<img src="Model_Hospital/images/hospital_access.png" alt="polygons" width="520" height="450" />
+![](Model_Hospital/small_study_area/images/small_hosp.png)
 
 **Figure 6**. Health Unit - Building Couplings
 
-![](scenario_images/Health_Units/workflows.png)
+![](Model_Hospital/small_study_area/images/workflows.png)
 
 **Figure 7**. Emergency Service Model Generation Workflow
 

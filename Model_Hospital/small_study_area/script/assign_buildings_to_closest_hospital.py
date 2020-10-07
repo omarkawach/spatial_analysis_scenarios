@@ -7,10 +7,10 @@
 import geopandas as gpd
 
 # Load data
-buildings = gpd.read_file("../shapefiles/healthcare_study_area/Buildings/buildings.shp")
-cheo = gpd.read_file("../shapefiles/healthcare_study_area/cheo/cheo.shp")
-general = gpd.read_file("../shapefiles/healthcare_study_area/General/general.shp")
-rehab = gpd.read_file("../shapefiles/healthcare_study_area/Rehab/rehab.shp")
+buildings = gpd.read_file("../shapefiles/Buildings/buildings.shp")
+cheo = gpd.read_file("../shapefiles/cheo/cheo.shp")
+general = gpd.read_file("../shapefiles/General/general.shp")
+rehab = gpd.read_file("../shapefiles/Rehab/rehab.shp")
 
 # Add new columns to geodataframe
 buildings["CLOSE_HOSP"] = None
@@ -49,4 +49,4 @@ for index in range(len(buildings)):
     buildings.loc[index, 'HOSP_DIST'] = round(closest_dist/1000, 2)
 
 # Save to shp
-buildings.to_file("../shapefiles/healthcare_study_area/closest/closest.shp")
+buildings.to_file("../shapefiles//closest/closest.shp")
