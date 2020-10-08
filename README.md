@@ -405,6 +405,8 @@ Going a step further, the workflow can be implemented on a much larger scale. Su
 
 ### Disaster Response - Seasonal Floods
 
+Make sure to change to a projected coordinate system before using buffers. For Ottawa, use UTM Zone 18N WGS 84. If we do not change the coordinate system, the buffer tool will assume degrees instead of distance. 
+
 FIND A PUBLISHED MULTI-RING BUFFER EXAMPLE, NEED SOURCES
 
 (Draft) As severe flooding increases across Canada due to climate change [ADD SOURCE HERE], proactive measures by various levels of governemtn is required. Without such intervention, flooding in regions like Ottawa-Gatineau will contiue to become a problem (ADD SOURCE HERE). Sandbags are commonly used as a defence against floods. Having data on which homes and neighbours to protect would be vital information. For example, assume a 1km flood risk buffer was created in one neighbourhood and then split into quarters via the multi-ring buffer method. Each ring in **Figure 16** can represent a sandbag line of defence so first responders can allot sandbags accordingly. The limitation for this model is that it does not take elevation into consideration. The speed and height at which water approaches a home is an important factor. The DAs surrounding the Wastewater Treatment Plant in Ottawa has a diverse amount of elevation. The severity of the flooding has been mapped using a three-ring buffer. Each ring in the three-ring buffer will represent 600m for a total of 1.8km. Also, the homes at the highest risk are those under 70m of elevation. To specify the amount of elevation in an area, Inverse Distance Weighting (IDW) with Nearest Neighbour (NN) Analysis is used to build a raster. Then we use the raster calculator to find which areas are below 70m of elevation. We then polygonize the raster and intersect it with the three-ring buffer. 
@@ -467,17 +469,9 @@ After analysis, Mary would receive results stating that she may look for apartme
 
 Ottawa's Montfort Hospital has had a chemical spill. Residents who are directly within 1km of the hospital are warned to evacuate immediately. Residents whose ONS Boundary *intersect* with the 1km buffer are also expected to evacuated moments later. Before First Responders head into the polygons impacted by the chemical spill, they want to know how many buildings are impacted so that they may act by prioirity. This research would allow First Responders to know an approximate headcount as well. 
 
-![](scenarios/Chemical_Spill_at_Hospital/qgis.png)
+![](scenarios/Chemical_Spill_at_Hospital/chem_spill.png)
 
 **Figure 9**. Overview of Chemical Spill Scenario
-
-<img src="scenarios/Chemical_Spill_at_Hospital/immediate_impact.png" alt="result_seven_within_buffer" width="400" height="50" />
-
-**Figure 10**. Number of Buildings Directly Impacted within 1km Buffer
-
-<img src="scenarios/Chemical_Spill_at_Hospital/neighbourhoods_impacted.png" alt="result_seven_within_boundaries" width="400" height="300" />
-
-**Figure 11**. Number of Buildings Impacted by ONS Polygon
 
 
 *Possible Use Cases*
