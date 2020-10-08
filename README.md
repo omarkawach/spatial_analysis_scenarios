@@ -411,27 +411,19 @@ FIND A PUBLISHED MULTI-RING BUFFER EXAMPLE, NEED SOURCES
 
 (Draft) As severe flooding increases across Canada due to climate change [ADD SOURCE HERE], proactive measures by various levels of governemtn is required. Without such intervention, flooding in regions like Ottawa-Gatineau will contiue to become a problem (ADD SOURCE HERE). Sandbags are commonly used as a defence against floods. Having data on which homes and neighbours to protect would be vital information. For example, assume a 1km flood risk buffer was created in one neighbourhood and then split into quarters via the multi-ring buffer method. Each ring in **Figure 16** can represent a sandbag line of defence so first responders can allot sandbags accordingly. The limitation for this model is that it does not take elevation into consideration. The speed and height at which water approaches a home is an important factor. The DAs surrounding the Wastewater Treatment Plant in Ottawa has a diverse amount of elevation. The severity of the flooding has been mapped using a three-ring buffer. Each ring in the three-ring buffer will represent 600m for a total of 1.8km. Also, the homes at the highest risk are those under 70m of elevation. To specify the amount of elevation in an area, Inverse Distance Weighting (IDW) with Nearest Neighbour (NN) Analysis is used to build a raster. Then we use the raster calculator to find which areas are below 70m of elevation. We then polygonize the raster and intersect it with the three-ring buffer. 
 
-![](Model_Flood/small_study_area/graphic_model.png)
-
-**Figure 15**. Flood Risk Model Generation Workflow 
-
 ![](Model_Flood/small_study_area/Buildings_impacted.png)
 
 **Figure 16**. Buildings at Risk
 
-![](Model_Flood/small_study_area/workflow.png)
-
-**Figure 17**. Waterbody Analysis Model Generation Workflow
-
-![](Model_Flood/large_study_area/images/Elevation.png)
+![](Model_Disaster_Response/large_study_area/images/Elevation.png)
 
 **Figure 18**. Elevation Contours 
 
-![](Model_Flood/large_study_area/images/IDW_with_NN.png)
+![](Model_Disaster_Response/large_study_area/images/IDW_with_NN.png)
 
 **Figure 19**. IDW with NN 
 
-![](Model_Flood/large_study_area/images/RasterCalc.png)
+![](Model_Disaster_Response/large_study_area/images/RasterCalc.png)
 
 **Figure 20**. Raster Calculator Result (or add distance weight)
 
