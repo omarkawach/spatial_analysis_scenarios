@@ -1,2 +1,0 @@
-Location,Lon,Lat
-Rideau Falls,-75.695643,45.442789

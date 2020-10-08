@@ -461,7 +461,7 @@ After analysis, Mary would receive results stating that she may look for apartme
 
 Ottawa's Montfort Hospital has had a chemical spill. Residents who are directly within 1km of the hospital are warned to evacuate immediately. Residents whose ONS Boundary *intersect* with the 1km buffer are also expected to evacuated moments later. Before First Responders head into the polygons impacted by the chemical spill, they want to know how many buildings are impacted so that they may act by prioirity. This research would allow First Responders to know an approximate headcount as well. 
 
-![](scenarios/Chemical_Spill_at_Hospital/chem_spill.png)
+![](scenarios/Chemical_Spill_at_Hospital/chemical_spill_montfort_hospital.png)
 
 **Figure 9**. Overview of Chemical Spill Scenario
 
