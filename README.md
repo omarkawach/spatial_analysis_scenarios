@@ -308,7 +308,7 @@ An extension to this  we can Target by category to hospital specialty : https://
 
 We can also use fastest path algorithm instead of shortest path when considering km/hr
 
-Alternate approaches include
+Alternate approache below (OD Matrix)
 
 Through topological studies and proximity analysis, 9-11 Operators discovered what hospital each ONS polygon should be assigned. Now, it's time for them to put their research to the test. 9-11 Operators just received a call from someone living in the Royal Ottawa Hospital neighbourhood. In order to get an ambulance to the caller's building quickly, they require network analysis. The shortest path algorithm is run on Ottawa's Road Network from the hospital to the caller's building. 
 
@@ -337,6 +337,20 @@ Come up with resulting model
 Any house that emits a call
 
 Can instead use QNEAT3 Distance Matrices "OD Matrix from layers as lines (m:n)". Fix CRS first
+
+Another option is to use Network analysis tool service area from layer and then convex hull or concave hull with NN
+
+![](Model_Hospital/servicearea.png)
+
+Limitations:
+- The accuracy is left up to QGIS 
+- We end up not serving houses that are on the same road
+- Might have to expand the width ourselves
+
+Might be better to do this in ArcGIS: 
+https://desktop.arcgis.com/en/arcmap/latest/extensions/network-analyst/service-area.htm
+
+Could also try Iso-Area as Polygons (from layer) but the projection should be in UTM zones instead: https://root676.github.io/
 
 ### Urban Logistics - Prescription Delivery Model
 
@@ -389,7 +403,7 @@ Going a step further, the workflow can be implemented on a much larger scale. Su
 
 **Figure 14**. Delivery Service Coupled Model (maybe add ellipses so it looks like we have more couplings, e.g. coupling, coupling, ... , coupling)
 
-### Emergency Services - Flood Model
+### Disaster Response - Seasonal Floods
 
 FIND A PUBLISHED MULTI-RING BUFFER EXAMPLE, NEED SOURCES
 
@@ -419,7 +433,7 @@ FIND A PUBLISHED MULTI-RING BUFFER EXAMPLE, NEED SOURCES
 
 **Figure 20**. Raster Calculator Result (or add distance weight)
 
-![](Model_Flood/large_study_area/images/Flood.png)
+![](Model_Disaster_Response/large_study_area/images/flood_map.png)
 
 **Figure 21**. Buildings at Risk by Danger Zones and Elevations
 
