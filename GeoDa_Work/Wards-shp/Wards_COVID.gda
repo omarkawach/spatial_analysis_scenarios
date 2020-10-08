@@ -55,7 +55,6 @@
             <weights_entries>
                 <weights>
                     <title>covid_queen</title>
-                    <default/>
                     <meta_info>
                         <weights_type>custom</weights_type>
                         <path>covid_queen.gal</path>
@@ -69,14 +68,32 @@
                         <non_zero_perc>21.92816635160681</non_zero_perc>
                     </meta_info>
                 </weights>
+                <weights>
+                    <title>Wards_COVID_cu_id</title>
+                    <default/>
+                    <meta_info>
+                        <weights_type>queen</weights_type>
+                        <order>1</order>
+                        <inc_lower_orders>false</inc_lower_orders>
+                        <path>Wards_COVID_cu_id.gal</path>
+                        <id_variable>COVID_Cu_1</id_variable>
+                        <symmetry>symmetric</symmetry>
+                        <num_observations>23</num_observations>
+                        <min_neighbors>2</min_neighbors>
+                        <max_neighbors>9</max_neighbors>
+                        <mean_neighbors>5.043478260869565</mean_neighbors>
+                        <median_neighbors>5</median_neighbors>
+                        <non_zero_perc>21.92816635160681</non_zero_perc>
+                    </meta_info>
+                </weights>
             </weights_entries>
             <default_vars>
                 <default_var>
-                    <name>n_case_pop</name>
+                    <name>COVID_Cu_1</name>
                     <time_id>time 0</time_id>
                 </default_var>
                 <default_var>
-                    <name/>
+                    <name>COVID_Ward</name>
                     <time_id>time 0</time_id>
                 </default_var>
                 <default_var>

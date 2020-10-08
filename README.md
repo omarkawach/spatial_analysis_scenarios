@@ -249,6 +249,42 @@ Network analysis is commonly used in instances of urban planning / logistics stu
 
 ### Spatial Statistics - COVID-19 Spread Model (weights)
 
+NEED TO VALIDATE COVID SPREAD MODEL (spatial autocorrelation to confirm spatial dependecy) https://geodacenter.github.io/workbook/5a_global_auto/lab5a.html
+https://geodacenter.github.io/workbook/5b_global_adv/lab5b.html 
+
+- Queen weight using ward#
+- Click univariate local moran's I and select cummulative covid cases
+
+Local indicators of spatial association (LISA) for clustering
+
+LISA CLUSTER MAP (where the concentration of covid cases are, therefore hot spots and cold spots
+
+Maybe only consider high high?
+
+spatial clusters
+- high high (red)
+  - high cases within itself and surrounding areas
+- low low (blue)
+  - low cases when surrounding areas have more cases
+
+spatial outliers 
+- high low (light red) 
+  - high cases when surrounding areas have low cases
+- low high (light blue)
+
+![](GeoDa_Work/Wards-shp/LISA_cluster_map.png)
+
+
+LISA SIGNIFIGANCE MAP (see how confident we can be in our clusters, darkest values are most confident to show this relationship wasnt found by chance)
+![](GeoDa_Work/Wards-shp/LISA_signifigancemap.png)
+
+Moran's I scatterplot (draws the cluster map)
+![](GeoDa_Work/Wards-shp/Wards_COVIDLisaScatterPlotFrame.png)
+
+
+
+https://www.medrxiv.org/content/10.1101/2020.05.28.20115626v1.full.pdf
+
 Since the inception of TFL, researchers in the GIS community have employed such a concept to describe spatial dependence ([Leitner et al., 2018](https://www.researchgate.net/publication/323419139_Laws_of_Geography)). In the field of epidemiology, one could apply TFL to synthetically simulate the spread of infectious diseases in a geographical environment based on spatial weighting ([Zhong et al., 2009](https://www.researchgate.net/profile/Song_Dunjiang/publication/226204125_Simulation_of_the_spread_of_infectious_diseases_in_a_geographical_environment/links/00b495316b307a20ab000000/Simulation-of-the-spread-of-infectious-diseases-in-a-geographical-environment.pdf)). Such an application can play a vital role in disease prevention and control when coupled with modern spatio-temporal analysis techniques ([Watkins et al., 2007](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1805744/)). 
 
 The recent COVID-19 outbreak has made it apparent how unprepared governments are for a global pandemic of this scale ([Timmis, and Brussow, 2020](https://sfamjournals.onlinelibrary.wiley.com/doi/10.1111/1462-2920.15029)). Matters are made worse by the fact that large, and even small-scale problems are difficult for humans to conceptualize. This is especially true when we consider global issues like global warming ([Resnik et al., 2016](https://onlinelibrary.wiley.com/doi/full/10.1111/cogs.12388)). Given the unprecedented amount of data surrounding the ongoing pandemic, local / national / global real-time, non-real-time, or simulated disease cases must be carefully analyzed to recognize high risk geographical regions which may be susceptible to outbreaks or further disease spreading. 
@@ -281,6 +317,9 @@ A spatial lag calculator with row-standardized weights would give every ward an 
 ![](GeoDa_Work/n_cases_pop.png)
 **Figure 3**. Quantile Classification of Wards at Risk of Disease Spillover (USE A BETTER WORD)
 
+*Possible Use Case*
+1. We could see which buildings are in a DA and connect them for population growth analysis.
+   - Does the number of buildings in a DA impact population? Will likely need statistics data for this
 
 ### Emergency Services - Health Unit Access Model
 
@@ -288,7 +327,7 @@ The rise in population across developed countries continues to put a strain on a
 
 In the era of COVID-19, a protocol for patient at-home testing by trained paramedics could be brought to use ([Glauser, 2020](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7062433/)). Hypothetically, resources for such a protocol should be allocated based on the proximity of a patient's residence to a hospital. **Figure 4** depicts a study area composed of 3 Ottawa DAs and the buildings within them. A graphical modeler can be utilised to automate the workflow of calculating the shortest path between a health care facility and a patient's residence (see **Figure 5**).  Afterwards, buildings can be assigned to their nearest hospital by using a simple [python script](https://github.com/omarkawach/spatial_analysis_scenarios/blob/master/scenario_files/health_units_refined.py). We'll call this assignment "Health Unit-Building (HUB) coupling". Then, all these HUB couplings will produce an Emergency Service Coupled Model (see **Figure 6**). 
 
-<img src="Model_Hospital/small_study_area/images/buildings_in_DAs.png" alt="polygons" width="520" height="400" />
+![](Model_Hospital/small_study_area/images/buildings_in_DAs.png)
 
 **Figure 4**. Three Ottawa DAs and their Buildings
 
@@ -457,33 +496,28 @@ After analysis, Mary would receive results stating that she may look for apartme
 **Figure 1**. ONS polygons with Hospitals in them
 
 
-### Disaster Response - Chemical Spill at Hospital
+### Disaster Response - Chemical Spill 
 
-Ottawa's Montfort Hospital has had a chemical spill. Residents who are directly within 1km of the hospital are warned to evacuate immediately. Residents whose ONS Boundary *intersect* with the 1km buffer are also expected to evacuated moments later. Before First Responders head into the polygons impacted by the chemical spill, they want to know how many buildings are impacted so that they may act by prioirity. This research would allow First Responders to know an approximate headcount as well. 
+Following the Lac-Mégantic rail disaster, the Transport Safety Board (TSB) of Canada made a few recommendations to be better prepared to prevent similar disasters. One of the recommendations was to have "Emergency response assistance plans must be created when large volumes of liquid hydrocarbons, like oil, are shipped" ([TSB, 2019](https://www.tsb.gc.ca/eng/rapports-reports/rail/2013/r13d0054/r13d0054-r-es.html)). Help dispatch and evacuate people.
+
+Ottawa's Montfort Hospital has had a chemical spill. Residents who are directly within 0.5km of the hospital are warned to evacuate immediately. Residents whose ONS Boundary touch with the 1.5km buffer are also expected to evacuated moments later. Before First Responders head into the polygons impacted by the chemical spill, they want to know how many buildings are impacted so that they may act by prioirity. This research would allow First Responders to know an approximate headcount as well. 
 
 ![](scenarios/Chemical_Spill_at_Hospital/chemical_spill_montfort_hospital.png)
 
 **Figure 9**. Overview of Chemical Spill Scenario
 
+### Disaster Response - Power Outage
 
-*Possible Use Cases*
-1. Go further and evacuate neighbourhoods that are touching impacted neighbourhoods. 
-2. Be better prepared for potential future events like the [Lac-Mégantic rail disaster](https://www.tsb.gc.ca/eng/rapports-reports/rail/2013/r13d0054/r13d0054-r-es.html)
-   - Help dispatch and evacuate people. 
-3. Unrelated to emergencies, we could see which buildings are in a DA and connect them for population growth analysis.
+https://www.usbr.gov/power/edu/pamphlet.pdf
 
-### Disaster Response - Power Generator Outage after Tornado
+Hydroelectricity from the Hydro Ottawa Rideau Falls facility is capable of delivering power to consumers. Should an outage occur, a large number of buildings within ONS polygons that touch the 2km power outage buffer would be out of power. If such an event were to occur, the City of Ottawa would like to know which buildings are without power and which ONS polygon they reside in. 
 
-A recent tornado has resulted in a power outage to all Ottawa DAs within 10km of the Rideau Falls Energy Station. The City of Ottawa would like to know the number of buildings and Ottawa DAs impacted. This can be done by assigning each building to the correct DA. 
+Used 'Extract by location' instead of intersect to find polygons touching buffer
 
-![](scenarios/Power_Outage/qgis.png)
+
+![](scenarios/Power_Outage/outageRideau.png)
 
 **Figure 12**. Ottawa DAs and Buildings Without Power
-
-```
-Buildings without power: 88,780
-Total Ottawa DAs impacted: 592
-```
 
 
 ### Dealing with Populations - Classify Neighbourhoods by Population Density
