@@ -5,8 +5,6 @@
 """
 # Import packages
 import geopandas as gpd
-import numpy as np
-from shapely.geometry import Point
 
 # Load data
 neighbourhoods = gpd.read_file("../shapefiles/DAs_with_OD_Matrix/DAs_with_OD_Matrix.shp")
