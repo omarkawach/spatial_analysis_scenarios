@@ -579,6 +579,8 @@ For the ONS dataset, we are looking for ways to represent the spatial relationsh
 
 [Carleton University - ARSLab](https://arslab.sce.carleton.ca/) 
 
+[Sarah Loos - UVic GEOG 328 GIS Analysis](https://www.uvic.ca/calendar/undergrad/#/courses/BkL7SOamV?bc=true&bcCurrent=GIS%20Analysis&bcItemType=Courses)
+
 [Qiusheng Wu - Python Geospatial Repo on GitHub](https://github.com/giswqs/python-geospatial)
 
 ## Resources
