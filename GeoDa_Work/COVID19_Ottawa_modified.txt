@@ -1,0 +1,24 @@
+Ward Number,Ward Name,"Cumulative Rate of Confirmed COVID-19 (per 100 000), Excluding LTCH and RH",Cumulative Number of Cases Excluding LTCH and RH,Cumulative Number of Cases Linked to Outbreaks in  LTCH and RH
+1,Orléans,"341",160,79
+2,Innes,"620",247,130
+3,Barrhaven,"472",270,38
+4,Kanata North / Nord,"247",96,8
+5,West Carleton-March,"152",36,0
+6,Stittsville-Kanata West / Ouest,"324",99,11
+7,Bay / Baie,"576",247,215
+8,College / Collège,"421",205,138
+9,Knoxdale-Merivale,"458",174,14
+10,Gloucester-Southgate,"797",376,36
+11,Beacon Hill-Cyrville,"835",271,113
+12,Rideau-Vanier,"899",351,83
+13,Rideau-Rockcliffe,"788",284,203
+14,Somerset,"424",155,19
+15,Kitchissippi,"357",138,7
+16,River / Rivière,"749",332,48
+17,Capital / Capitale,"362",124,16
+18,Alta Vista,"818",347,78
+19,Cumberland,"506",252,67
+20,Osgoode,"234",59,4
+21,Rideau-Goulbourn,"454",112,10
+22,Gloucester-South Nepean Sud,"470",247,24
+23,Kanata South / Sud,"238",113,71
