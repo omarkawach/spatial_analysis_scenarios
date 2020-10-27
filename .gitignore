@@ -8,3 +8,9 @@ Model_Disaster_Response/large_study_area/cdem_dem_031G_tif.zip
 Model_Disaster_Response/canvec_50K_ON_Elevation_shp
 shapefiles/OttawaBuildings
 shapefiles/OC_ROUTES_VERTICES
+GeoDa_Work/shapefiles/BuildingCentroids.cpg
+GeoDa_Work/shapefiles/BuildingCentroids.dbf
+GeoDa_Work/shapefiles/BuildingCentroids.prj
+GeoDa_Work/shapefiles/BuildingCentroids.qpj
+GeoDa_Work/shapefiles/BuildingCentroids.shp
+GeoDa_Work/shapefiles/BuildingCentroids.shx
