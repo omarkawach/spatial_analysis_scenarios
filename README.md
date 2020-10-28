@@ -51,27 +51,53 @@ Select the `scenario_notebooks` folder once Binder has loaded the repo in Jupyte
 
 Modelling and Simulaiton (M&S) has shown to be useful for studying real-world systems and to support decision-making through models that abstract systems under study. Building accurate models that adequately represents real-world systems is both difficult and time consuming, especially on a large-scale for complex spatial systems such as emergency response / services, urban logistics, etc. Since GIS data contains highlighy detailed, often hierarchically organized information that can be used to build simulation models, it is compatible with the modular nature of DEVS formalism. With this information in mind, the goal of this research is to determine a method for automating the generation of large-scale, spatial DEVS simulation models from GIS data. 
 
+[Article Modeling and Simulation in Geographic Information Science: Integrated Models and Grand Challenges](https://www.sciencedirect.com/science/article/pii/S1877042811013267)
+
 ## Background
+
+**Find somewhere else to put this? Maybe in another paper?**
+ENV for web based simulation
+
+Geographical tracking and mapping of pandemic data through the application of Geographic Information Systems (GIS) has been proven to be a powerful system for disease monitoring and planning ([Buolos & Geraghty, 2020](https://ij-healthgeographics.biomedcentral.com/articles/10.1186/s12942-020-00202-8)). Such a system allows researchers to present large volumes of data in an intuitive way. For one, web-based mapping has created an environment for accessible remote collaboration between decision makers ([Franch-Pardo et al., 2020](https://www.sciencedirect.com/science/article/pii/S0048969720335531)). By integrating simulation models into map-based web applications, researchers can also highlight spatiotemporal trends in various scenarios. 
 
 #### GIS
 
 Geographic information systems (GIS) open the door to the analysis, manipulation, and visualization of data spatially referenced to Earth. The two main components of spatial data are location (where) and attributes (what). These components of spatial data are mappable digitally and / or on paper. There also exist two main types of data in GIS. Vector data (objects) and raster data (field). Vector data can be 0-dimensional, 1-dimensional, and 2-dimensional. In the 0th dimension, coordinate points exist on their own. In the 1st dimension, two points can be used to create a line. In the 2nd dimension, three or more lines can be joined to make a polygon. Rasters can either be continuous (progressive data that varies) or discrete (thematic or categorical). Rectangular tessellated rasters are most common since they are easier mathematically. 
 
-**Find somewhere else to put this?**
-Geographical tracking and mapping of pandemic data through the application of Geographic Information Systems (GIS) has been proven to be a powerful system for disease monitoring and planning ([Buolos & Geraghty, 2020](https://ij-healthgeographics.biomedcentral.com/articles/10.1186/s12942-020-00202-8)). Such a system allows researchers to present large volumes of data in an intuitive way. For one, web-based mapping has created an environment for accessible remote collaboration between decision makers ([Franch-Pardo et al., 2020](https://www.sciencedirect.com/science/article/pii/S0048969720335531)). By integrating simulation models into map-based web applications, researchers can also highlight spatiotemporal trends in various scenarios. 
-
-(hospitals --> map onto, paramters doctors, beds, etc.). Then processing it and turning it into a model. Library of models. 
-
-First half of simulation life cycle...library later, code behaviour
 
 
 #### DEVS
 
 -- Bruno --
 
-#### Spatial Analysis (the flow here is weird...fix later)
+#### Spatial Analysis 
+
+The utilisation of spatial analysis techniques in the field of GIS is imperative for revealing patterns, especially when solving real-world problems. From the wide range of spatial analysis techniques, this paper will focus on topological processing, geostatistical, spatial/attribute querying, and network analysis techniques. 
 
 
+[How to perform spatial analysis - ESRI](https://www.esri.com/arcgis-blog/products/product/analytics/how-to-perform-spatial-analysis/)
+
+[Use cases - ESRI blog](https://www.esri.com/arcgis-blog/products/analytics/analytics/learn-spatial-analysis-techniques-with-scenario-based-case-studies/)
+
+
+##### Topology Processing for Vector Analysis
+
+Topology describes the relationship between one or more features within a space. In geometry, topological data does not consider factors like adjacency, contiguity, connectivity, intersection, etc. On the other hand, GIS requires topological data to be far more intelligent. Using topology to understand spatial relationships is an integral part of GIS.
+
+When conducting GIS research, an area of interest needs to be selected. **Buffer (proximity) analysis** is the first step one could take to do this. Depending on the coordinate system being used, a buffer distance can be in degrees or other units of measure like meters, kilometers, feet, miles, etc. The application of buffer analysis does not stop at creating study areas. Buffer analysis could also be used for counting the number of spatial features within a radius.
+
+Whether one is using polygons, lines, or points, various spatial relationship types could be used when conducting vector data analysis. Touches, contans, intersects, relation, within, crosses, and overlaps are some of the common keywords one would come across in a typical GIS application like QGIS. When using these relationship types, new layers are created. This process is called topological overlaying. For example, when the input is a point layer and the overlay layer is a polygon, then the output is a point. Therefore, the output of a topological overlay operation is always based on the input. The output can have attributes transfered by the input/output into the new layer or have no attributes transfered at all.
+
+For an automated approach to proximity analysis in topology, one could take a collection of Voronoi (Thiessen) polygons and partion them by their distance to a point. [Voronoi Methods in GIS](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.86.3356&rep=rep1&type=pdf)
+
+
+Spatial networks 
+ - [Planar if 2D and edges only intersecting at the nodes - OSMnx](https://arxiv.org/pdf/1611.01890.pdf)
+  
+Spatial Join (analysis)
+
+
+##### Spatial Statistics (is this worth doing?)
 
 Questions to answer
 1. Data manipulation
@@ -79,56 +105,6 @@ Questions to answer
 2. spatial data statistical analysis
 3. spatial modelling
 4. visualizing 
-
-The utilisation of spatial analysis techniques in the field of GIS is imperative for revealing patterns, especially when solving real-world problems. From the wide range of spatial analysis techniques, this paper will focus on topological, geostatistical, spatial/attribute querying, network analysis techniques. 
-
-
-[Article on coupling large scale models to GIS](https://www.sciencedirect.com/science/article/pii/S1877042811013267)
-
-[More ESRI](https://www.esri.com/arcgis-blog/products/product/analytics/how-to-perform-spatial-analysis/)
-
-
-[Use cases ESRI blog](https://www.esri.com/arcgis-blog/products/analytics/analytics/learn-spatial-analysis-techniques-with-scenario-based-case-studies/)
-
-
-##### Topology Processing
-
-  - A topology is...to be cont'd
-  - Buffers (proximity)
-  - [Voronoi diagrams embody a form of "automated" topology](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.86.3356&rep=rep1&type=pdf)
-  - Spatial networks 
-    - [Planar if 2D and edges only intersecting at the nodes ](https://arxiv.org/pdf/1611.01890.pdf)
-  - Spatial Join (analysis)
-  - [Spatial relationship types](https://desktop.arcgis.com/en/arcmap/latest/extensions/data-reviewer/types-of-spatial-relationships-that-can-be-validated.htm)
-    - Touches
-    - Contains
-    - Intersects
-    - Relation
-    - Within
-    - Crosses
-    - Overlaps
-
-Data issues with spatial dependce (how data relates in space)
-- MAUP (Modifiable Areal Unit Problem)
-  - Location of boundaries used to aggregate data can influence results of statistical tests (Moran's I)
-  - How boundaries impact summary statistics (look at stdev most importantly)
-  - Gerrymandering is a good example of this (larger population decides the election)
-  - Difficult to get proportional representation (redrawing district lines), lopsided representation, political polarization
-- Scale can cause problems 
-  - Data can become homogenous, impacts autocorrelation 
-- Ecological fallacy like MAUP
-  - Individuals vs Popuplations 
-  - Cant take aggregated results and apply them to individuals
-  - statistical result change based on data aggregation
-  - Provincial average income versus municipal average income (cant assume an individual makes provincial avg if they live in Toronto)
-- Boundary Problem
-  - Segments data
-  - when data excluded due to boudnary, lose of information that influences the data that remains (we could pull things out of context)
-  - can impact statistical tests
-  - Best practice to keep SOME surrounding data
-
-
-##### Spatial Statistics 
   - Spatial autocorrelation follows toplers law
     - Spatial data = spatial autocorrelation
     - introduces redundancy in data, affects the outcome of statistical tests and correlation coefficient
@@ -153,6 +129,25 @@ Data issues with spatial dependce (how data relates in space)
   - nearest neighbour, inverse distance, and classifcations are not geostatistics
   - spatiotemporal = space and time
   - [First law of geography](https://wiki.gis.com/wiki/index.php/First_law_of_geography) 
+
+Data issues with spatial dependce (how data relates in space)
+- MAUP (Modifiable Areal Unit Problem)
+  - Location of boundaries used to aggregate data can influence results of statistical tests (Moran's I)
+  - How boundaries impact summary statistics (look at stdev most importantly)
+  - Gerrymandering is a good example of this (larger population decides the election)
+  - Difficult to get proportional representation (redrawing district lines), lopsided representation, political polarization
+- Scale can cause problems 
+  - Data can become homogenous, impacts autocorrelation 
+- Ecological fallacy like MAUP
+  - Individuals vs Popuplations 
+  - Cant take aggregated results and apply them to individuals
+  - statistical result change based on data aggregation
+  - Provincial average income versus municipal average income (cant assume an individual makes provincial avg if they live in Toronto)
+- Boundary Problem
+  - Segments data
+  - when data excluded due to boudnary, lose of information that influences the data that remains (we could pull things out of context)
+  - can impact statistical tests
+  - Best practice to keep SOME surrounding data
 
 Limitations
 - GWR https://pro.arcgis.com/en/pro-app/tool-reference/spatial-statistics/geographicallyweightedregression.htm 
@@ -252,6 +247,10 @@ We have a shapefile containing the population and homes in hundreds of DAs.
 ##### Network Analysis
 
 Network analysis is commonly used in instances of urban planning / logistics studies. 
+
+##### Interpolation 
+
+- IDW
 
 
 
@@ -435,9 +434,7 @@ Could also try Iso-Area as Polygons (from layer) but the projection should be in
 
 ### Urban Logistics - Prescription Delivery Model
 
-MAYBE MENTION HOW SHORTEST PATH CAN ALSO BE DONE IN RASTERS?
-
-CAN ALSO USE SERVICE AREAS TO SHOW TIME INTERVALS OF TRAVEL https://desktop.arcgis.com/en/arcmap/latest/extensions/network-analyst/service-area.htm
+[CAN ALSO USE SERVICE AREAS TO SHOW TIME INTERVALS OF TRAVEL ](https://desktop.arcgis.com/en/arcmap/latest/extensions/network-analyst/service-area.htm)
 
 A Canadian pharmacy chain, Shoppers Drug Mart, wants to launch a prescription delivery application. To save on costs and increase efficiencies, Shoppers is interested in delivering prescriptions to customers from the closest pharmacy. Before launching, Shoppers must first find willing participants to test the application. 
 
