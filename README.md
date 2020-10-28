@@ -273,6 +273,9 @@ Do building density instead? Cases by population density isnt a good approach:
 
 
 Begin by collecting COVID data from Ottawa Public Health (Oct 2020)
+https://www.arcgis.com/home/item.html?id=7cf545f26fb14b3f972116241e073ada#overview
+
+
 
 Get ward shapefile from open data 
 
@@ -284,34 +287,40 @@ Use coint points in polygons to find the number of buildings (centroids) within 
 
 Use vector join to get cases from OPH to ward shapefile
 
+Manually added median household income https://www.neighbourhoodstudy.ca/maps-2/#Economy%20&%20Employment/Household%20Income/Median%20household%20income%20(AT)
+
 Case data kept: 
 - Ottawa COV: Cumulative rate (per 100 000 population), excluding cases linked to outbreaks in LTCH and RH – cumulative number of residents with confirmed COVID-19 in a Ward, excluding those linked to outbreaks in LTCH and RH, divided by the total population of that Ward
 - Ottawa C_1: Cumulative number of cases, excluding cases linked to outbreaks in LTCH and RH - cumulative number of residents with confirmed COVID-19 in a Ward, excluding cases linked to outbreaks in LTCH and RH
 - Ottawa C_2: Cumulative number of cases linked to outbreaks in LTCH and RH - Number of residents with confirmed COVID-19 linked to an outbreak in a long-term care home or retirement home by Ward
 
+Maybe specify that buildings arent the only factor that impact the chances of getting COVID. Population, age, income, etc. influence the vulnerability. 
+
+Anything <5 changed to 1
+
 **Table 1**. cumulative  COVID-19 Cases as Reported on September 25 (maybe use more up to date info later)
 
-<img src="GeoDa_Work/cumu_ottawa_sept25.png" alt="cases_by_ward" width="420" height="450" />
+<img src="" alt="cases_by_ward" width="420" height="450" />
 
 **Note**: Exlucdes retirement home and longterm care home cases
 
 To better visualize the data from **Table 1**, the number of cases per capita (*Cumu_cases / Population*) was plotted onto a map using quantile classification (6 classes).
 
 
-![](GeoDa_Work/cases_by_pop.png)
+![]()
 
 **Figure 1**. COVID-19 cases per capita 
 
 Before thematically identifying which wards are at a high risk of disease case spillover (USE A BETTER WORD), a Queen matrix was applied to the Ottawa Wards shapefile to find each ward's neighbours by shared border and corners. 
 
-![](GeoDa_Work/queen_more.png)
+![]()
 
 **Figure 2**. Osgoode Ward and it's Neighbours  
 
 A spatial lag calculator with row-standardized weights would give every ward an equal weight since the Queen matrix would be fractional instead of zeroes and ones (contiguity). Using the spatial lag calculator, one could sum the number of cases in each neighbouring ward and then divide by the number of neighboring wards (*Queen * (Cumu_cases / Population)*). Plotting this result shows the wards at a high risk of disease spillover (USE A BETTER WORD) from neighbouring wards. 
 
 
-![](GeoDa_Work/n_cases_pop.png)
+![](g)
 **Figure 3**. Quantile Classification of Wards at Risk of Disease Spillover (USE A BETTER WORD)
 
 NEED TO VALIDATE COVID SPREAD MODEL (spatial autocorrelation to confirm spatial dependecy) https://geodacenter.github.io/workbook/5a_global_auto/lab5a.html
@@ -337,14 +346,14 @@ spatial outliers
   - high cases when surrounding areas have low cases
 - low high (light blue)
 
-![](GeoDa_Work/Wards-shp/LISA_cluster_map.png)
+![]()
 
 
 LISA SIGNIFIGANCE MAP (see how confident we can be in our clusters, darkest values are most confident to show this relationship wasnt found by chance)
-![](GeoDa_Work/Wards-shp/LISA_signifigancemap.png)
+![]()
 
 Moran's I scatterplot (draws the cluster map)
-![](GeoDa_Work/Wards-shp/Wards_COVIDLisaScatterPlotFrame.png)
+![]()
 
 
 
@@ -786,5 +795,7 @@ for Subwatershed & Catchment Reporting, as well as Regulations
 
 
 **[Ottawa Wards](https://open.ottawa.ca/datasets/wards?geometry=-77.634%2C44.911%2C-73.968%2C45.587)**
+
+**[ONS COVID (2020 Oct 10)](https://www.arcgis.com/home/item.html?id=7cf545f26fb14b3f972116241e073ada)**
 
 ### Scenario Files and Packages

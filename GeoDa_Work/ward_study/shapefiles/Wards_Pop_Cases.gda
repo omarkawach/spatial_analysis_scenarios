@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project>
+    <title>Wards_Pop_Cases</title>
+    <layers>
+        <layer>
+            <datasource>
+                <type>ESRI Shapefile</type>
+                <path>Wards_Pop_Cases.shp</path>
+            </datasource>
+            <layername>Wards_Pop_Cases</layername>
+            <title/>
+            <variable_order>
+                <time_ids>
+                    <id>time 0</id>
+                </time_ids>
+                <var>WARD_NUM</var>
+                <var>WARD_NAME_</var>
+                <var>WARD_NAM_1</var>
+                <var>
+                    Shape_Leng
+                    <displayed_decimals>6</displayed_decimals>
+                </var>
+                <var>
+                    Shape_Area
+                    <displayed_decimals>6</displayed_decimals>
+                </var>
+                <var>
+                    sq_km_area
+                    <displayed_decimals>3</displayed_decimals>
+                </var>
+                <var>NUMBUILDIN</var>
+                <var>
+                    b_density
+                    <displayed_decimals>3</displayed_decimals>
+                </var>
+                <var>Ottawa COV</var>
+                <var>Ottawa C_1</var>
+                <var>
+                    c1_builds
+                    <displayed_decimals>3</displayed_decimals>
+                </var>
+                <var>
+                    c1_b_dense
+                    <displayed_decimals>3</displayed_decimals>
+                </var>
+                <var>Ottawa C_2</var>
+            </variable_order>
+            <custom_classifications/>
+            <weights_entries>
+                <weights>
+                    <title>Wards_Pop_Cases</title>
+                    <default/>
+                    <meta_info>
+                        <weights_type>queen</weights_type>
+                        <order>1</order>
+                        <inc_lower_orders>false</inc_lower_orders>
+                        <path>/Users/omarkawach/Documents/QGIS/GIS_GIT/spatial_analysis_scenarios/GeoDa_Work/geoda/Wards_Pop_Cases.gal</path>
+                        <id_variable>WARD_NUM</id_variable>
+                        <symmetry>symmetric</symmetry>
+                        <num_observations>23</num_observations>
+                        <min_neighbors>2</min_neighbors>
+                        <max_neighbors>9</max_neighbors>
+                        <mean_neighbors>5.043478260869565</mean_neighbors>
+                        <median_neighbors>5</median_neighbors>
+                        <non_zero_perc>21.92816635160681</non_zero_perc>
+                    </meta_info>
+                </weights>
+            </weights_entries>
+            <default_vars>
+                <default_var>
+                    <name>c1_b_dense</name>
+                    <time_id>time 0</time_id>
+                </default_var>
+                <default_var>
+                    <name/>
+                    <time_id>time 0</time_id>
+                </default_var>
+                <default_var>
+                    <name/>
+                    <time_id>time 0</time_id>
+                </default_var>
+                <default_var>
+                    <name/>
+                    <time_id>time 0</time_id>
+                </default_var>
+            </default_vars>
+        </layer>
+    </layers>
+</project>

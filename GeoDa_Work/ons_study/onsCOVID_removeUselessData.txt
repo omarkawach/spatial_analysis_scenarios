@@ -1,0 +1,112 @@
+ONS Neighbourhood,"Cumulative Rate (per 100,000 population) Excluding Cases Linked to Outbreaks in LTCH & RH",Cumulative Number of Cases Excluding Those Linked to Outbreaks in LTCH & RH,"Rate (per 100,000 population) in September 2020, Excluding Cases Linked to Outbreaks in LTCH & RH","Number of Cases in September 2020, Exlcuding Those Linked to Outbreaks in LTCH & RH","Rate (per 100,000 population) in August 2020 Excluding Cases Linked to Outbreaks in LTCH & RH","Number of Cases in August 2020, Exlcuding Those Linked to Outbreaks in LTCH & RH","Rate (per 100,000 population) in July 2020, Excluding Cases Linked to Outbreaks in LTCH & RH","Number of Cases in July 2020, Exlcuding Those Linked to Outbreaks in LTCH & RH",Total Population
+Bayshore - Belltown,734,68,215,20,215,20,97,9,9210
+Beacon Hill South - Cardinal Heights,454,33,193,14,83,6,Suppressed,<5,7260
+Beaverbrook,153,10,Suppressed,<5,Suppressed,<5,Suppressed,<5,6540
+Beechwood Cemetery,Suppressed,<5,Suppressed,<5,Suppressed,<5,Suppressed,<5,
+Bells Corners East,153,7,Suppressed,<5,Suppressed,<5,Suppressed,<5,4580
+Bells Corners West,373,15,283,12,Suppressed,<5,Suppressed,<5,4140
+Billings Bridge - Alta Vista,358,45,170,21,Suppressed,<5,Suppressed,<5,12645
+Blackburn Hamlet,225,18,75,6,63,5,Suppressed,<5,8105
+Borden Farm - Fisher Glen,112,8,Suppressed,<5,Suppressed,<5,Suppressed,<5,7265
+Braemar Park - Bel Air Heights - Copeland Park,189,13,84,6,Suppressed,<5,Suppressed,<5,6770
+Briar Green - Leslie Park,229,12,Suppressed,<5,Suppressed,<5,Suppressed,<5,5180
+Bridlewood - Emerald Meadows,91,22,Suppressed,<5,21,5,Suppressed,<5,24240
+Britannia Village,298,19,78,5,Suppressed,<5,Suppressed,<5,6375
+Brookside - Briarbrook - Morgan's Grant,184,29,57,9,Suppressed,<5,Suppressed,<5,15785
+Byward Market,332,17,176,9,Suppressed,<5,Suppressed,<5,5115
+Cardinal Creek,425,48,187,21,71,8,Suppressed,<5,11325
+Carleton Heights - Rideauview,612,39,298,19,Suppressed,<5,Suppressed,<5,6385
+Carleton University,Suppressed,<5,Suppressed,<5,Suppressed,<5,Suppressed,<5,
+Carlington,662,65,350,34,105,10,136,13,9820
+Carlingwood West - Glabar Park - McKellar Heights,298,27,99,9,Suppressed,<5,Suppressed,<5,9075
+Carp,107,7,Suppressed,<5,Suppressed,<5,Suppressed,<5,6655
+Carson Grove - Carson Meadows,532,59,246,28,72,8,Suppressed,<5,11175
+Centrepointe,131,9,Suppressed,<5,Suppressed,<5,Suppressed,<5,6970
+Centretown,275,77,132,37,18,5,21,6,27985
+Chapel Hill North,468,50,207,22,51,5,68,7,10605
+Chapel Hill South,391,39,243,24,Suppressed,<5,Suppressed,<5,10055
+Chapman Mills,291,35,83,10,50,6,58,7,12020
+Chatelaine Village,Suppressed,<5,Suppressed,<5,Suppressed,<5,Suppressed,<5,4210
+Cityview - Crestview - Meadowlands,393,34,81,7,58,5,Suppressed,<5,8645
+Civic Hospital-Central Park,395,43,211,23,Suppressed,<5,Suppressed,<5,10920
+Constance Bay,Suppressed,<5,Suppressed,<5,Suppressed,<5,Suppressed,<5,2225
+Convent Glen - Orléans Woods,188,28,101,15,Suppressed,<5,Suppressed,<5,14785
+Corkery,141,5,Suppressed,<5,Suppressed,<5,Suppressed,<5,3680
+Crystal Bay - Lakeview Park,182,7,Suppressed,<5,Suppressed,<5,Suppressed,<5,3835
+Cumberland,Suppressed,<5,Suppressed,<5,Suppressed,<5,Suppressed,<5,4210
+Dunrobin,98,6,Suppressed,<5,Suppressed,<5,Suppressed,<5,5900
+East Industrial,673,12,415,7,Suppressed,<5,Suppressed,<5,1765
+Edwards - Carlsbad Springs,175,6,Suppressed,<5,Suppressed,<5,Suppressed,<5,3555
+Elmvale - Canterbury,309,36,91,11,Suppressed,<5,51,6,11635
+Emerald Woods - Sawmill Creek,694,39,249,14,Suppressed,<5,409,23,5610
+Fallingbrook,258,49,117,22,Suppressed,<5,Suppressed,<5,18800
+Findlay Creek,380,33,162,14,69,6,69,6,8735
+Fitzroy,Suppressed,<5,Suppressed,<5,Suppressed,<5,Suppressed,<5,3230
+Glebe - Dows Lake,308,39,126,16,Suppressed,<5,Suppressed,<5,12675
+Glen Cairn - Kanata South Business Park,126,14,45,5,Suppressed,<5,Suppressed,<5,11090
+Greely,164,16,52,5,Suppressed,<5,Suppressed,<5,9840
+Greenbelt,626,10,Suppressed,<5,Suppressed,<5,Suppressed,<5,1630
+Greenboro East,425,45,141,15,103,11,66,7,10650
+Hawthorne Meadows - Sheffield Glen,408,27,75,5,136,9,Suppressed,<5,6640
+Hintonburg - Mechanicsville,235,23,123,12,Suppressed,<5,Suppressed,<5,9780
+Hunt Club - Ottawa Airport,Suppressed,<5,Suppressed,<5,Suppressed,<5,Suppressed,<5,2015
+Hunt Club East - Western Community,389,41,133,14,67,7,Suppressed,<5,10505
+Hunt Club Park,450,40,182,16,Suppressed,<5,139,12,8820
+Hunt Club South Industrial,Suppressed,<5,Suppressed,<5,Suppressed,<5,Suppressed,<5,825
+Hunt Club Upper -Blossom Park - Timbermill,454,38,251,21,Suppressed,<5,83,7,8365
+Hunt Club Woods - Quintarra - Revelstoke,265,16,83,5,Suppressed,<5,Suppressed,<5,6040
+Iris - Queensway Terrance South,339,20,85,5,Suppressed,<5,Suppressed,<5,5885
+Island Park - Wellington Village,156,9,Suppressed,<5,Suppressed,<5,Suppressed,<5,5760
+Kanata Lakes - Arcardia,120,20,Suppressed,<5,Suppressed,<5,Suppressed,<5,16475
+Katimavik - Hazeldean,211,24,Suppressed,<5,Suppressed,<5,Suppressed,<5,11370
+Kinburn,Suppressed,<5,Suppressed,<5,Suppressed,<5,Suppressed,<5,1965
+Laurentian,124,12,72,7,Suppressed,<5,Suppressed,<5,9680
+Lebreton Development,Suppressed,<5,Suppressed,<5,Suppressed,<5,Suppressed,<5,590
+Ledbury - Heron Gate - Ridgemont,1261,170,349,47,178,24,430,58,13485
+Lindenlea - New Edinburgh,224,11,Suppressed,<5,Suppressed,<5,Suppressed,<5,4910
+Lowertown,709,44,500,31,Suppressed,<5,Suppressed,<5,6205
+Manor Park,390,27,189,13,Suppressed,<5,Suppressed,<5,6995
+Manotick,160,15,57,5,Suppressed,<5,Suppressed,<5,9115
+Marlborough,476,9,Suppressed,<5,Suppressed,<5,Suppressed,<5,1890
+Merivale Gardens - Grenfell Glen - Pineglen - Country Place,202,6,Suppressed,<5,Suppressed,<5,Suppressed,<5,2970
+Metcalfe,124,6,Suppressed,<5,Suppressed,<5,Suppressed,<5,5225
+Munster - Ashton,157,6,Suppressed,<5,Suppressed,<5,Suppressed,<5,3605
+Navan - Sarsfield,208,9,123,5,Suppressed,<5,Suppressed,<5,4145
+North Gower - Kars,124,7,Suppressed,<5,Suppressed,<5,Suppressed,<5,5250
+Notre-Dame Cemetery,Suppressed,<5,Suppressed,<5,Suppressed,<5,Suppressed,<5,
+Old Barrhaven East,304,77,91,23,47,12,36,9,25285
+Old Barrhaven West,289,52,89,16,89,16,Suppressed,<5,17975
+Old Ottawa East,258,19,136,10,Suppressed,<5,Suppressed,<5,7350
+Old Ottawa South,193,12,113,7,Suppressed,<5,Suppressed,<5,6210
+Orléans Industrial,Suppressed,<5,Suppressed,<5,Suppressed,<5,Suppressed,<5,170
+Orléans Village - Chateauneuf,341,35,125,13,92,10,Suppressed,<5,10370
+Osgoode - Vernon,96,5,Suppressed,<5,Suppressed,<5,Suppressed,<5,5360
+Overbrook - McArthur,668,128,287,55,94,18,83,16,19150
+Parkwood Hills - Stewart Farm,510,27,185,10,Suppressed,<5,168,9,5335
+Pineview,439,27,146,9,162,10,Suppressed,<5,6135
+Playfair Park - Lynda Park - Guildwood Estates,303,18,127,8,Suppressed,<5,Suppressed,<5,5955
+Portobello South,293,67,109,25,55,13,Suppressed,<5,23035
+Qualicum - Redwood Park,305,13,Suppressed,<5,Suppressed,<5,140,6,4280
+Queenswood Heights,188,23,41,5,Suppressed,<5,Suppressed,<5,12240
+Richmond,146,11,Suppressed,<5,Suppressed,<5,Suppressed,<5,7535
+Rideau Crest - Davidson Heights,194,28,62,9,Suppressed,<5,Suppressed,<5,14470
+Riverside Park,160,7,112,5,Suppressed,<5,Suppressed,<5,4455
+Riverside South - Leitrim,252,35,109,15,Suppressed,<5,Suppressed,<5,14020
+Riverview,363,22,165,10,Suppressed,<5,Suppressed,<5,6055
+Rockcliffe Park,497,10,Suppressed,<5,Suppressed,<5,Suppressed,<5,2000
+Rothwell Heights - Beacon Hill North,408,42,165,17,Suppressed,<5,175,18,10305
+Sandy Hill,540,62,305,35,61,7,Suppressed,<5,11480
+Skyline - Fisher Heights,256,11,Suppressed,<5,151,6,Suppressed,<5,4145
+South Keys - Greenboro West,347,15,142,6,Suppressed,<5,142,6,4230
+Stittsville,152,48,65,20,Suppressed,<5,Suppressed,<5,31395
+Stonebridge - Half Moon Bay - Heart's Desire,279,46,86,14,Suppressed,<5,36,6,16620
+Tanglewood,212,10,Suppressed,<5,Suppressed,<5,Suppressed,<5,4725
+Trend-Arlington,164,8,Suppressed,<5,Suppressed,<5,Suppressed,<5,4890
+Vanier North,337,35,154,16,Suppressed,<5,58,6,10320
+Vanier South,509,33,278,18,92,6,Suppressed,<5,6540
+Vars,Suppressed,<5,Suppressed,<5,Suppressed,<5,Suppressed,<5,2540
+Wateridge Village,Suppressed,<5,Suppressed,<5,Suppressed,<5,Suppressed,<5,255
+West Centretown,380,36,190,18,Suppressed,<5,Suppressed,<5,9460
+Westboro,271,31,52,6,44,5,52,6,11440
+Whitehaven - Queensway Terrace North,475,54,150,17,89,10,149,17,11455
+Woodvale - Craig Henry - Manordale - Estates of Arlington Woods,402,33,85,7,110,9,Suppressed,<5,8215
