@@ -213,7 +213,7 @@ Join Attributes by Field Value to DA choose ones within 2.5km using select by ex
 **Figure 7**. Ottawa DAs Mapped to their Nearest Hospital. Map created using QGIS 3.14 (https://www.qgis.org/en/site/).
 
 
-Alternate approache below (remove if not necessary)
+Alternate approach below (remove if not necessary)
 
 Another option is to use Network analysis tool service area from layer and then convex hull or concave hull with NN
 
@@ -275,7 +275,7 @@ Going a step further, the workflow can be implemented on a much larger scale. Su
 
 ### Disaster Response
 
-In Indonesia's Palu City, proactive disaster response, recovery, and relief is essential during emergency situations. Gadjah Mada University researchers implemented multi-ring buffers to capture shelter accaccessibility for Palu City. The researchers also considered road networks for mobility to access the shelters in the event of an earthquake. ([Fatma et al., 2019](https://doi.org/10.1117/12.2548660)). The application of multi-ring buffers does not stop at earthquake preparedness studies. 
+In Indonesia's Palu City, proactive disaster response, recovery, and relief is essential during emergency situations. Gadjah Mada University researchers implemented multi-ring buffers to capture shelter accaccessibility for Palu City. The researchers also considered road networks for mobility to access the shelters in the event of an earthquake. ([Fatma et al., 2019](https://doi.org/10.1117/12.2548660)). The application of multi-ring buffers does not stop at earthquake preparedness studies. Since there are many emergency situations to consider, this paper will focus on floods, chemical spills, and power outages. 
 
 As severe flooding increases across Canada due to climate change [Burton, 2015](https://thecanadianencyclopedia.ca/en/article/floods-and-flood-control), proactive measures by various levels of government is required. Without such intervention, flooding in regions like Ottawa-Gatineau will continue to become a problem for infastructure ([McNeil, 2019](https://files.ontario.ca/mnrf-english-ontario-special-advisor-on-flooding-report-2019-11-25.pdf)). Sandbags are commonly used as a defence against floods. Having data on which homes and neighbours to protect would be vital information. For example, assume a 1km flood risk buffer was created in one neighbourhood and then split into quarters via the multi-ring buffer method. Each ring in **Figure 16** can represent a sandbag line of defence so first responders can allot sandbags accordingly. The limitation for this model is that it does not take elevation into consideration. The speed and height at which water approaches a home is an important factor. The DAs surrounding the Wastewater Treatment Plant in Ottawa has a diverse amount of elevation. The severity of the flooding has been mapped using a three-ring buffer. Each ring in the three-ring buffer will represent 600m for a total of 1.8km. Also, the homes at the highest risk are those under 70m of elevation. To specify the amount of elevation in an area, Inverse Distance Weighting (IDW) with Nearest Neighbour (NN) Analysis is used to build a raster. Then we use the raster calculator to find which areas are below 70m of elevation. We then polygonise the raster and intersect it with the three-ring buffer. 
 
