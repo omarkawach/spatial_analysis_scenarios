@@ -52,7 +52,7 @@ Modelling and Simulation (M&S) has shown to be useful for studying real-world sy
 
 [Article Modeling and Simulation in Geographic Information Science: Integrated Models and Grand Challenges](https://www.sciencedirect.com/science/article/pii/S1877042811013267)
 
-**Below is from presentation...**
+**Below is from my presentation...**
 
 The first step is to determine how GIS data can be used to build complex, large-scale spatial DEVS models.
 
@@ -143,7 +143,7 @@ Consider km/hr, typically 50km/hr by default.
 "Kriging methods take into consideration autocorrelation structures of elevations in order to define optimal weights."
 [A comparative analysis of different DEM interpolation methods](https://www.sciencedirect.com/science/article/pii/S1110982313000276)
 
-**Below is from presentation...**
+**Below is from my presentation...**
 
 Inverse Distance Weighting with Nearest Neighbor
   - Averages interpolated points
@@ -157,7 +157,7 @@ Triangulated Irregular Network
 
 #### Model Generation Workflows
 
-**Below is from presentation...**
+**Below is from my presentation...**
 Before modelling, the following questions must be answered:
   - Is there a real-world system to model a spatial system? 
     - Are there any spatial relationships that can be used? 
