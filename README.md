@@ -14,13 +14,12 @@ This repository has various open sources tools one could use for performing geos
   - Intro to Spatial Analysis
   - How do GIS and DEVS related to each other 
   - How will spatial analysis be used to build this relationship between GIS and DEVS
+  - Model Generation Workflows
 - [Discussion](https://github.com/omarkawach/spatial_analysis_scenarios#discussion)
-  - Models 
 - [Scenarios](https://github.com/omarkawach/spatial_analysis_scenarios#scenarios)
 - [Credits and Acknowledgements](https://github.com/omarkawach/spatial_analysis_scenarios#credits-and-acknowledgements)
 - [Resources](https://github.com/omarkawach/spatial_analysis_scenarios#resources)
 - [Appendix](https://github.com/omarkawach/spatial_analysis_scenarios#appendix)
-
 
 ### Getting Started
 
@@ -49,15 +48,29 @@ Select the `scenario_notebooks` folder once Binder has loaded the repo in Jupyte
 
 ## Motivaiton and Objectives
 
-Modelling and Simulaiton (M&S) has shown to be useful for studying real-world systems and to support decision-making through models that abstract systems under study. Building accurate models that adequately represents real-world systems is both difficult and time consuming, especially on a large-scale for complex spatial systems such as emergency response / services, urban logistics, etc. Since GIS data contains highlighy detailed, often hierarchically organized information that can be used to build simulation models, it is compatible with the modular nature of DEVS formalism. With this information in mind, the goal of this research is to determine a method for automating the generation of large-scale, spatial DEVS simulation models from GIS data. 
+Modelling and Simulation (M&S) has shown to be useful for studying real-world systems and to support decision-making through models that abstract systems under study. Building accurate models that adequately represents real-world systems is both difficult and time consuming, especially on a large-scale for complex spatial systems such as emergency response / services, urban logistics, etc. Since GIS data contains highly detailed, often hierarchically organized information that can be used to build simulation models, it is compatible with the modular nature of DEVS formalism. With this information in mind, the goal of this research is to determine a method for automating the generation of large-scale, spatial DEVS simulation models from GIS data. 
 
 [Article Modeling and Simulation in Geographic Information Science: Integrated Models and Grand Challenges](https://www.sciencedirect.com/science/article/pii/S1877042811013267)
+
+**Below is from presentation...**
+
+The first step is to determine how GIS data can be used to build complex, large-scale spatial DEVS models.
+
+This work seeks to answer several questions for future, more extensive research on the topic:
+   - Which type of scenarios can GIS data help us model?
+   - Which spatial analysis tools can be used? How can they be used?
+   - What is a typical workflow that can convert GIS data into a simulation model?
+   - How can DEVS models be parameterized from GIS data?
+   - How can neighborhoods or couplings be derived from spatial properties?
+
 
 ## Background
 
 #### GIS
 
 Geographic information systems (GIS) open the door to the analysis, manipulation, and visualization of data spatially referenced to Earth. The two main components of spatial data are location (where) and attributes (what). These components of spatial data are mappable digitally and / or on paper. There also exist two main types of data in GIS. Vector data (objects) and raster data (field). Vector data can be 0-dimensional, 1-dimensional, and 2-dimensional. In the 0th dimension, coordinate points exist on their own. In the 1st dimension, two points can be used to create a line. In the 2nd dimension, three or more lines can be joined to make a polygon. Rasters can either be continuous (progressive data that varies) or discrete (thematic or categorical). Rectangular tessellated rasters are most common since they are easier mathematically. 
+
+Maybe discuss the importance of a coordinate system?
 
 
 
@@ -67,8 +80,7 @@ Geographic information systems (GIS) open the door to the analysis, manipulation
 
 #### Spatial Analysis 
 
-The utilisation of spatial analysis techniques in the field of GIS is imperative for revealing patterns, especially when solving real-world problems. From the wide range of spatial analysis techniques, this paper will focus on topological processing, spatial/attribute querying, and network analysis techniques. 
-
+The utilisation of spatial analysis techniques in the field of GIS is imperative for revealing patterns, especially when solving real-world problems. From the wide range of spatial analysis techniques, this paper will focus on topological processing, spatial/attribute querying, network analysis, and interpolation techniques. 
 
 [How to perform spatial analysis - ESRI](https://www.esri.com/arcgis-blog/products/product/analytics/how-to-perform-spatial-analysis/)
 
@@ -81,7 +93,9 @@ Topology describes the relationship between one or more features within a space.
 
 When conducting GIS research, an area of interest needs to be selected. **Buffer (proximity) analysis** is the first step one could take to do this. Depending on the coordinate system being used, a buffer distance can be in degrees or other units of measure like meters, kilometers, feet, miles, etc. The application of buffer analysis does not stop at creating study areas. Buffer analysis could also be used for counting the number of spatial features within a radius.
 
-Whether one is using polygons, lines, or points, various spatial relationship types could be used when conducting vector data analysis. Touches, contans, intersects, relation, within, crosses, and overlaps are some of the common keywords one would come across in a typical GIS application like QGIS. When using these relationship types, new layers are created. This process is called topological overlaying. For example, when the input is a point layer and the overlay layer is a polygon, then the output is a point. Therefore, the output of a topological overlay operation is always based on the input. The output can have attributes transfered by the input/output into the new layer or have no attributes transfered at all.
+**For Buffer Analysis: Make sure to change to a projected coordinate system before using buffers. For Ottawa, use UTM Zone 18N WGS 84. If we do not change the coordinate system, the buffer tool will assume degrees instead of distance.** 
+
+Whether one is using polygons, lines, or points, various spatial relationship types could be used when conducting vector data analysis. Touches, contains, intersects, relation, within, crosses, and overlaps are some of the common keywords one would come across in a typical GIS application like QGIS. When using these relationship types, new layers are created. This process is called topological overlaying. For example, when the input is a point layer and the overlay layer is a polygon, then the output is a point. Therefore, the output of a topological overlay operation is always based on the input. The output can have attributes transferred by the input/output into the new layer or have no attributes transferred at all.
 
 For an automated approach to proximity analysis in topology, one could take a collection of Voronoi (Thiessen) polygons and partion them by their distance to a point. [Voronoi Methods in GIS](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.86.3356&rep=rep1&type=pdf)
 
@@ -103,19 +117,66 @@ Spatial Join (analysis)
  
 ##### Network Analysis
 
+Isochrones for service areas??
+
+Might be better to do this in ArcGIS: 
+[SERVICE AREAS TO SHOW TIME INTERVALS OF TRAVEL ](https://desktop.arcgis.com/en/arcmap/latest/extensions/network-analyst/service-area.htm)
+
+Could also try Iso-Area as Polygons (from layer) but the projection should be in UTM zones instead: https://root676.github.io/
+
 Network analysis is commonly used in instances of urban planning / logistics studies. 
+
+Least cost path versus Origin-Destination (OD) matrix
+
+Sometimes shortest path isn't better than fastest path algorithm. Depends on whether you want to minimize distance travelled or minimize time travelled. 
+
+Consider km/hr, typically 50km/hr by default.
 
 ##### Interpolation 
 
-- IDW
+- IDW (Inverse Distance Weighting, a local method)
+  - Follows TFL / Spatial autocorrelation
+    - Close things are more related than distant things
+  - Might not be good for surface calculations like elevation, but should be sufficient for our case since we'll look at concentration of elevation points.
+
+"IDW and NN methods have been found to be good for interpolation of geo-morphologically smooth areas"
+"Kriging methods take into consideration autocorrelation structures of elevations in order to define optimal weights."
+[A comparative analysis of different DEM interpolation methods](https://www.sciencedirect.com/science/article/pii/S1110982313000276)
+
+**Below is from presentation...**
+
+Inverse Distance Weighting with Nearest Neighbor
+  - Averages interpolated points
+  - Prefers continuous concentration of points
+  - Would work better for mineral extraction models
+
+Triangulated Irregular Network
+  - Requires more work but is good for surface calculations (elevation data)
+  - Produces a large file since it is computationally expensive
+
+
+#### Model Generation Workflows
+
+**Below is from presentation...**
+Before modelling, the following questions must be answered:
+  - Is there a real-world system to model a spatial system? 
+    - Are there any spatial relationships that can be used? 
+  - Is geospatial data available?
+    - Data is easy to find, good, complete data? not so much
+  - Can the data be geo-processed? 
+    - Are the right tools available? Is the hardware required available?
+
+If all questions are answered, then we can consider a model generation workflow:
+
+![](workflow.png)
 
 ## Discussion
 
 ### Emergency Services - Health Unit Access Model
 
-The rise in population across developed countries continues to put a strain on ambulance services and health care systems. Unlike ambulance services, studies that address the strain health care systems face are a lot more well-documented and reported on in the media ([Lowthian et al., 2011](https://www.researchgate.net/publication/50266341_Increasing_utilisation_of_emergency_ambulances)). For example, initiatves by the New South Wales (NSW) Ambulance to reduce ambulance demand has been proven to be ineffictive due to the lack of reliable and consistent information. Only recently did NSW Ambulance begin publicly reporting on emergency ambulance response time ([NSW Govt, 2017](https://www.audit.nsw.gov.au/our-work/reports/managing-demand-for-ambulance-services-2017-)). Unfortunately, when it comes to patient outcome, response time data does not work well as a performance metric. Patient outcome can be improved through proper triage (prioritize) and dispatching, ambulance deployment modellng, and new technolgies and processes like GIS ([Al-Shaqsi, 2010](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4806820/)). Through modern GIS software or shortest path algorithm, dispatachers can dispatch and relocate ambulances while considering travel time and location ([Nguyen, 2015](http://liu.diva-portal.org/smash/get/diva2:781472/FULLTEXT01.pdf))...
+The rise in population across developed countries continues to put a strain on ambulance services and health care systems. Unlike ambulance services, studies that address the strain health care systems face are a lot more well-documented and reported on in the media ([Lowthian et al., 2011](https://www.researchgate.net/publication/50266341_Increasing_utilisation_of_emergency_ambulances)). For example, initiatives by the New South Wales (NSW) Ambulance to reduce ambulance demand has been proven to be ineffective due to the lack of reliable and consistent information. Only recently did NSW Ambulance begin publicly reporting on emergency ambulance response time ([NSW Govt, 2017](https://www.audit.nsw.gov.au/our-work/reports/managing-demand-for-ambulance-services-2017-)). Unfortunately, when it comes to patient outcome, response time data does not work well as a performance metric. Patient outcome can be improved through proper triage (prioritize) and dispatching, ambulance deployment modelling, and new technologies and processes like GIS ([Al-Shaqsi, 2010](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4806820/)). Through modern GIS software or shortest path algorithm, dispatchers can dispatch and relocate ambulances while considering travel time and location ([Nguyen, 2015](http://liu.diva-portal.org/smash/get/diva2:781472/FULLTEXT01.pdf))...
 
-In the era of COVID-19, a protocol for patient at-home testing by trained paramedics could be brought to use ([Glauser, 2020](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7062433/)). Hypothetically, resources for such a protocol should be allocated based on the proximity of a patient's residence to a hospital. **Figure 4** depicts a study area composed of 3 Ottawa DAs and the buildings within them. A graphical modeler can be utilised to automate the workflow of calculating the shortest path between a health care facility and a patient's residence (see **Figure 5**).  Afterwards, buildings can be assigned to their nearest hospital by using a simple [python script](https://github.com/omarkawach/spatial_analysis_scenarios/blob/master/scenario_files/health_units_refined.py). We'll call this assignment "Health Unit-Building (HUB) coupling". Then, all these HUB couplings will produce an Emergency Service Coupled Model (see **Figure 6**). 
+In the era of COVID-19, a protocol for patient at-home testing by trained paramedics could be brought to use ([Glauser, 2020](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7062433/)). Hypothetically, resources for such a protocol should be allocated based on the proximity of a patient's residence to a hospital. **Figure 4** depicts a study area composed of 3 Ottawa dissemination areas (DA) and the buildings within them. A graphical modeler can be utilised to automate the workflow of calculating the shortest path between a health care facility and a patient's residence (see **Figure 5**).  Afterwards, buildings can be assigned to their nearest hospital by using a simple [python script](https://github.com/omarkawach/spatial_analysis_scenarios/blob/master/scenario_files/health_units_refined.py). We'll call this assignment "Health Unit-Building (HUB) coupling". Then, all these HUB couplings will produce an Emergency Service Coupled Model (see **Figure 6**)... Come up with resulting model, any house that emits a call
 
 ![](Model_Hospital/small_study_area/images/buildings_in_DAs.png)
 
@@ -127,22 +188,18 @@ In the era of COVID-19, a protocol for patient at-home testing by trained parame
 
 ![](Model_Hospital/small_study_area/images/small_hosp.png)
 
-**Figure 6**. Health Unit - Building Couplings
+**Figure 6**. Health Unit - Building Couplings. Map created using QGIS 3.14 (https://www.qgis.org/en/site/).
 
-![](Model_Hospital/small_study_area/images/workflows.png)
+![]()
 
-**Figure 7**. Emergency Service Model Generation Workflow
+**Figure 7**. Emergency Service Model Generation Workflow (needs to be updated, see presentation)
 
-An extension to this  we can Target by category to hospital specialty : https://www.researchgate.net/publication/225279062_An_Emergency_System_to_Improve_Ambulance_Dispatching_Ambulance_Diversion_and_Clinical_Handover_Communication-A_Proposed_Model 
+As an extension to this would be to target patient treatment by hospital speciality as well ([El-Masri, and Saddik, 2012](https://www.researchgate.net/publication/225279062_An_Emergency_System_to_Improve_Ambulance_Dispatching_Ambulance_Diversion_and_Clinical_Handover_Communication-A_Proposed_Model)). Can also consider population and number of buildings to service. 
 
-We can also use fastest path algorithm instead of shortest path when considering km/hr
+Obviously, it **(avoid expletives)** would not be feasible to only cater to 3 DAs, so one must consider how to allocate emergency services on a city-wide scale. This is where more topological processing and network analysis continue to come in handy. From each DA polygon, a centroid can be extracted. Then, QNEAT3's OD Matrix in QGIS is used to find the network cost for an ambulance to go from a DA to a hospital. An output containing the distance from each DA to each hospital will appear. A simple python script is then used to assign each DA to their closest hospital.
 
-Alternate approache below (OD Matrix)
-
-Through topological studies and proximity analysis, 9-11 Operators discovered what hospital each ONS polygon should be assigned. Now, it's time for them to put their research to the test. 9-11 Operators just received a call from someone living in the Royal Ottawa Hospital neighbourhood. In order to get an ambulance to the caller's building quickly, they require network analysis. The shortest path algorithm is run on Ottawa's Road Network from the hospital to the caller's building. 
-
-Extract centroids from DAs. 
-Do distance matrix from DA to hospital. 
+**Process to move OD Matrix results to DA shapefile**
+QNEAT3 Distance Matrices "OD Matrix from layers as lines (m:n)". Fix CRS first
 Join Attributes by Field Value to DA choose ones within 2.5km using select by expression tool. 
 - Match DAUID to origin_id
 - Keep destination ID and total cost
@@ -153,19 +210,10 @@ Join Attributes by Field Value to DA choose ones within 2.5km using select by ex
 
 ![](Model_Hospital/large_study_area/images/hosp_large.png)
 
-**Figure 7**. Ottawa DAs Mapped to their Nearest Hospital
+**Figure 7**. Ottawa DAs Mapped to their Nearest Hospital. Map created using QGIS 3.14 (https://www.qgis.org/en/site/).
 
 
-*Possible Use Case*
-1. During a pandemic, we don't want to overwhelm hospitals. 
-   - Only allow patients into a hospital if they're from a specific ONS polygon
-      - Number of accepted ONS polygons for a hospital could be based on population, number of buildings, etc.
-
-Come up with resulting model 
-
-Any house that emits a call
-
-Can instead use QNEAT3 Distance Matrices "OD Matrix from layers as lines (m:n)". Fix CRS first
+Alternate approache below (remove if not necessary)
 
 Another option is to use Network analysis tool service area from layer and then convex hull or concave hull with NN
 
@@ -176,16 +224,11 @@ Limitations:
 - We end up not serving houses that are on the same road
 - Might have to expand the width ourselves
 
-Might be better to do this in ArcGIS: 
-https://desktop.arcgis.com/en/arcmap/latest/extensions/network-analyst/service-area.htm
 
-Could also try Iso-Area as Polygons (from layer) but the projection should be in UTM zones instead: https://root676.github.io/
 
 ### Urban Logistics - Prescription Delivery Model
 
-[CAN ALSO USE SERVICE AREAS TO SHOW TIME INTERVALS OF TRAVEL ](https://desktop.arcgis.com/en/arcmap/latest/extensions/network-analyst/service-area.htm)
-
-A Canadian pharmacy chain, Shoppers Drug Mart, wants to launch a prescription delivery application. To save on costs and increase efficiencies, Shoppers is interested in delivering prescriptions to customers from the closest pharmacy. Before launching, Shoppers must first find willing participants to test the application. 
+The delivery app market has become a hot market. Companies that currently run prescription delivery generally lack economic moat. A Canadian pharmacy chain, such as Shoppers Drug Mart, already has established customers and buying power for new technologies. If they were to release a prescription delivery app, they would likely dominate the market. To save on costs and increase efficiencies, Shoppers could deliver prescriptions to customers from the closest pharmacy. Hypothetically, before launching, Shoppers would first need to find willing participants to test a beta version of their prescription delivery application. 
 
 In Ottawa, Jonathan, a 24-year-old Carleton University student has recently tested positive for COVID-19 and must self-isolate for two weeks. He calls his local Shoppers to see if they can deliver his monthly prescribed medication. The pharmacist at Jonathan's local shoppers lets him know that they don't currently offer such services, but it is in their services pipeline. To avoid waiting for prescription delivery services to be available, the pharmacist asks Jonathan if he'd like to participate in beta testing their new prescription delivery application. Jonathan agrees and provides Shoppers with his consent to conduct research. 
 
@@ -210,9 +253,9 @@ Going a step further, the workflow can be implemented on a much larger scale. Su
 
 **Figure 9**. Closest Pharmacy Graphical Modeler 
 
-![](Model_Prescription_Delivery/images/updated_workflow.png)
+![]()
 
-**Figure 10**. Delivery Service Model Generation Workflow
+**Figure 10**. Delivery Service Model Generation Workflow (needs to be updated, see presentation)
 
 ![](Model_Prescription_Delivery/images/graphical_modeler.png)
 
@@ -228,15 +271,13 @@ Going a step further, the workflow can be implemented on a much larger scale. Su
 
 ![](Model_Prescription_Delivery/images/coupled_mod.png)
 
-**Figure 14**. Delivery Service Coupled Model (maybe add ellipses so it looks like we have more couplings, e.g. coupling, coupling, ... , coupling)
+**Figure 14**. Delivery Service Coupled Model (change this entirely)
 
-### Disaster Response - Seasonal Floods
+### Disaster Response
 
-Make sure to change to a projected coordinate system before using buffers. For Ottawa, use UTM Zone 18N WGS 84. If we do not change the coordinate system, the buffer tool will assume degrees instead of distance. 
+In Indonesia's Palu City, proactive disaster response, recovery, and relief is essential during emergency situations. Gadjah Mada University researchers implemented multi-ring buffers to capture shelter accaccessibility for Palu City. The researchers also considered road networks for mobility to access the shelters in the event of an earthquake. ([Fatma et al., 2019](https://doi.org/10.1117/12.2548660)). The application of multi-ring buffers does not stop at earthquake preparedness studies. 
 
-FIND A PUBLISHED MULTI-RING BUFFER EXAMPLE, NEED SOURCES
-
-(Draft) As severe flooding increases across Canada due to climate change [ADD SOURCE HERE], proactive measures by various levels of governemtn is required. Without such intervention, flooding in regions like Ottawa-Gatineau will contiue to become a problem (ADD SOURCE HERE). Sandbags are commonly used as a defence against floods. Having data on which homes and neighbours to protect would be vital information. For example, assume a 1km flood risk buffer was created in one neighbourhood and then split into quarters via the multi-ring buffer method. Each ring in **Figure 16** can represent a sandbag line of defence so first responders can allot sandbags accordingly. The limitation for this model is that it does not take elevation into consideration. The speed and height at which water approaches a home is an important factor. The DAs surrounding the Wastewater Treatment Plant in Ottawa has a diverse amount of elevation. The severity of the flooding has been mapped using a three-ring buffer. Each ring in the three-ring buffer will represent 600m for a total of 1.8km. Also, the homes at the highest risk are those under 70m of elevation. To specify the amount of elevation in an area, Inverse Distance Weighting (IDW) with Nearest Neighbour (NN) Analysis is used to build a raster. Then we use the raster calculator to find which areas are below 70m of elevation. We then polygonize the raster and intersect it with the three-ring buffer. 
+As severe flooding increases across Canada due to climate change [Burton, 2015](https://thecanadianencyclopedia.ca/en/article/floods-and-flood-control), proactive measures by various levels of government is required. Without such intervention, flooding in regions like Ottawa-Gatineau will continue to become a problem for infastructure ([McNeil, 2019](https://files.ontario.ca/mnrf-english-ontario-special-advisor-on-flooding-report-2019-11-25.pdf)). Sandbags are commonly used as a defence against floods. Having data on which homes and neighbours to protect would be vital information. For example, assume a 1km flood risk buffer was created in one neighbourhood and then split into quarters via the multi-ring buffer method. Each ring in **Figure 16** can represent a sandbag line of defence so first responders can allot sandbags accordingly. The limitation for this model is that it does not take elevation into consideration. The speed and height at which water approaches a home is an important factor. The DAs surrounding the Wastewater Treatment Plant in Ottawa has a diverse amount of elevation. The severity of the flooding has been mapped using a three-ring buffer. Each ring in the three-ring buffer will represent 600m for a total of 1.8km. Also, the homes at the highest risk are those under 70m of elevation. To specify the amount of elevation in an area, Inverse Distance Weighting (IDW) with Nearest Neighbour (NN) Analysis is used to build a raster. Then we use the raster calculator to find which areas are below 70m of elevation. We then polygonise the raster and intersect it with the three-ring buffer. 
 
 ![](Model_Flood/small_study_area/Buildings_impacted.png)
 
@@ -256,13 +297,32 @@ FIND A PUBLISHED MULTI-RING BUFFER EXAMPLE, NEED SOURCES
 
 ![](Model_Disaster_Response/large_study_area/images/flood_map.png)
 
-**Figure 21**. Buildings at Risk by Danger Zones and Elevations
+**Figure 21**. Buildings at Risk by Danger Zones and Elevations. Map created using QGIS 3.14 (https://www.qgis.org/en/site/).
+
+Following the Lac-Mégantic rail disaster, the Transport Safety Board (TSB) of Canada made a few recommendations to be better prepared to prevent similar disasters. One of the recommendations was to have "Emergency response assistance plans must be created when large volumes of liquid hydrocarbons, like oil, are shipped" ([TSB, 2019](https://www.tsb.gc.ca/eng/rapports-reports/rail/2013/r13d0054/r13d0054-r-es.html)). Help dispatch and evacuate people.
+
+Ottawa's Montfort Hospital has had a chemical spill. Residents who are directly within 0.5km of the hospital are warned to evacuate immediately. Residents whose ONS Boundary touch with the 1.5km buffer are also expected to evacuated moments later. Before First Responders head into the polygons impacted by the chemical spill, they want to know how many buildings are impacted so that they may act by priority. This research would allow First Responders to know an approximate headcount as well. 
+
+![](scenarios/Chemical_Spill_at_Hospital/chemical_spill_montfort_hospital.png)
+
+**Figure 9**. Overview of Chemical Spill Scenario. Map created using QGIS 3.14 (https://www.qgis.org/en/site/).
+
+https://www.usbr.gov/power/edu/pamphlet.pdf
+
+Hydroelectricity from the Hydro Ottawa Rideau Falls facility is capable of delivering power to consumers. Should an outage occur, a large number of buildings within ONS polygons that touch the 2km power outage buffer would be out of power. If such an event were to occur, the City of Ottawa would like to know which buildings are without power and which ONS polygon they reside in. 
+
+Used 'Extract by location' instead of intersect to find polygons touching buffer
+
+
+![](scenarios/Power_Outage/outageRideau.png)
+
+**Figure 12**. Ottawa DAs and Buildings Without Power. Map created using QGIS 3.14 (https://www.qgis.org/en/site/).
 
 ## Scenarios
 
 ### Healthcare - Finding Polygons that Contain Hospitals
 
-Ottawa resident, Mary, is looking for a new apartment to rent. She tells her Real Estate Agent that she would like to live within a boundary that has a hospital in it since she requires regular visits for post-op checkups. To meet Mary's apartment critieria, a spatial join (analysis) must be conducted. 
+Ottawa resident, Mary, is looking for a new apartment to rent. She tells her Real Estate Agent that she would like to live within a boundary that has a hospital in it since she requires regular visits for post-op checkups. To meet Mary's apartment criteria, a spatial join (analysis) must be conducted. 
 
 GIS analysts conduct spatial joins by taking one feature and seeing if it *intersects* with another feature. In this case, the GIS analyst would see if a hospital point is within an ONS polygon. This would allow us to define new neighbourhoods based on whether a polygon has a hospital or not. For this spatial join, we could also try one or more spatial relationship types like *touches, contains, within,* and *relation*. 
 
@@ -282,30 +342,6 @@ After analysis, Mary would receive results stating that she may look for apartme
 ![](scenarios/Hospitals_Within_Polygons/result.png)
 
 **Figure 1**. ONS polygons with Hospitals in them
-
-
-### Disaster Response - Chemical Spill 
-
-Following the Lac-Mégantic rail disaster, the Transport Safety Board (TSB) of Canada made a few recommendations to be better prepared to prevent similar disasters. One of the recommendations was to have "Emergency response assistance plans must be created when large volumes of liquid hydrocarbons, like oil, are shipped" ([TSB, 2019](https://www.tsb.gc.ca/eng/rapports-reports/rail/2013/r13d0054/r13d0054-r-es.html)). Help dispatch and evacuate people.
-
-Ottawa's Montfort Hospital has had a chemical spill. Residents who are directly within 0.5km of the hospital are warned to evacuate immediately. Residents whose ONS Boundary touch with the 1.5km buffer are also expected to evacuated moments later. Before First Responders head into the polygons impacted by the chemical spill, they want to know how many buildings are impacted so that they may act by prioirity. This research would allow First Responders to know an approximate headcount as well. 
-
-![](scenarios/Chemical_Spill_at_Hospital/chemical_spill_montfort_hospital.png)
-
-**Figure 9**. Overview of Chemical Spill Scenario
-
-### Disaster Response - Power Outage
-
-https://www.usbr.gov/power/edu/pamphlet.pdf
-
-Hydroelectricity from the Hydro Ottawa Rideau Falls facility is capable of delivering power to consumers. Should an outage occur, a large number of buildings within ONS polygons that touch the 2km power outage buffer would be out of power. If such an event were to occur, the City of Ottawa would like to know which buildings are without power and which ONS polygon they reside in. 
-
-Used 'Extract by location' instead of intersect to find polygons touching buffer
-
-
-![](scenarios/Power_Outage/outageRideau.png)
-
-**Figure 12**. Ottawa DAs and Buildings Without Power
 
 
 ### Dealing with Populations - Classify Neighbourhoods by Population Density
@@ -532,7 +568,3 @@ polygon feature class. They have been delineated using the MNRF LIO waterbody st
 and using the existing LIO Waterbody layer as a base. This dataset is used extensively
 for Subwatershed & Catchment Reporting, as well as Regulations
 ```
-
-
-
-### Scenario Files and Packages
