@@ -212,7 +212,6 @@ Join Attributes by Field Value to DA choose ones within 2.5km using select by ex
 
 **Figure 7**. Ottawa DAs Mapped to their Nearest Hospital. Map created using QGIS 3.14 (https://www.qgis.org/en/site/).
 
-
 Alternate approach below (remove if not necessary)
 
 Another option is to use Network analysis tool service area from layer and then convex hull or concave hull with NN
@@ -228,7 +227,9 @@ Limitations:
 
 ### Urban Logistics - Prescription Delivery Model
 
-The delivery app market has become a hot market. Companies that currently run prescription delivery generally lack economic moat. A Canadian pharmacy chain, such as Shoppers Drug Mart, already has established customers and buying power for new technologies. If they were to release a prescription delivery app, they would likely dominate the market. To save on costs and increase efficiencies, Shoppers could deliver prescriptions to customers from the closest pharmacy. Hypothetically, before launching, Shoppers would first need to find willing participants to test a beta version of their prescription delivery application. 
+ [Why is it so difficult to find papers on the growth of platform-to-customer delivery through apps?](https://www.statista.com/outlook/376/100/platform-to-consumer-delivery/worldwide). 
+ 
+ Companies that currently run prescription delivery generally lack economic moat. A Canadian pharmacy chain, such as Shoppers Drug Mart, already has established customers and buying power for new technologies. If they were to release a prescription delivery app, they would likely dominate the market. To save on costs and increase efficiencies, Shoppers could deliver prescriptions to customers from the closest pharmacy. Hypothetically, before launching, Shoppers would first need to find willing participants to test a beta version of their prescription delivery application. 
 
 In Ottawa, Jonathan, a 24-year-old Carleton University student has recently tested positive for COVID-19 and must self-isolate for two weeks. He calls his local Shoppers to see if they can deliver his monthly prescribed medication. The pharmacist at Jonathan's local shoppers lets him know that they don't currently offer such services, but it is in their services pipeline. To avoid waiting for prescription delivery services to be available, the pharmacist asks Jonathan if he'd like to participate in beta testing their new prescription delivery application. Jonathan agrees and provides Shoppers with his consent to conduct research. 
 
@@ -277,27 +278,23 @@ Going a step further, the workflow can be implemented on a much larger scale. Su
 
 In Indonesia's Palu City, proactive disaster response, recovery, and relief is essential during emergency situations. Gadjah Mada University researchers implemented multi-ring buffers to capture shelter accaccessibility for Palu City. The researchers also considered road networks for mobility to access the shelters in the event of an earthquake. ([Fatma et al., 2019](https://doi.org/10.1117/12.2548660)). The application of multi-ring buffers does not stop at earthquake preparedness studies. Since there are many emergency situations to consider, this paper will focus on floods, chemical spills, and power outages. 
 
-As severe flooding increases across Canada due to climate change [Burton, 2015](https://thecanadianencyclopedia.ca/en/article/floods-and-flood-control), proactive measures by various levels of government is required. Without such intervention, flooding in regions like Ottawa-Gatineau will continue to become a problem for infastructure ([McNeil, 2019](https://files.ontario.ca/mnrf-english-ontario-special-advisor-on-flooding-report-2019-11-25.pdf)). Sandbags are commonly used as a defence against floods. Having data on which homes and neighbours to protect would be vital information. For example, assume a 1km flood risk buffer was created in one neighbourhood and then split into quarters via the multi-ring buffer method. Each ring in **Figure 16** can represent a sandbag line of defence so first responders can allot sandbags accordingly. The limitation for this model is that it does not take elevation into consideration. The speed and height at which water approaches a home is an important factor. The DAs surrounding the Wastewater Treatment Plant in Ottawa has a diverse amount of elevation. The severity of the flooding has been mapped using a three-ring buffer. Each ring in the three-ring buffer will represent 600m for a total of 1.8km. Also, the homes at the highest risk are those under 70m of elevation. To specify the amount of elevation in an area, Inverse Distance Weighting (IDW) with Nearest Neighbour (NN) Analysis is used to build a raster. Then we use the raster calculator to find which areas are below 70m of elevation. We then polygonise the raster and intersect it with the three-ring buffer. 
-
-![](Model_Flood/small_study_area/Buildings_impacted.png)
-
-**Figure 16**. Buildings at Risk
+As severe flooding increases across Canada due to climate change [Burton, 2015](https://thecanadianencyclopedia.ca/en/article/floods-and-flood-control), proactive measures by various levels of government is required. Without such intervention, flooding in regions like Ottawa-Gatineau will continue to become a problem for infastructure ([McNeil, 2019](https://files.ontario.ca/mnrf-english-ontario-special-advisor-on-flooding-report-2019-11-25.pdf)). Sandbags are commonly used as a defence against floods. Having data on which homes and neighbours to protect would be vital information. For example, assume a 1km flood risk buffer was created in one neighbourhood and then split into quarters via the multi-ring buffer method. Each ring in **Figure 18** can represent a sandbag line of defence so first responders can allot sandbags accordingly. The limitation for this model is that it does not take elevation into consideration. The speed and height at which water approaches a home is an important factor. The DAs surrounding the Wastewater Treatment Plant in Ottawa has a diverse amount of elevation. The severity of the flooding has been mapped using a three-ring buffer. Each ring in the three-ring buffer will represent 600m for a total of 1.8km. Also, the homes at the highest risk are those under 70m of elevation. To specify the amount of elevation in an area, Inverse Distance Weighting (IDW) with Nearest Neighbour (NN) Analysis is used to build a raster. Then we use the raster calculator to find which areas are below 70m of elevation. We then polygonise the raster and intersect it with the three-ring buffer. 
 
 ![](Model_Disaster_Response/large_study_area/images/Elevation.png)
 
-**Figure 18**. Elevation Contours 
+**Figure 15**. Elevation Contours 
 
 ![](Model_Disaster_Response/large_study_area/images/IDW_with_NN.png)
 
-**Figure 19**. IDW with NN 
+**Figure 16**. IDW with NN 
 
 ![](Model_Disaster_Response/large_study_area/images/RasterCalc.png)
 
-**Figure 20**. Raster Calculator Result (or add distance weight)
+**Figure 17**. Raster Calculator Result (or add distance weight)
 
 ![](Model_Disaster_Response/large_study_area/images/flood_map.png)
 
-**Figure 21**. Buildings at Risk by Danger Zones and Elevations. Map created using QGIS 3.14 (https://www.qgis.org/en/site/).
+**Figure 18**. Buildings at Risk by Danger Zones and Elevations. Map created using QGIS 3.14 (https://www.qgis.org/en/site/).
 
 Following the Lac-Mégantic rail disaster, the Transport Safety Board (TSB) of Canada made a few recommendations to be better prepared to prevent similar disasters. One of the recommendations was to have "Emergency response assistance plans must be created when large volumes of liquid hydrocarbons, like oil, are shipped" ([TSB, 2019](https://www.tsb.gc.ca/eng/rapports-reports/rail/2013/r13d0054/r13d0054-r-es.html)). Help dispatch and evacuate people.
 
@@ -305,7 +302,7 @@ Ottawa's Montfort Hospital has had a chemical spill. Residents who are directly 
 
 ![](scenarios/Chemical_Spill_at_Hospital/chemical_spill_montfort_hospital.png)
 
-**Figure 9**. Overview of Chemical Spill Scenario. Map created using QGIS 3.14 (https://www.qgis.org/en/site/).
+**Figure 19**. Overview of Chemical Spill Scenario. Map created using QGIS 3.14 (https://www.qgis.org/en/site/).
 
 https://www.usbr.gov/power/edu/pamphlet.pdf
 
@@ -316,7 +313,7 @@ Used 'Extract by location' instead of intersect to find polygons touching buffer
 
 ![](scenarios/Power_Outage/outageRideau.png)
 
-**Figure 12**. Ottawa DAs and Buildings Without Power. Map created using QGIS 3.14 (https://www.qgis.org/en/site/).
+**Figure 20**. Ottawa DAs and Buildings Without Power. Map created using QGIS 3.14 (https://www.qgis.org/en/site/).
 
 ## Scenarios
 
@@ -351,7 +348,7 @@ At Statistics Canada, an intern would like to conduct a population density study
 
 ![](scenarios/ONS_PopulationStudy/density.png)
 
-**Figure 13**. ONS Population Density
+**Figure 2**. ONS Population Density
 
 **Legend**
 
@@ -360,7 +357,7 @@ At Statistics Canada, an intern would like to conduct a population density study
 <img src="scenarios/ONS_PopulationStudy/quartile.png" alt="result_five"
  width="370" height="250" />
 
-**Figure 14**. ONS Quartile Classification for New Neighbourhoods
+**Figure 3**. ONS Quartile Classification for New Neighbourhoods
 
 *Potential Use Case*
 1. Model highly infectious populations according to population density
@@ -376,7 +373,7 @@ Find the nearest bus stop to each building within specific Ottawa DAs. This can 
 
 ![](scenarios/Voronoi_Bus_Stops/qgis.png)
 
-**Figure 17**. Overview of Closest Bus Stop(s) to each Building in DAs
+**Figure 4**. Overview of Closest Bus Stop(s) to each Building in DAs
 
 ### Travel - Fastest Route to the First Road Crossing in a List
 
@@ -384,7 +381,7 @@ We're in the center of Ottawa and want to find the shortest path to a road cross
 
 ![](scenarios/ShortestPath_RoadCrossing/python.png)
 
-**Figure 18**. Shortest path
+**Figure 5**. Shortest path
 
 ### Spatial Weights - Proximity Analysis between Polygons
 
@@ -392,7 +389,7 @@ For the ONS dataset, we are looking for ways to represent the spatial relationsh
 
 <img src="scenarios/ONS_SpatialWeightStudy/python.png" alt="result_four" width="300" height="220" />
 
-**Figure 19**. Spatial Weight Network Ottawa
+**Figure 6**. Spatial Weight Network Ottawa
 
 *Potential Use Case*
 1. [Boundary Detection](https://geographicdata.science/book/notebooks/04_spatial_weights.html) to observe differences in wealth (Spatial Econometrics)
